@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+    nav {
+      background: #0078d4;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: #fff; }
+    .hero {
+      max-width: 960px;
+      margin: 80px auto 0;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #0078d4; }
+    .hero p {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    .hero .cta {
+      display: inline-block;
+      background: #0078d4;
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero .cta:hover { background: #005a9e; transform: translateY(-2px); }
+    .features {
+      max-width: 960px;
+      margin: 80px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 0 24px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); transform: translateY(-4px); }
+    .feature-card .icon { font-size: 36px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+    .feature-card p { font-size: 14px; color: #666; line-height: 1.5; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #888;
+      font-size: 13px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Contoso Retail</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to <span><%= title %></span></h1>
+    <p>Your one-stop shop for office essentials. Browse our curated collection of electronics, furniture, stationery, and lifestyle products.</p>
+    <a href="/products" class="cta">Browse Products</a>
+  </section>
+
+  <section class="features">
+    <div class="feature-card">
+      <div class="icon">&#128187;</div>
+      <h3>Electronics</h3>
+      <p>Laptops, peripherals, and audio gear to power your productivity.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">&#128186;</div>
+      <h3>Furniture</h3>
+      <p>Ergonomic chairs, standing desks, and lighting for your workspace.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">&#127890;</div>
+      <h3>Lifestyle</h3>
+      <p>Backpacks, water bottles, and everyday carry essentials.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Contoso Retail &mdash; Cloud Migration Lab
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Contoso Retail</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+    nav {
+      background: #0078d4;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+    nav .nav-links a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: #fff; }
+    .container {
+      max-width: 1080px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .page-header h1 { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+    .page-header .count {
+      background: #0078d4;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); transform: translateY(-3px); }
+    .product-card .category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .cat-electronics { background: #e8f4fd; color: #0078d4; }
+    .cat-furniture { background: #e8f5e9; color: #2e7d32; }
+    .cat-stationery { background: #fff3e0; color: #e65100; }
+    .cat-lifestyle { background: #f3e5f5; color: #7b1fa2; }
+    .product-card h3 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+    .product-card .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0078d4;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+    .product-card .stock {
+      font-size: 13px;
+      color: #888;
+      margin-top: 6px;
+    }
+    .stock-low { color: #d32f2f; font-weight: 600; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #888;
+      font-size: 13px;
+      border-top: 1px solid #e0e0e0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Contoso Retail</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1><%= title %></h1>
+      <span class="count"><%= products.length %> items</span>
+    </div>
+
+    <div class="product-grid">
+      <% products.forEach(p => { %>
+        <% const catClass = 'cat-' + p.Category.toLowerCase(); %>
+        <div class="product-card">
+          <span class="category <%= catClass %>"><%= p.Category %></span>
+          <h3><%= p.ProductName %></h3>
+          <div class="price">$<%= p.Price.toFixed(2) %></div>
+          <div class="stock <%= p.StockQuantity < 50 ? 'stock-low' : '' %>">
+            <%= p.StockQuantity %> in stock
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Contoso Retail &mdash; Cloud Migration Lab
+  </footer>
+</body>
+</html>
