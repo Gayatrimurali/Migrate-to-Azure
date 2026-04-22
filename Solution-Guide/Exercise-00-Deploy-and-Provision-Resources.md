@@ -230,189 +230,55 @@ Azure SQL Database is provisioned with sample data.
 
 In this task, you will create the Contoso Retail web application on your local machine. This simulates the on-premises environment that you will migrate to Azure in Exercise 2.
 
-1. Open a **terminal on your local machine** (Command Prompt, PowerShell, or Bash). Do not use Azure Cloud Shell for this task - the app must run on your local machine to simulate on-premises.
+1. Open a VS Code 
 
-2. Clone the sample web application repository:
+2. open a folder > lab files > contoso-retail-webapp > contoso-retail-webapp.
 
-   ```bash
-   git clone https://github.com/contoso/contoso-retail-webapp.git
-   cd contoso-retail-webapp
+3. Open termainal 
+
+   ```
+   cd C:\LabFiles\contoso-retail-webapp\contoso-retail-webapp
    ```
 
-   > Note: If the repository URL above is not available, create the sample application manually using the steps below.
-
-**Create the sample Node.js application manually**
-
-1. Create a new directory:
-
-   ```bash
-   mkdir contoso-retail-webapp
-   cd contoso-retail-webapp
-   ```
-
-2. Initialize the Node.js project:
+4. Initialize the Node.js project:
 
    ```bash
    npm init -y
    ```
 
-3. Install dependencies:
+5. Install dependencies:
 
    ```bash
    npm install express ejs mssql dotenv
    ```
 
-4. Create the application files: **package.json** - update the `scripts` section:
+6. run the command 
 
-   ```json
-   {
-   "name": "contoso-retail-webapp",
-   "version": "1.0.0",
-   "description": "Contoso Retail Web Application",
-   "main": "src/app.js",
-   "scripts": {
-      "start": "node src/app.js"
-   },
-   "dependencies": {
-      "express": "^4.18.2",
-      "ejs": "^3.1.9",
-      "mssql": "^10.0.1",
-      "dotenv": "^16.3.1"
-   }
-   }
+   ```
+   nmp fund
    ```
 
-**src/app.js**:
+7. Run the command 
 
-```javascript
-const express = require('express');
-const path = require('path');
-require('dotenv').config();
+   ```
+   npm audit fix --force
+   ```
 
-const app = express();
-const PORT = process.env.PORT || 8080;
+5. Go to `.env` file and update the **<DeploymentID>** for local testing (do not commit to source control):
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
-
-const indexRouter = require('./routes/index');
-const productsRouter = require('./routes/products');
-
-app.use('/', indexRouter);
-app.use('/products', productsRouter);
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-```
-
-**src/config/database.js**:
-
-```javascript
-const sql = require('mssql');
-
-const config = {
-  server: process.env.DB_SERVER,
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  options: {
-    encrypt: true,
-    trustServerCertificate: false
-  }
-};
-
-module.exports = { sql, config };
-```
-
-**src/routes/index.js**:
-
-```javascript
-const express = require('express');
-const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Contoso Retail' });
-});
-
-module.exports = router;
-```
-
-**src/routes/products.js**:
-
-```javascript
-const express = require('express');
-const router = express.Router();
-const { sql, config } = require('../config/database');
-
-router.get('/', async (req, res) => {
-  try {
-    const pool = await sql.connect(config);
-    const result = await pool.request().query('SELECT * FROM Products');
-    res.render('products', { title: 'Products', products: result.recordset });
-  } catch (err) {
-    console.error('Database error:', err);
-    res.status(500).send('Error loading products');
-  }
-});
-
-module.exports = router;
-```
-
-**src/views/index.ejs**:
-
-```html
-<!DOCTYPE html>
-<html>
-<head><title><%= title %></title></head>
-<body>
-  <h1>Welcome to <%= title %></h1>
-  <p>Your one-stop shop for office essentials.</p>
-  <a href="/products">View Products</a>
-</body>
-</html>
-```
-
-**src/views/products.ejs**:
-
-```html
-<!DOCTYPE html>
-<html>
-<head><title><%= title %></title></head>
-<body>
-  <h1><%= title %></h1>
-  <a href="/">Home</a>
-  <table border="1">
-    <tr><th>Name</th><th>Category</th><th>Price</th><th>Stock</th></tr>
-    <% products.forEach(p => { %>
-    <tr>
-      <td><%= p.ProductName %></td>
-      <td><%= p.Category %></td>
-      <td>$<%= p.Price.toFixed(2) %></td>
-      <td><%= p.StockQuantity %></td>
-    </tr>
-    <% }); %>
-  </table>
-</body>
-</html>
-```
-
-5. Create a `.env` file for local testing (do not commit to source control):
-
-```
-DB_SERVER=sql-contoso-<DeploymentID>.database.windows.net
-DB_NAME=contosodb
-DB_USER=sqladmin
-DB_PASSWORD=P@ssw0rd2026!
-PORT=8080
-```
+   ```
+   DB_SERVER=sql-contoso-<DeploymentID>.database.windows.net
+   DB_NAME=contosodb
+   DB_USER=sqladmin
+   DB_PASSWORD=P@ssw0rd2026!
+   PORT=8080
+   ```
 
 6. Test the application locally to simulate the on-premises environment:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 7. Open a browser and navigate to `http://localhost:8080`. Verify the following:
 
