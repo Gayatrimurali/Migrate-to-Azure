@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this challenge, you execute the migration. You will take the Contoso Retail application running on the Windows Server VM and deploy it to **Azure App Service** — converting it from a locally hosted Node.js process to a fully managed PaaS web application.
+In this challenge, you execute the migration. You will take the Contoso Retail application running on the Windows Server VM and deploy it to **Azure App Service** - converting it from a locally hosted Node.js process to a fully managed PaaS web application.
 
 By the end of this challenge, you will have:
 
@@ -12,12 +12,12 @@ By the end of this challenge, you will have:
 - VNet integration configured for private outbound connectivity
 - Application Insights connected and receiving live telemetry
 
-> **Note**: All steps are performed in **PowerShell on your Windows Server VM** via RDP, or in the **Azure portal**. Keep the same PowerShell window open from Challenge 1 — your session variables are still needed.
+> **Note**: This challenge uses a mix of the **Azure portal** and **Azure CLI on the VM**. Each task clearly states which method to use.
 
 **Estimated Duration**: 75 minutes
 
 **Prerequisites**:
-- Challenge 1 completed — Landing Zone provisioned, `C:\apps\migration-strategy.txt` saved
+- Challenge 1 completed - Landing Zone provisioned, `C:\apps\migration-strategy.txt` saved
 - PowerShell session variables from Challenge 1 still set (`$APP_NAME`, `$RG_APP`, etc.)
 - Contoso Retail app files at `C:\apps\contoso-retail`
 
@@ -25,21 +25,66 @@ By the end of this challenge, you will have:
 
 ---
 
-## Task 1: Create Monitoring and App Service Resources
+## Task 1: Create Monitoring Resources
+ 
+In this task, you provision the Log Analytics Workspace and Application Insights using the **Azure portal**. Monitoring is created first so it is ready to receive telemetry the moment the application deploys.
+ 
+**Create the Log Analytics Workspace**
+ 
+1. In the **Azure portal**, type **Log Analytics workspaces (1)** in the search bar and select **Log Analytics workspaces (2)** under Services.
+   ![](../media/law-search.png)
+2. Select **+ Create**.
+   ![](../media/law-create.png)
+3. On the **Basics** tab, fill in the following details and select **Review + create**:
+   - **Subscription**: select your Azure subscription **(1)**
+   - **Resource group**: `rg-migration-lab-app` **(2)**
+   - **Name**: `law-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
+   - **Region**: <inject key="Region" enableCopy="false"></inject> **(4)**
+   ![](../media/law-basics.png)
+4. Select **Create** and wait approximately 1 minute for deployment to complete.
+   ![](../media/law-review-create.png)
+**Create Application Insights**
+ 
+5. In the Azure portal search bar, type **Application Insights (1)** and select **Application Insights (2)** under Services.
+   ![](../media/ai-search.png)
+6. Select **+ Create**.
+   ![](../media/ai-create.png)
+7. On the **Basics** tab, fill in the following details and select **Review + create**:
+   - **Subscription**: select your Azure subscription **(1)**
+   - **Resource group**: `rg-migration-lab-app` **(2)**
+   - **Name**: `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
+   - **Region**: <inject key="Region" enableCopy="false"></inject> **(4)**
+   - **Resource Mode**: **Workspace-based** **(5)**
+   - **Log Analytics Workspace**: `law-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(6)**
+   ![](../media/ai-basics.png)
+8. Select **Create** and wait approximately 1 minute for deployment to complete. Then select **Go to resource**.
+   ![](../media/ai-review-create.png)
+**Copy the Instrumentation Key**
+ 
+9. On the Application Insights overview page, locate the **Instrumentation Key** field and select the copy icon next to it.
+   ![](../media/ai-instrumentation-key.png)
+10. Open **Notepad** on your VM and paste the key. You will need it in Task 3 when configuring App Service Application Settings.
+    > **Important**: Do not close Notepad. The instrumentation key is required in Task 3, Step 2.
+Monitoring resources are provisioned.
+ 
+---
 
-In this task, you provision the Application Insights workspace and the App Service infrastructure. Monitoring is created first so it is ready to receive telemetry the moment the application is deployed.
+
+## Task 1: Create Monitoring Resources
+
+In this task, you provision Application Insights and the Log Analytics Workspace via **Azure CLI on the VM**. Monitoring is created first so it is ready to receive telemetry the moment the application deploys.
 
 All steps use **Azure CLI from PowerShell on the VM**.
 
-**Create Application Insights**
+1. Open **PowerShell as Administrator** on your VM.
 
-1. Install the Application Insights CLI extension if not already present:
+2. Install the Application Insights CLI extension if not already present:
 
    ```powershell
    az extension add --name application-insights --only-show-errors
    ```
 
-2. Create the Log Analytics Workspace:
+3. Create the Log Analytics Workspace:
 
    ```powershell
    az monitor log-analytics workspace create `
@@ -49,7 +94,7 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --tags Environment=Lab Project=ContosoMigration
    ```
 
-3. Retrieve the workspace resource ID:
+4. Retrieve the workspace resource ID:
 
    ```powershell
    $LAW_ID = az monitor log-analytics workspace show `
@@ -61,7 +106,7 @@ All steps use **Azure CLI from PowerShell on the VM**.
    Write-Host "Workspace ID: $LAW_ID" -ForegroundColor Cyan
    ```
 
-4. Create Application Insights linked to the workspace:
+5. Create Application Insights linked to the workspace:
 
    ```powershell
    az monitor app-insights component create `
@@ -73,7 +118,7 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --tags Environment=Lab Project=ContosoMigration
    ```
 
-5. Retrieve and save the instrumentation key:
+6. Retrieve and save the instrumentation key to a variable - you will use it in Task 2:
 
    ```powershell
    $AI_KEY = az monitor app-insights component show `
@@ -85,113 +130,130 @@ All steps use **Azure CLI from PowerShell on the VM**.
    Write-Host "Instrumentation Key: $AI_KEY" -ForegroundColor Yellow
    ```
 
-**Create the App Service Plan**
+   > **Important**: Keep this PowerShell window open. The `$AI_KEY` variable is needed in Task 2.
 
-6. Create the App Service Plan (Standard S1 — supports VNet integration and custom domains):
-
-   ```powershell
-   az appservice plan create `
-     --name $APP_PLAN_NAME `
-     --resource-group $RG_APP `
-     --location $LOCATION `
-     --sku S1 `
-     --is-linux `
-     --tags Environment=Lab Project=ContosoMigration
-   ```
-
-   > **Note**: `--is-linux` is required for the Node.js runtime on App Service. Standard S1 is the minimum tier that supports VNet integration.
-
-**Create the App Service**
-
-7. Create the App Service with Node.js 20 runtime:
-
-   ```powershell
-   az webapp create `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --plan $APP_PLAN_NAME `
-     --runtime "NODE:20-lts" `
-     --tags Environment=Lab Project=ContosoMigration
-   ```
-
-8. Confirm the App Service was created and note the default hostname:
-
-   ```powershell
-   az webapp show `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --query "{Name:name, State:state, URL:defaultHostName}" `
-     --output table
-   ```
-
-   Expected output: State = `Running`, URL = `app-contoso-<DeploymentID>.azurewebsites.net`.
-
-   ![](../media/webapp-created-verify.png)
-
-All App Service resources are provisioned.
+Monitoring resources are provisioned.
 
 ---
 
-## Task 2: Configure Application Settings
+## Task 2: Create the App Service Plan and App Service
 
-In this task, you migrate the application's configuration from the `.env` file on the VM to **App Service Application Settings**. This is a critical security step — the `.env` file must never be deployed to App Service.
+In this task, you provision the App Service Plan and the Web App using the **Azure portal**.
 
-All steps use **Azure CLI from PowerShell on the VM**.
+1. In the **Azure portal**, type **App Services (1)** in the search bar and select **App Services (2)** under Services.
 
-1. Set all application settings in a single command:
+   ![](../media/appservice-search.png)
 
-   ```powershell
-   az webapp config appsettings set `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --settings `
-       DB_SERVER="$SQL_SERVER.database.windows.net" `
-       DB_NAME="contosodb" `
-       DB_USER="sqladmin" `
-       DB_PASSWORD="P@ssw0rd2026!" `
-       PORT="8080" `
-       APPINSIGHTS_INSTRUMENTATIONKEY="$AI_KEY" `
-       WEBSITE_NODE_DEFAULT_VERSION="~20"
+2. Select **+ Create** **(1)** - **Web App** **(2)**.
+
+   ![](../media/appservice-create.png)
+
+3. On the **Basics** tab, fill in the following details:
+
+   - **Subscription**: select your Azure subscription **(1)**
+   - **Resource group**: `rg-migration-lab-app` **(2)**
+   - **Name**: `app-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
+   - **Publish**: **Code** **(4)**
+   - **Runtime stack**: **Node 20 LTS** **(5)**
+   - **Operating System**: **Linux** **(6)**
+   - **Region**: <inject key="Region" enableCopy="false"></inject> **(7)**
+
+   ![](../media/appservice-basics.png)
+
+4. Under **Pricing plans**, select **Create new** and name it `asp-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`. Select **Standard S1** from the plan size options.
+
+   ![](../media/appservice-plan.png)
+
+   > **Note**: Standard S1 is the minimum tier that supports VNet integration and custom domains. Do not select Free or Basic.
+
+5. Select **Next: Database** and leave all defaults. Select **Next: Networking**.
+
+6. On the **Networking** tab, set **Enable public access** to **On**. Leave all other settings as default and select **Next: Monitoring**.
+
+7. On the **Monitoring** tab:
+
+   - **Enable Application Insights**: **Yes** **(1)**
+   - **Application Insights**: select **Select existing (2)** - choose `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
+
+   ![](../media/appservice-monitoring.png)
+
+8. Select **Review + create**, review the summary, then select **Create**.
+
+   ![](../media/appservice-review-create.png)
+
+9. Wait approximately 2-3 minutes for deployment to complete, then select **Go to resource**.
+
+   ![](../media/appservice-go-to-resource.png)
+
+10. On the App Service overview page, note the **Default domain** value - this is your application URL. It follows the format `app-contoso-<DeploymentID>.azurewebsites.net`.
+
+    ![](../media/appservice-overview.png)
+
+The App Service Plan and App Service are created.
+
+---
+
+## Task 3: Configure Application Settings and HTTPS
+
+In this task, you migrate the application configuration from the `.env` file on the VM to **App Service Application Settings** using the **Azure portal**. You will also enforce HTTPS.
+
+All steps are performed in the **Azure portal** on the App Service you just created.
+
+**Add Application Settings**
+
+1. In the App Service left navigation, select **Environment variables**.
+
+   ![](../media/appservice-envvars.png)
+
+2. Under the **App settings** tab, select **+ Add** for each of the following settings. Enter the **Name** and **Value** for each and select **Apply** after each one:
+
+   | Name | Value |
+   | --- | --- |
+   | `DB_SERVER` | `sql-contoso-<inject key="DeploymentID" enableCopy="false"></inject>.database.windows.net` |
+   | `DB_NAME` | `contosodb` |
+   | `DB_USER` | `sqladmin` |
+   | `DB_PASSWORD` | `P@ssw0rd2026!` |
+   | `PORT` | `8080` |
+   | `APPINSIGHTS_INSTRUMENTATIONKEY` | paste the value from `$AI_KEY` (saved in Task 1, Step 6) |
+   | `WEBSITE_NODE_DEFAULT_VERSION` | `~20` |
+
+   ![](../media/appservice-add-setting.png)
+
+   > **Note**: App Service Application Settings are injected as environment variables at runtime. The `process.env.DB_SERVER` calls in the application code read these values automatically - no code changes are needed.
+
+3. Once all seven settings are added, select **Apply** **(1)** then **Confirm** **(2)** to save all settings.
+
+   ![](../media/appservice-settings-save.png)
+
+**Set the startup command**
+
+4. In the left navigation, select **Configuration** - **General settings** tab.
+
+5. Under **Stack settings**, set **Startup Command** to:
+
+   ```
+   node src/app.js
    ```
 
-2. Verify all settings are saved correctly:
+6. Select **Save** **(1)** then **Continue** **(2)** when prompted.
 
-   ```powershell
-   az webapp config appsettings list `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --output table
-   ```
+   ![](../media/appservice-startup-command.png)
 
-   Confirm all seven settings are listed — `DB_SERVER`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `PORT`, `APPINSIGHTS_INSTRUMENTATIONKEY`, and `WEBSITE_NODE_DEFAULT_VERSION`.
+**Enforce HTTPS**
 
-   ![](../media/appsettings-verify.png)
+7. In the left navigation, select **Settings** - **Configuration** - **General settings** tab (if not already there).
 
-   > **Note**: App Service Application Settings are injected as environment variables at runtime. The `process.env.DB_SERVER` calls in the application code will read these values automatically — no code changes needed.
+8. Scroll to **Platform settings** and set **HTTPS Only** to **On**.
 
-3. Enforce HTTPS-only so all HTTP traffic is redirected to HTTPS:
+   ![](../media/appservice-https-only.png)
 
-   ```powershell
-   az webapp update `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --https-only true
-   ```
-
-4. Set the startup command so App Service knows how to start the Node.js application:
-
-   ```powershell
-   az webapp config set `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --startup-file "node src/app.js"
-   ```
+9. Select **Save** and **Continue** when prompted.
 
 Application settings are configured and HTTPS is enforced.
 
 ---
 
-## Task 3: Package and Deploy the Application
+## Task 4: Package and Deploy the Application
 
 In this task, you create a deployment zip from the application files on the VM and push it to App Service using zip deploy. The `.env` file is explicitly excluded from the package.
 
@@ -203,13 +265,13 @@ All steps use **PowerShell on the VM**.
    Set-Location "C:\apps\contoso-retail"
    ```
 
-2. Create the deployment package. This zips all application files and explicitly excludes `.env` and `node_modules`:
+2. Create the deployment package, excluding `.env` and `node_modules`:
 
    ```powershell
-   # Remove any previous deployment zip
+   # Remove any previous zip
    Remove-Item "C:\apps\contoso-retail-deploy.zip" -ErrorAction SilentlyContinue
 
-   # Get all files excluding .env and node_modules
+   # Collect files excluding .env and node_modules
    $files = Get-ChildItem -Path "C:\apps\contoso-retail" -Recurse |
      Where-Object {
        $_.FullName -notmatch "node_modules" -and
@@ -218,13 +280,15 @@ All steps use **PowerShell on the VM**.
      }
 
    # Create the zip
-   Compress-Archive -Path $files.FullName -DestinationPath "C:\apps\contoso-retail-deploy.zip" -Force
+   Compress-Archive -Path $files.FullName `
+     -DestinationPath "C:\apps\contoso-retail-deploy.zip" `
+     -Force
 
-   Write-Host "Deployment package created: C:\apps\contoso-retail-deploy.zip" -ForegroundColor Green
+   Write-Host "Package created:" -ForegroundColor Green
    Get-Item "C:\apps\contoso-retail-deploy.zip" | Select-Object Name, Length
    ```
 
-   > **Important**: Confirm the zip size is greater than 0 bytes before proceeding. If `Length` shows 0, re-run the compress command.
+   > **Important**: Confirm `Length` is greater than 0 before proceeding. If it shows 0, re-run the compress command.
 
 3. Deploy the zip package to App Service:
 
@@ -236,116 +300,82 @@ All steps use **PowerShell on the VM**.
      --type zip
    ```
 
-   This command uploads the package and triggers a deployment. It takes approximately 1–2 minutes.
+   Deployment takes approximately 1-2 minutes. You will see a progress indicator in the terminal.
 
    ![](../media/zip-deploy-complete.png)
 
-4. Check the deployment status:
-
-   ```powershell
-   az webapp deployment list-publishing-credentials `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --query "{Name:name, ScmUri:scmUri}" `
-     --output table
-   ```
-
-   > **Note**: App Service automatically runs `npm install` on the server after receiving the zip — your `node_modules` folder is built in the cloud, not deployed from the VM.
+   > **Note**: App Service automatically runs `npm install` on the server after receiving the zip - your `node_modules` folder is built in the cloud, not deployed from the VM.
 
 The application is deployed to Azure App Service.
 
 ---
 
-## Task 4: Configure App Service Networking
+## Task 5: Configure App Service Networking
 
-In this task, you configure VNet integration so the App Service can communicate privately with resources inside the virtual network, and add access restrictions to control inbound traffic.
-
-All steps use **Azure CLI from PowerShell on the VM**.
+In this task, you configure VNet integration and access restrictions using the **Azure portal**.
 
 **Enable VNet Integration**
 
-1. Enable regional VNet integration using the `snet-appservice` subnet created in Exercise 0:
+1. In the App Service left navigation, select **Settings** - **Networking**.
 
-   ```powershell
-   $SUBNET_ID = az network vnet subnet show `
-     --resource-group $RG_CORE `
-     --vnet-name $VNET_NAME `
-     --name snet-appservice `
-     --query id `
-     --output tsv
+   ![](../media/appservice-networking.png)
 
-   az webapp vnet-integration add `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --vnet $VNET_NAME `
-     --subnet $SUBNET_ID
-   ```
+2. Under **Outbound traffic configuration**, select **VNet integration**.
 
-2. Verify the VNet integration is active:
+   ![](../media/appservice-vnet-integration.png)
 
-   ```powershell
-   az webapp vnet-integration list `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --output table
-   ```
+3. Select **Add VNet integration**.
 
-   Confirm `snet-appservice` is listed with a `Connected` state.
+   ![](../media/appservice-vnet-add.png)
 
-   ![](../media/vnet-integration-verify.png)
+4. In the **Add VNet Integration** panel, fill in the following and select **Connect**:
 
-   > **Note**: VNet integration enables the App Service to make **outbound** calls to private resources (such as a future Private Endpoint on Azure SQL). It does not affect inbound access to the App Service.
+   - **Virtual Network**: `vnet-migration-lab` **(1)**
+   - **Subnet**: `snet-appservice` **(2)**
+
+   ![](../media/appservice-vnet-connect.png)
+
+5. Wait approximately 1 minute. Confirm the VNet integration shows as **Connected** with subnet `snet-appservice`.
+
+   ![](../media/vnet-integration-connected.png)
+
+   > **Note**: VNet integration enables the App Service to make **outbound** calls to private resources inside the VNet (such as a future Private Endpoint on Azure SQL in Phase 2). It does not affect inbound access to the App Service.
 
 **Configure Access Restrictions**
 
-3. Add an access restriction to allow traffic only from the Azure Front Door and Application Gateway service tags — this is a best practice for production web apps. For this lab, you will allow all internet traffic but add the rule structure for learning purposes:
+6. In the **Networking** page, under **Inbound traffic configuration**, select **Access restriction**.
 
-   ```powershell
-   az webapp config access-restriction add `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --rule-name "Allow-AzureFrontDoor" `
-     --action Allow `
-     --priority 100 `
-     --service-tag AzureFrontDoor.Backend
-   ```
+   ![](../media/appservice-access-restriction.png)
 
-4. Verify the access restriction is applied:
+7. Select **+ Add** to add a new rule with the following values:
 
-   ```powershell
-   az webapp config access-restriction show `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --output table
-   ```
+   - **Name**: `Allow-AzureFrontDoor` **(1)**
+   - **Action**: **Allow** **(2)**
+   - **Priority**: `100` **(3)**
+   - **Type**: **Service Tag** **(4)**
+   - **Service Tag**: **AzureFrontDoor.Backend** **(5)**
 
-   ![](../media/access-restriction-verify.png)
+   ![](../media/access-restriction-rule.png)
 
-App Service networking is configured.
+8. Select **Add rule**.
+
+   > **Note**: This rule demonstrates the pattern used in production to restrict inbound access to only trusted Azure services. For this lab, public access remains enabled so you can test the app directly from a browser.
+
+Networking is configured.
 
 ---
 
-## Task 5: Validate the Migrated Application
+## Task 6: Validate the Migrated Application
 
-In this task, you confirm the application is running correctly on Azure App Service, the database connection is working, and Application Insights is receiving telemetry.
+In this task, you confirm the application is running correctly on Azure App Service, the database is connected, and Application Insights is receiving telemetry. All validation steps are done in the **Azure portal** and browser.
 
-**Verify the application URL**
+**Verify the application**
 
-1. Retrieve the application URL:
+1. In the App Service overview page, select the **Default domain** link to open the application in a new browser tab.
 
-   ```powershell
-   $APP_URL = az webapp show `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --query defaultHostName `
-     --output tsv
+   ![](../media/appservice-default-domain.png)
 
-   Write-Host "Application URL: https://$APP_URL" -ForegroundColor Cyan
-   ```
-
-2. Open **Microsoft Edge** on the VM and navigate to `https://<APP_URL>` using the URL from step 1.
-
-   Verify the following:
+2. Verify the following:
 
    | Page | URL | Expected Result |
    | --- | --- | --- |
@@ -358,46 +388,48 @@ In this task, you confirm the application is running correctly on Azure App Serv
    ![](../media/app-azure-products.png)
 
    > **If the products page returns an error**:
-   > - In the Azure portal, navigate to your App Service → **Configuration** → confirm all six App Settings are present
-   > - Navigate to the SQL Server → **Networking** → enable **Allow Azure services and resources to access this server** and select **Save**
-   > - Wait 1–2 minutes and refresh the page
+   > - In the App Service, go to **Environment variables** and confirm all 7 settings are present
+   > - In the Azure portal, navigate to the SQL Server - **Networking** - enable **Allow Azure services and resources to access this server** - **Save**
+   > - Wait 1-2 minutes and refresh the page
 
 **Verify Application Insights telemetry**
 
-3. Generate some traffic by refreshing the home and products pages 3–4 times.
+3. Refresh the home and products pages 3-4 times to generate traffic.
 
-4. In the **Azure portal**, navigate to **Resource groups** → `rg-migration-lab-app` → select `ai-contoso-<DeploymentID>`.
+4. In the **Azure portal**, navigate to `rg-migration-lab-app` - select `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`.
 
-5. In the Application Insights overview, select **Live Metrics** from the left navigation.
-
-   Confirm incoming requests are visible in the live stream.
+5. In the left navigation, select **Investigate** - **Live Metrics**. Confirm incoming requests are visible in the live stream.
 
    ![](../media/app-insights-live.png)
 
-6. Select **Transaction search** from the left navigation and confirm page request events are appearing for `/` and `/products`.
+6. Select **Investigate** - **Transaction search**. Confirm request events are appearing for `/` and `/products`.
 
    ![](../media/app-insights-transactions.png)
 
-**Run a final post-migration comparison**
+**Run the migration summary**
 
-7. Run the following from PowerShell to summarise the before and after state:
+7. Back in **PowerShell on the VM**, run the following to print a before/after migration summary:
 
    ```powershell
    Write-Host "=== MIGRATION SUMMARY ===" -ForegroundColor Cyan
    Write-Host ""
    Write-Host "BEFORE (On-Premises VM):" -ForegroundColor Yellow
-   Write-Host "  URL      : http://localhost:8080"
-   Write-Host "  Protocol : HTTP (no TLS)"
-   Write-Host "  Runtime  : Node.js on Windows Server VM"
-   Write-Host "  Config   : .env file on disk"
+   Write-Host "  URL       : http://localhost:8080"
+   Write-Host "  Protocol  : HTTP (no TLS)"
+   Write-Host "  Runtime   : Node.js process on Windows Server VM"
+   Write-Host "  Config    : .env file on disk"
    Write-Host "  Monitoring: None"
    Write-Host ""
    Write-Host "AFTER (Azure App Service):" -ForegroundColor Green
-   $APP_URL = az webapp show --name $APP_NAME --resource-group $RG_APP --query defaultHostName --output tsv
-   Write-Host "  URL      : https://$APP_URL"
-   Write-Host "  Protocol : HTTPS (Azure-managed TLS)"
-   Write-Host "  Runtime  : Node.js on Azure App Service (PaaS)"
-   Write-Host "  Config   : App Service Application Settings"
+   $APP_URL = az webapp show `
+     --name $APP_NAME `
+     --resource-group $RG_APP `
+     --query defaultHostName `
+     --output tsv
+   Write-Host "  URL       : https://$APP_URL"
+   Write-Host "  Protocol  : HTTPS (Azure-managed TLS)"
+   Write-Host "  Runtime   : Node.js on Azure App Service (PaaS)"
+   Write-Host "  Config    : App Service Application Settings"
    Write-Host "  Monitoring: Application Insights ($AI_NAME)"
    Write-Host ""
    Write-Host "Migration Status: COMPLETE" -ForegroundColor Green
@@ -413,24 +445,24 @@ The application is fully migrated and running on Azure App Service.
 
 - Log Analytics Workspace `law-contoso-<DeploymentID>` deployed in `rg-migration-lab-app`.
 - Application Insights `ai-contoso-<DeploymentID>` deployed and linked to the workspace.
-- App Service Plan `asp-contoso-<DeploymentID>` created at Standard S1 tier.
+- App Service Plan `asp-contoso-<DeploymentID>` created at Standard S1 tier with Linux OS.
 - App Service `app-contoso-<DeploymentID>` created with Node.js 20 LTS runtime.
-- All application settings configured — `DB_SERVER`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `PORT`, `APPINSIGHTS_INSTRUMENTATIONKEY`.
-- HTTPS-only enforced — HTTP requests redirect to HTTPS.
+- All 7 application settings configured in App Service Environment variables.
+- HTTPS-only enforced - HTTP requests redirect to HTTPS automatically.
 - Startup command set to `node src/app.js`.
-- Deployment zip created without `.env` and `node_modules`.
-- Application deployed via zip deploy — home page and products page load correctly at the `azurewebsites.net` URL.
-- VNet integration active on `snet-appservice`.
-- Application Insights receiving live request telemetry.
+- Deployment zip created without `.env` and `node_modules` and deployed via zip deploy.
+- Home page and products page load correctly at the `azurewebsites.net` URL.
+- VNet integration active and showing `Connected` on `snet-appservice`.
+- Application Insights Live Metrics showing incoming request telemetry.
 
 ---
 
 ## Learning Outcomes
 
-- Provision Azure App Service Plan and Web App via Azure CLI.
+- Provision Azure App Service Plan and Web App using the Azure portal.
 - Migrate application configuration from a `.env` file to App Service Application Settings.
-- Package a Node.js application and deploy it using zip deploy.
-- Configure App Service VNet integration for private outbound connectivity.
+- Package a Node.js application and deploy it using zip deploy from Azure CLI.
+- Configure App Service VNet integration for private outbound connectivity via the portal.
 - Validate a migrated web application end-to-end including database connectivity and live monitoring.
 
 ---
