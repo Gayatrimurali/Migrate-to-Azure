@@ -73,11 +73,13 @@ Resource group `rg-migration-lab` is ready.
 
    ![](../media/vnet-review-create.png)
 
-7. Wait for the deployment to complete (approximately 1 to 2 minutes).
+7. Wait for the deployment to complete (approximately 1 to 2 minutes) and select **Go to resource**.
+
+   ![](../media/vnet-review-create1.png)
 
 **Delegate the App Service subnet**
 
-1. Open **vnet-migration-lab**, go to **Subnets (1)** from the left navigation, and select the **snet-appservice (2)** subnet.
+1. Open **vnet-migration-lab**, under **Settings** go to **Subnets (1)** from the left navigation, and select the **snet-appservice (2)** subnet.
 
    ![](../media/delegation-1.png)
 

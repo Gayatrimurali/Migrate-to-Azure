@@ -29,7 +29,7 @@ All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
 
 1. Open **PowerShell as Administrator** on your VM.
 
-2. Run the following discovery script. It collects all environment details and saves the output automatically to `C:\apps\discovery-report.txt`:
+2. Run the following discovery script. It collects all environment details and saves the output automatically to `C:\LabFiles\discovery-report.txt`:
 
    ```powershell
    $report = @()
@@ -429,8 +429,6 @@ Before moving to Challenge 2, run the readiness check to confirm all components 
 
 The Landing Zone is validated and ready for Challenge 2.
 
----
-
 ## Success Criteria
 
 - Discovery script executed and report auto-saved to `C:\apps\discovery-report.txt`.
@@ -443,8 +441,6 @@ The Landing Zone is validated and ready for Challenge 2.
 - SQL connectivity confirmed from the VM (`TcpTestSucceeded : True`).
 - App Service Application Settings block saved to `C:\apps\migration-strategy.txt`.
 - Readiness check executed with all resources showing `Succeeded`.
-
----
 
 ## Learning Outcomes
 
