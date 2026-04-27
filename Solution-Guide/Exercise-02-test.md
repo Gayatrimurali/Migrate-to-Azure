@@ -66,75 +66,6 @@ In this task, you provision the Log Analytics Workspace and Application Insights
 10. Open **Notepad** on your VM and paste the key. You will need it in Task 3 when configuring App Service Application Settings.
     > **Important**: Do not close Notepad. The instrumentation key is required in Task 3, Step 2.
 Monitoring resources are provisioned.
- 
----
-
-
-## Task 1: Create Monitoring Resources
-
-In this task, you provision Application Insights and the Log Analytics Workspace via **Azure CLI on the VM**. Monitoring is created first so it is ready to receive telemetry the moment the application deploys.
-
-All steps use **Azure CLI from PowerShell on the VM**.
-
-1. Open **PowerShell as Administrator** on your VM.
-
-2. Install the Application Insights CLI extension if not already present:
-
-   ```powershell
-   az extension add --name application-insights --only-show-errors
-   ```
-
-3. Create the Log Analytics Workspace:
-
-   ```powershell
-   az monitor log-analytics workspace create `
-     --resource-group $RG_APP `
-     --workspace-name $LAW_NAME `
-     --location $LOCATION `
-     --tags Environment=Lab Project=ContosoMigration
-   ```
-
-4. Retrieve the workspace resource ID:
-
-   ```powershell
-   $LAW_ID = az monitor log-analytics workspace show `
-     --resource-group $RG_APP `
-     --workspace-name $LAW_NAME `
-     --query id `
-     --output tsv
-
-   Write-Host "Workspace ID: $LAW_ID" -ForegroundColor Cyan
-   ```
-
-5. Create Application Insights linked to the workspace:
-
-   ```powershell
-   az monitor app-insights component create `
-     --app $AI_NAME `
-     --resource-group $RG_APP `
-     --location $LOCATION `
-     --kind web `
-     --workspace $LAW_ID `
-     --tags Environment=Lab Project=ContosoMigration
-   ```
-
-6. Retrieve and save the instrumentation key to a variable - you will use it in Task 2:
-
-   ```powershell
-   $AI_KEY = az monitor app-insights component show `
-     --app $AI_NAME `
-     --resource-group $RG_APP `
-     --query instrumentationKey `
-     --output tsv
-
-   Write-Host "Instrumentation Key: $AI_KEY" -ForegroundColor Yellow
-   ```
-
-   > **Important**: Keep this PowerShell window open. The `$AI_KEY` variable is needed in Task 2.
-
-Monitoring resources are provisioned.
-
----
 
 ## Task 2: Create the App Service Plan and App Service
 
@@ -262,31 +193,32 @@ All steps use **PowerShell on the VM**.
 1. Navigate to the application directory:
 
    ```powershell
-   Set-Location "C:\apps\contoso-retail"
+   Set-Location "C:\LabFiles\contoso-retail-webapp\contoso-retail"
    ```
 
 2. Create the deployment package, excluding `.env` and `node_modules`:
 
    ```powershell
    # Remove any previous zip
-   Remove-Item "C:\apps\contoso-retail-deploy.zip" -ErrorAction SilentlyContinue
+   Remove-Item "C:\LabFiles\contoso-retail-webapp\contoso-retail-deploy.zip" -ErrorAction SilentlyContinue
 
    # Collect files excluding .env and node_modules
-   $files = Get-ChildItem -Path "C:\apps\contoso-retail" -Recurse |
-     Where-Object {
-       $_.FullName -notmatch "node_modules" -and
-       $_.FullName -notmatch "\.env$" -and
-       -not $_.PSIsContainer
-     }
+   $files = Get-ChildItem -Path "C:\LabFiles\contoso-retail-webapp\contoso-retail-webapp" -Recurse |
+   Where-Object {
+      $_.FullName -notmatch "node_modules" -and
+      $_.FullName -notmatch "\.env$" -and
+      -not $_.PSIsContainer
+   }
 
    # Create the zip
    Compress-Archive -Path $files.FullName `
-     -DestinationPath "C:\apps\contoso-retail-deploy.zip" `
-     -Force
+   -DestinationPath "C:\LabFiles\contoso-retail-webapp\contoso-retail-webapp\contoso-retail-deploy.zip" `
+   -Force
 
    Write-Host "Package created:" -ForegroundColor Green
-   Get-Item "C:\apps\contoso-retail-deploy.zip" | Select-Object Name, Length
+   Get-Item "C:\LabFiles\contoso-retail-webapp\contoso-retail-webapp\contoso-retail-deploy.zip" | Select-Object Name, Length
    ```
+
 
    > **Important**: Confirm `Length` is greater than 0 before proceeding. If it shows 0, re-run the compress command.
 
@@ -296,7 +228,7 @@ All steps use **PowerShell on the VM**.
    az webapp deploy `
      --name $APP_NAME `
      --resource-group $RG_APP `
-     --src-path "C:\apps\contoso-retail-deploy.zip" `
+     --src-path "C:\LabFiles\contoso-retail-webapp\contoso-retail-webapp\contoso-retail-deploy.zip" `
      --type zip
    ```
 
