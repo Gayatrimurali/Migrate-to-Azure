@@ -1,6 +1,6 @@
 ## Web Application Migration to Azure
 
-### Estimated Time: 360 Minutes
+### Estimated Time: 6 Hours
 
 ## Introduction
 
