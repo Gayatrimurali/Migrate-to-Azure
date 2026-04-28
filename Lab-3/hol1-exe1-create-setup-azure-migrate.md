@@ -135,9 +135,9 @@ In this task, you will create an Azure Migrate project and deploy the Azure Migr
 
  23. Login using the below Azure credentials and select **Continue** on the **Are you trying to sign in to Microsoft Azure PowerShell?** window to complete the login process. Once you have logged in, return to the Azure Migrate Appliance tab and the appliance registration will start automatically and displays below message once the registration is successful.
     
-    * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
+  * Azure Username/Email: <inject key="AzureAdUserEmail"></inject> 
     
-    * Azure Password: <inject key="AzureAdUserPassword"></inject> 
+* Azure Password: <inject key="AzureAdUserPassword"></inject> 
 
 
    > **Note:** If you are presented with **Action Required** dialog box, then select **Ask later** option.
