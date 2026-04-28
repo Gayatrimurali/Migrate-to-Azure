@@ -1,0 +1,53 @@
+[
+    {
+      "Name": "Migrate and Secure Workloads",
+      "Language": "English",
+      "BaseURL": "https://github.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads",
+      "Files": [
+         {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/overview.md",
+          "Order": 1
+        }, 
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/gettingstartedfile.md",
+          "Order": 2
+        },
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol1-exe1-create-setup-azure-migrate.md",
+          "Order": 3
+        },
+         {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol1-exe2-discover-assess-workloads-with-appliance.md",
+          "Order": 4
+        },
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol1-exe3-migrate-servers-to-azure.md",
+          "Order": 5
+        },
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol2-exe1-migrate-SQLDatabase-to-AzureSQLDatabaseServices.md",
+          "Order": 6
+        },
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol3-exe1-migrate-WebApps-to-AzureAppServices-Review-Legacy-App-Database.md",
+          "Order": 7
+        },
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol3-exe2-migrate-WebApps-to-AzureAppServices-Assessment-Legacy-Application.md",
+          "Order": 8
+        },
+         {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol3-exe3-migrate-WebApps-to-AzureAppServices-Migrate-Legacy-Application.md",
+          "Order": 9
+        },
+         {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol4-exe1-Secure-Workloads-with-Defender-for-Cloud.md",
+          "Order": 10
+        },
+         {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/hol5-exe1-SIEM-with-Sentinel.md",
+          "Order": 11
+        }
+      ]
+    }
+  ]

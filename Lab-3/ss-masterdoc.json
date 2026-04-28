@@ -1,0 +1,13 @@
+[
+    {
+      "Name": "Migrate and Secure Workloads",
+      "Language": "English",
+      "BaseURL": "https://github.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads",
+      "Files": [
+        {
+          "RawFilePath": "https://docs-api.cloudlabs.ai/repos/raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-and-Secure-Workloads/main/labguide/ss-gettingstartedfile.md",
+          "Order": 1
+        }
+      ]
+    }
+  ]
