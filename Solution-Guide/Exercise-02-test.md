@@ -23,8 +23,6 @@ By the end of this challenge, you will have:
 
 > **If you opened a new PowerShell window**, re-run the variables block from Challenge 1, Task 3, Step 2 before continuing.
 
----
-
 ## Task 1: Create Monitoring Resources
  
 In this task, you provision the Log Analytics Workspace and Application Insights using the **Azure portal**. Monitoring is created first so it is ready to receive telemetry the moment the application deploys.
