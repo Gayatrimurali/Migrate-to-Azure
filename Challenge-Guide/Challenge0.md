@@ -21,17 +21,11 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
    - **Virtual network name**: `vnet-migration-lab` **(2)**
    - **Region**: <inject key="Region" enableCopy="false"></inject> **(3)**
 
-3. On the **IP Addresses** tab, configure the following and select **Review + Create**.
+3. On the **IP Addresses** tab, add below subnets configure the following and select **Review + Create**.
 
-   - **Address space**: `10.0.0.0/16` **(1)**
-
-   - Click on edit icon  and remove any default subnets and add the following subnets:
-
-   | Subnet name | Address range | Purpose |
-   | --- | --- | --- |
-   | `snet-default` | `10.0.0.0/24` | General-purpose subnet **(2)** |
-   | `snet-appservice` | `10.0.1.0/24` | App Service VNet integration (delegated) **(3)** |
-   | `snet-private` | `10.0.2.0/24` | Private endpoints for SQL and other services **(4)** |
+    - snet-default
+    - snet-appservice 
+    - snet-private 
 
 4. Open **vnet-migration-lab** → go to **Subnets** → select **snet-appservice** → under **Subnet delegation** choose **Microsoft.Web/serverFarms** → click **Save**.
 
@@ -55,21 +49,11 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
    - **Password**: `P@ssw0rd2026!` **(5)**
    - **Confirm password**: `P@ssw0rd2026!` **(6)**
    - Select **OK** **(7)**
-  
-5. Open SQL Server → go to **Networking** → select **Selected networks** → add your client IP → enable **Allow Azure services** → click **Save**.
-
-14. In the left navigation of the `contosodb` database, select **Query editor (preview) (1)**.
  
-15. Sign in using **SQL authentication (2)** and click on **Connect (5)**:
+15.  Select **Query editor (preview) Sign in using **SQL authentication (2)** and click on **Connect (5)**:
  
     - **Login**: `sqladmin` **(3)**
     - **Password**: `P@ssw0rd2026!` **(4)**
-
-       ![](../media/sql-authentication-connect.png)
-
-16. Click on **New query**.
-
-1. Click on **New query**.
 
 17. Paste and **Run** the following SQL to create the tables and insert sample data:
 
