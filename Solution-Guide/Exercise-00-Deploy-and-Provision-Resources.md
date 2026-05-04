@@ -125,6 +125,9 @@ Virtual network and subnets are configured.
    - **Want to use SQL elastic pool?**: No **(1)**
    - **Workload environment**: Development **(2)**
    - **Compute + storage**: select **Configure database** and choose **Basic** tier (2 GB storage) **(3)**
+
+      ![](../media/101.png)
+
    - **Backup storage redundancy:** select **Locally-redundant backup storage (4)**
 
      ![](../media/sql-server-create1.png)
@@ -137,7 +140,7 @@ Virtual network and subnets are configured.
 
 **Configure the SQL Server firewall**
  
-8. Navigate back to the SQL Server resource `sql-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`.
+8. Navigate back to the SQL Server resource `sql-contoso-<inject key="DeploymentID" enableCopy="false"/>`.
  
 9. In the left navigation, select **Networking (1)**.
  
@@ -161,10 +164,10 @@ Azure SQL Database is provisioned with sample data.
  
 15. Sign in using **SQL authentication (2)** and click on **Connect (5)**:
  
-   - **Login**: `sqladmin` **(3)**
-   - **Password**: `P@ssw0rd2026!` **(4)**
+    - **Login**: `sqladmin` **(3)**
+    - **Password**: `P@ssw0rd2026!` **(4)**
 
-     ![](../media/sql-authentication-connect.png)
+       ![](../media/sql-authentication-connect.png)
 
 16. Click on **New query**.
 
@@ -234,6 +237,8 @@ In this task, you will create the Contoso Retail web application on your local m
 
 1. Open a VS Code 
 
+    ![](../media/108.png)
+
 2. open a folder > lab files > contoso-retail-webapp > contoso-retail-webapp.
 
 3. Open termainal 
@@ -248,17 +253,25 @@ In this task, you will create the Contoso Retail web application on your local m
    npm init -y
    ```
 
+    ![](../media/102.png)
+
 5. Install dependencies:
 
    ```bash
    npm install express ejs mssql dotenv
    ```
 
+    ![](../media/103.png)
+
+    ![](../media/104.png)
+
 6. run the command 
 
    ```
-   nmp fund
+   npm fund
    ```
+
+    ![](../media/105.png)
 
 7. Run the command 
 
@@ -284,11 +297,16 @@ In this task, you will create the Contoso Retail web application on your local m
 
 7. Open a browser and navigate to `http://localhost:8080`. Verify the following:
 
+
    | Validation | Expected Result |
    | --- | --- |
    | Home page loads | `http://localhost:8080` shows "Welcome to Contoso Retail" |
    | Products page loads | `http://localhost:8080/products` shows 10 products in a table |
    | Database connectivity | Product data (names, categories, prices) comes from Azure SQL |
+   
+   ![](../media/106.png)
+
+   ![](../media/107.png)
 
    > **Important**: If the products page shows an error, verify:
    > - The `.env` file has the correct SQL Server name, database name, and credentials.
