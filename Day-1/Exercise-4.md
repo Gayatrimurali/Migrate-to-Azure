@@ -22,7 +22,7 @@ You will deploy the App Service Landing Zone Accelerator using an ARM template v
 
     ![Image](./media-1/vnet-name-2701.png)
 
-1. Click on **Properties (1)** from the left menu and copy the **Resource ID (2)** of the Virtual Network and paste it into Notepad.
+1. Click on **Properties (1)** from the left menu under **Settings** tab and copy the **Resource ID (2)** of the Virtual Network and paste it into Notepad.
 
     ![Image](./media-1/vnet-name1-2701.png)
 

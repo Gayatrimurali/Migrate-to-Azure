@@ -90,9 +90,9 @@ Before deploying ALZ, you must have elevated access at the tenant level.
 
     ![Image](./media/Ex1-03.png)
 
-1. On the Getting started page, select **Mount storage account (1)** and select the **Azure HOL (SUFFIX)/Sub - (SUFFIX) (2)** subscription from the dropdown and click on **Apply (3)**.
+1. On the Getting started page, select **Mount storage account (1)** and select the **Azure HOL (SUFFIX)/Sub 05 - (SUFFIX) (2)** subscription from the dropdown and click on **Apply (3)**.
 
-    ![Image](./media/Ex1-04.png)
+    ![Image](./media-1/Ex1-04.png)
 
     >**Note:** The SUFFIX value in the subscription name is a unique identifier assigned to you for this lab environment, which will be different for each user. Please select the one that you see in the dropdown list. 
 
@@ -117,7 +117,7 @@ Before deploying ALZ, you must have elevated access at the tenant level.
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="75747fcf-2474-48d7-a6ba-bd830141c9a6" />
+<validation step="f881763f-ac43-4c7b-960d-110e40300507" />
 
 #### **Deploying the Azure Landing Zone (ALZ)**
 
@@ -133,11 +133,11 @@ Before deploying ALZ, you must have elevated access at the tenant level.
 
 1. In the **Azure core setup** section, enter the following details and click on **Next (4)**. 
 
-   - Resource prefix (Root ID): **alz (1)** 
+   - Resource prefix (Root ID): **alz (1)**
    - Deploy in a secondary region: **No (2)** 
    - Prevent the deployment of classic resources: **No (3)**
 
-     ![Image](./media/ex1task2s5upd2.png)
+     ![Image](./media-1/ex1task2s5upd2.png)
 
 1. In the **Platform management, security, and governance** section, enter the following details and click on **Next (5)**.
 
@@ -147,6 +147,8 @@ Before deploying ALZ, you must have elevated access at the tenant level.
     - Deploy Microsoft Defender for Cloud and enable security monitoring for your platform and resources: **No (4)**
 
         ![Image](./media/ex1task2s6upd1a.png)
+
+        ![](./media-1/ex1task2s6upd1a2.png)
 
 1. In the **Alerts and Monitoring** section, enter the following details and click on **Next (4)**.
 
@@ -190,12 +192,17 @@ Before deploying ALZ, you must have elevated access at the tenant level.
 
     ![Image](./media/E1T2S9.png)
 
-   >**Note:** **If your deployment gets stuck at `alz-Msg-centralus-XXXX` and does not go through after `5 MINUTES`, please follow the below steps**.
-   >    ![Image](./media/dep-error-2701.png)
+   > **Note:** **If your deployment gets stuck at `alz-Msg-centralus-XXXX` and does not go through after `5 MINUTES`, please follow the below steps**.
+
+    ![Image](./media/dep-error-2701.png)
+   
    > 1. Click on **Cancel** button on the deployments page.
-   >    ![Image](./media/img1.png)
+       
+    ![Image](./media-1/img1.png)
+   
    > 2. Select **Cancel deployment** and then follow the steps from Step 1 to redeploy the template
-   >    ![Image](./media/img22.png)
+   
+    ![Image](./media-1/img22.png)
 
 1. Once the operation is complete, you can review your progress and proceed to the next exercise.
 
@@ -204,7 +211,7 @@ Before deploying ALZ, you must have elevated access at the tenant level.
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 
-<validation step="5c8ae1b1-d60d-412c-9855-325f1c616f18" />
+<validation step="46495015-94dc-4ad1-8d1d-8c5355cd38e2" />
 
 ## Summary
 In this exercise, you have gained a comprehensive understanding of the Azure Landing Zone (ALZ) framework, including its core components such as Management Groups, Policies, and Subscriptions. You have also explored the benefits of governance and automation in ALZ. 
