@@ -21,9 +21,10 @@ In this task, you will verify that VNet peering exists and is properly configure
 
     ![Image](./media/Ex5-0.png)
 
-1. Select the hub VNet **vnet-hub-alz-prod-eastus** in the **rg-vnet-hub-prod-eastus** resource group.
+1. Select the hub VNet **vnet-hub-alz-prod-XXXXX** in the **rg-vnet-hub-prod-XXXXX** resource group.
 
     ![Image](./media-1/E5T1S2-2603.png)
+
 
 1. Click on **Peerings (1)** from the left menu to check for **peerTo-vnet-alz-test-eus-spoke (2)** peering connections.
 
@@ -34,8 +35,8 @@ In this task, you will verify that VNet peering exists and is properly configure
     ![Image](./media-1/ex6task1s4.png)
 
 1. Click on **peerTo-vnet-alz-test-eus-spoke** to view the peering settings and ensure the following options are enabled:
-   - Allow 'alz-hub-eastus' to access 'vnet-alz-test-eus-spoke': **Checked (1)**
-   - Allow 'alz-hub-eastus' to receive forwarded traffic from 'vnet-alz-test-eus-spoke': **Checked (2)**
+   - Allow 'alz-hub-XXXXX' to access 'vnet-alz-test-eus-spoke': **Checked (1)**
+   - Allow 'alz-hub-XXXXX' to receive forwarded traffic from 'vnet-alz-test-eus-spoke': **Checked (2)**
    - Click **Save (3)** if you made any changes.
 
      ![Image](./media-1/ex6task1s5.png)
@@ -79,11 +80,12 @@ In this task, you will review the network security groups configuration to under
     ![Image](./media-1/ex6task3s2.png)
 
 ## Task 4: Enabling App Service Public Access and Connectivity
+
 In this task, you will enable public network access for your App Service to ensure proper connectivity for testing and validation purposes.
 
 #### **Enable Networking for App Service**
 
-1. Navigate to **App Service** from the Azure portal and select **app-alz-test-eus-xxxxx** app and go to **Networking (1)** from the left pane and click on **Disabled (2)** next to Public network access.
+1. Navigate to **App Service** from the Azure portal and select **app-alz-test-eus-xxxxx** app and go to **Networking (1)** from the left pane under **Settings** tab and click on **Disabled (2)** next to Public network access.
 
     ![Image](./media-1/E5T4S1-2603.png)
 
