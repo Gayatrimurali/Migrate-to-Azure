@@ -182,7 +182,7 @@ Before deploying ALZ, you must have elevated access at the tenant level.
     - Enforce Key Vault recommended guardrails: **No (6)**
     - Enforce Backup and Recovery recommended guardrails: **No (7)** 
 
-       ![Image](./media/zone-config-2701.png)
+       ![Image](./media-1/zone-config-2701.png)
 
 1. After the template has passed the validation, click **Create**. 
    
@@ -214,4 +214,4 @@ Finally, you have successfully deployed an Azure Landing Zone using either ARM o
 ### You have successfully completed the exercise!
 ### Click the **Next >>** button to proceed to Exercise 2.
 
-![](media/up4.png)
+![](media-1/up4.png)

@@ -132,4 +132,4 @@ In this exercise, you have added a subscription to the Application Landing Zone 
 ### You have successfully completed the exercise!
 ### Click the **Next >>** button to proceed to Exercise 4.
 
- ![](media/up4.png)
+ ![](media-1/up4.png)

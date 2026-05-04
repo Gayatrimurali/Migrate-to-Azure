@@ -118,6 +118,6 @@ In this exercise, you have validated the network connectivity and configuration 
 ### You have successfully completed the exercise!
 ### Click the **Next >>** button to proceed to Exercise 5.
 
- ![](media/up4.png)
+ ![](media-1/up4.png)
 
 

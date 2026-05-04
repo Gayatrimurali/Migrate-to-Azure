@@ -136,4 +136,4 @@ In this exercise, you have explored the Management Group hierarchy and verified 
 ### You have successfully completed the exercise!
 ### Click the **Next >>** button to proceed to Exercise 3.
 
- ![](media/up4.png)
+ ![](media-1/up4.png)
