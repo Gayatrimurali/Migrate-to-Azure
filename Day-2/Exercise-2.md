@@ -42,7 +42,11 @@ In this task, you will use Azure Copilot to create a migration assessment for th
     
     ![](./Images/E2T1S6a.png)
     
-7. Enter the prompt **Create the PLZ ensuring that only a single default subscription is used—the same subscription where the Azure Migrate project is created. Additionally, use the same Management Group for all resources, not to create additional Management Group. The PLZ deployment must be restricted to and operate entirely within this single subscription. ** & review the copilot reply.
+7. Enter the prompt below promt, click on **enter** and review the copilot reply.
+
+    ```
+    Create the PLZ ensuring that only a single default subscription is used—the same subscription where the Azure Migrate project is created. Additionally, use the same Management Group for all resources, not to create additional Management Group. The PLZ deployment must be restricted to and operate entirely within this single subscription.
+    ```
 
     ![](./Images/E2T1S7.png)
 

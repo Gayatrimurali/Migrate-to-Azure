@@ -118,15 +118,9 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
 1. When the **Connect to smarthotelweb1** window appears, click **Connect** to continue. Log in to the **Administrator** account using the password **<inject key="SmartHotel Admin Password" />**.
 
-1. On the **smarthotelweb1** VM. Open **Edge Browser**. Paste the link to the **64-bit Microsoft Monitoring Agent for Windows** that you saved earlier. Once the download completes, click one **Save (1)** and then **Run (2)** when prompted to start the installer.
+1. On the **smarthotelweb1** VM. Open **Edge Browser**. Paste the link to the **64-bit Microsoft Monitoring Agent for Windows** that you saved earlier. Once the download completes, click one **MMASetup-AMD64.exe** recently downloaded file when prompted to start the installer.
 
     ![](Images/L1E2T2S11.2-3012.png)
-
-    ![Screenshot showing the Internet Explorer prompt to run the installer for the Microsoft Monitoring Agent.](Images/L1E2T2S11.3-3012.png)
-
-     >**Note:** If a Security alert window opens, select the **checkbox (1)** and click on **Yes (2)** to proceed.
-
-    ![](Images/L1E2T2S11.1-3012.png)
 
      >**Note**: Please install the Agents as mentioned in the lab guide on both **SmartHotelWeb1** and **SmartHotelWeb2** VMs. Read the instructions carefully to avoid mistakes.
 
@@ -162,16 +156,9 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     ![Screenshot for installing 64-bit Microsoft Monitoring Agent for Windows.](Images/15-7-25-l2-24.png "MMA installation")
 
-1. Open **Internet Explorer** and paste the link to the **Windows Dependency Agent** installer. When prompted, click **Save** to download the file. Once the download is complete, click **Run** to launch the installer.
+1. Open **Internet Explorer** and paste the link to the **Windows Dependency Agent** installer. When prompted, click one **InstallDependencyAgent-Windows.exe** recently downloaded file when prompted to start the installer.
 
-    ![](Images/15-7-25-l2-25.png)
-    ![](Images/15-7-25-l2-26.png)
-
-    >**Note:** If a Internet exploerer securtity window opens, click on **Add (1)**, then **Add (2)** again to add the site, and then click on **Close (3)**. 
-
-      ![](Images/L1E2T2S19.1-3012.png)
-
-      ![](Images/L1E2T2S19.2-3012.png)
+    ![](Images/15-7-25-l2-25n.png)
 
 1. On the **License Agreement** screen, select **I Agree** to accept the agreement and continue. 
 
