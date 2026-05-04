@@ -29,6 +29,8 @@ All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
 
 1. Open **PowerShell as Administrator** on your VM.
 
+    ![](../media/110.png)
+
 2. Run the following discovery script. It collects all environment details and saves the output automatically to `C:\LabFiles\discovery-report.txt`:
 
    ```powershell
@@ -86,7 +88,7 @@ All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
    Get-Item "C:\LabFiles\contoso-retail-webapp\discovery-report.txt"
    ```
 
-   ![](../media/discovery-report-verify.png)
+   ![](../media/111.png)
 
    > **Note**: In a production migration, this step would use **Azure Migrate** or **Service Map** with agents deployed across all on-premises servers to generate discovery data automatically at scale.
 
@@ -154,6 +156,8 @@ In this task, you select the migration strategy using the **CAF 7 Rs** framework
    Write-Host "Strategy saved to C:\LabFiles\contoso-retail-webapp\migration-strategy.txt" -ForegroundColor Green
    ```
 
+    ![](../media/112.png)
+
 The migration strategy is defined and saved.
 
 ---
@@ -191,7 +195,13 @@ All steps use **Azure CLI from PowerShell on the VM**.
    az login
    ```
 
+    ![](../media/113.png)
+
    A browser window opens inside the VM. Sign in with your Azure credentials.
+
+   ![](../media/114.png)
+
+   ![](../media/115.png)
 
 2. Set environment variables. Replace `<DeploymentID>` with your lab deployment ID. **Keep this PowerShell window open** - these variables are reused in all subsequent challenges:
 
@@ -211,6 +221,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
    Write-Host "Variables set. App name: $APP_NAME" -ForegroundColor Green
    ```
 
+    ![](../media/116.png)
+
    > **Important**: These variables exist only for the current PowerShell session. If you close this window at any point, re-run this step before continuing.
 
 3. Create the application resource group:
@@ -221,6 +233,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --location $LOCATION `
      --tags Environment=Lab Project=ContosoMigration
    ```
+
+    ![](../media/117.png)
 
 4. Verify both resource groups exist:
 
@@ -245,7 +259,7 @@ All steps use **Azure CLI from PowerShell on the VM**.
 
    Confirm all three subnets - `snet-appservice`, `snet-private`, `snet-default` - are listed.
 
-   ![](../media/vnet-subnets-verify.png)
+   ![](../media/120.png)
 
 6. Create the Network Security Group:
 
@@ -256,6 +270,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --location $LOCATION `
      --tags Environment=Lab Project=ContosoMigration
    ```
+
+    ![](../media/121.png)
 
 7. Add an inbound rule for HTTPS (port 443):
 
@@ -274,6 +290,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --access Allow
    ```
 
+    ![](../media/122.png)
+
 8. Add an inbound rule for HTTP (port 80) for redirect purposes:
 
    ```powershell
@@ -291,6 +309,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --access Allow
    ```
 
+    ![](../media/123.png)
+
 9. Associate the NSG with the `snet-appservice` subnet:
 
    ```powershell
@@ -300,6 +320,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --name snet-appservice `
      --network-security-group $NSG_NAME
    ```
+
+    ![](../media/124.png)
 
 10. Confirm the association:
 
@@ -311,6 +333,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
       --query "networkSecurityGroup.id" `
       --output tsv
     ```
+
+     ![](../media/126.png)
 
     The output should end with `/networkSecurityGroups/nsg-contoso-app`.
 
@@ -343,6 +367,8 @@ In this task, you produce a **Dependency Map** for Contoso Retail and save the A
      -ComputerName "$SQL_SERVER.database.windows.net" `
      -Port 1433
    ```
+
+    ![](../media/127.png)
 
    Confirm `TcpTestSucceeded : True`.
 
