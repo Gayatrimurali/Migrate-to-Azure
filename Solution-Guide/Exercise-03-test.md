@@ -40,7 +40,7 @@ All steps in this task are performed in the **Azure portal** and then on the **W
 
    ![](../media/arc-machines.png)
 
-3. Select **+ Add/Create (1)** → **Add a machine (2)**.
+3. Select **+ Onboard/Create (1)** → **Add a machine (2)**.
 
    ![](../media/arc-add-machine.png)
 
@@ -71,6 +71,20 @@ All steps in this task are performed in the **Azure portal** and then on the **W
 9. Copy the downloaded script file to your Windows Server VM. You can do this by:
    - Dragging and dropping the file into the RDP session window, or
    - Saving it to a network share or Azure Blob Storage and downloading it from the VM
+
+   ```
+   [System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
+   ```
+
+   ```
+   Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
+   Stop-Service WindowsAzureGuestAgent -Force -Verbose
+   ```
+
+   ```
+   New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
+   ```
+
 
 10. On the **Windows Server VM**, open **PowerShell as Administrator** and run the onboarding script:
 
