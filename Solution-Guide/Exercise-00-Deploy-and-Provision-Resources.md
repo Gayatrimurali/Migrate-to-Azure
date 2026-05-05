@@ -10,31 +10,7 @@ This exercise provisions all required Azure resources and sets up the web applic
 
 This local setup simulates your on-premises data center. In Exercise 2, you will migrate this locally running application to Azure App Service.
 
-## Task 1: Create the Azure Resource Group for Lab Resources
-
-1. In the **Azure portal**, select **Resource groups**.
-
-   ![](../media/rg-select.png)
-
-2. In the **Resource groups** page, select **+ Create**.
-
-   ![](../media/rg-create.png)
-
-3. In the **Basics** tab, provide the following details and select **Review + create** **(4)**:
-
-   - **Subscription**: Keep default Azure subscription
-   - **Resource group name**: `rg-migration-lab` **(1)**
-   - **Region**: <inject key="Region" enableCopy="false"></inject> 
-
-     ![](../media/rg-basic.png)
-
-4. In the **Review + create** tab, select **Create**.
-
-   ![](../media/rg-review-create.png)
-
-Resource group `rg-migration-lab` is ready.
-
-## Task 2: Deploy the Virtual Network and Subnets
+## Task 1: Deploy the Virtual Network and Subnets
 
 1. In the Azure portal search bar, type **Virtual networks** **(1)** and select **Virtual networks** **(2)** under Services.
 
@@ -89,7 +65,7 @@ Resource group `rg-migration-lab` is ready.
 
 Virtual network and subnets are configured.
 
-## Task 3: Deploy Azure SQL Server and Database
+## Task 2: Deploy Azure SQL Server and Database
 
 1. In the Azure portal search bar, type **SQL databases** **(1)** and select **Azure SQL Databases** **(2)** under Services.
 
@@ -231,7 +207,7 @@ Azure SQL Database is provisioned with sample data.
 
       Both queries should return **10** rows.
 
-## Task 4: Set Up and Run the Web Application Locally (On-Premises Simulation)
+## Task 3: Set Up and Run the Web Application Locally (On-Premises Simulation)
 
 In this task, you will create the Contoso Retail web application on your local machine. This simulates the on-premises environment that you will migrate to Azure in Exercise 2.
 
