@@ -116,18 +116,6 @@ Azure Policy assignments are in place.
 
 All steps are performed in the **Azure portal**.
 
-**Review current role assignments**
-
-1. In the **Azure portal**, navigate to **Resource groups** → `rg-migration-lab-app`.
-
-2. In the left navigation, select **Access control (IAM)**.
-
-   ![](../media/rbac-iam.png)
-
-3. Select the **Role assignments** tab. Review the existing assignments — note your current account has **Owner** or **Contributor** access.
-
-   ![](../media/rbac-role-assignments.png)
-
 **Assign the Contributor role for app management**
 
 4. Select **+ Add (1)** → **Add role assignment (2)**.
@@ -169,11 +157,9 @@ All steps are performed in the **Azure portal**.
 
 15. Back on the **Role assignments** tab, confirm all three role assignments are visible.
 
-    ![](../media/rbac-assignments-verify.png)
+   ![](../media/rbac-assignments-verify.png)
 
 RBAC is configured for the application resource group.
-
----
 
 ## Task 3: Enable Microsoft Defender for Cloud
 
@@ -207,42 +193,7 @@ All steps are performed in the **Azure portal**.
 
    > **Note**: Defender for Cloud plans have a cost per resource. For this lab, enabling them briefly to review recommendations is sufficient. You can disable them after the lab to avoid charges.
 
-**Review App Service recommendations**
-
-7. In the left navigation, select **Recommendations**.
-
-8. In the search box, type `App Service` to filter recommendations.
-
-   ![](../media/defender-recommendations.png)
-
-9. Review the recommendations listed. Common App Service recommendations include:
-
-   | Recommendation | Severity | Action |
-   | --- | --- | --- |
-   | App Service apps should only be accessible over HTTPS | High | Already enforced in Task 1 |
-   | App Service apps should use the latest TLS version | High | Already enforced in Task 1 |
-   | App Service apps should have remote debugging turned off | Medium | Review in next step |
-   | App Service apps should not have CORS configured to allow all resources | Medium | Review if applicable |
-
-10. Select the recommendation **App Service apps should have remote debugging turned off**.
-
-11. Select your App Service from the list and select **Fix** to apply the remediation automatically.
-
-    ![](../media/defender-fix.png)
-
-12. Confirm the fix and wait for it to apply.
-
-**Review the Secure Score**
-
-13. In the left navigation, select **Overview**. Note the current **Secure Score** value.
-
-    ![](../media/defender-secure-score.png)
-
-    > **Note**: The Secure Score increases as you remediate recommendations. The score reflects the overall security posture of your Azure environment.
-
-Microsoft Defender for Cloud is enabled and initial recommendations are reviewed.
-
----
+   >**Note: Recommendations takes aroun 24- 48 hrs to visible so we havent included in this lab to showcase those things**
 
 ## Task 4: Configure Azure Monitor Alerts
 
@@ -314,7 +265,7 @@ All steps are performed in the **Azure portal**.
 
 14. On the **Details** tab:
 
-    - **Alert rule name**: `alert-5xx-errors` **(1)**
+    - **Alert rule name**: `alert-4xx-errors` **(1)**
     - **Severity**: **2 - Warning** **(2)**
     - **Enable upon creation**: **Yes** **(3)**
 

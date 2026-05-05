@@ -230,9 +230,9 @@ All steps use **PowerShell on the VM**.
 
 3. Next, provide your **Temporary Access Pass(1)** and select **Sign In (2)**:
 
-       - Enter **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
+      - Enter **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
 
-          ![](../media/159.png)
+      ![](../media/159.png)
 
 1. Click **No, this app only.**
 
@@ -371,36 +371,14 @@ In this task, you confirm the application is running correctly on Azure App Serv
 
     ![](../media/apppp.png)
 
-2. Verify the following:
-
-   | Page | URL | Expected Result |
-   | --- | --- | --- |
-   | Home page | `https://app-contoso-<ID>.azurewebsites.net` | Shows "Welcome to Contoso Retail" |
-   | Products page | `https://app-contoso-<ID>.azurewebsites.net/products` | Shows 10 products from Azure SQL |
-   | HTTPS redirect | `http://app-contoso-<ID>.azurewebsites.net` | Automatically redirects to HTTPS |
+2. Select **Investigate** - **Transaction search**. Confirm request events are appearing for `/` and `/products`.
 
    ![](../media/app-azure-home.png)
-
-   ![](../media/app-azure-products.png)
 
    > **If the products page returns an error**:
    > - In the App Service, go to **Environment variables** and confirm all 7 settings are present
    > - In the Azure portal, navigate to the SQL Server - **Networking** - enable **Allow Azure services and resources to access this server** - **Save**
    > - Wait 1-2 minutes and refresh the page
-
-**Verify Application Insights telemetry**
-
-3. Refresh the home and products pages 3-4 times to generate traffic.
-
-4. In the **Azure portal**, navigate to `rg-migration-lab-app` - select `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`.
-
-5. In the left navigation, select **Investigate** - **Live Metrics**. Confirm incoming requests are visible in the live stream.
-
-   ![](../media/app-insights-live.png)
-
-6. Select **Investigate** - **Transaction search**. Confirm request events are appearing for `/` and `/products`.
-
-   ![](../media/app-insights-transactions.png)
 
 ## Success Criteria
 

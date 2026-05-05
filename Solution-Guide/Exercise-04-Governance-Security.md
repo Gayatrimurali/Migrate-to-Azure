@@ -260,14 +260,6 @@ Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
 4. Select **Save**.
 
-**Step 4: Configure custom domain with managed certificate (optional)**
-
-1. If a custom domain is available, navigate to **Custom domains** in the App Service.
-2. Select **+ Add custom domain**.
-3. Enter the custom domain name and validate ownership.
-4. After validation, select **Add binding** and choose **App Service Managed Certificate** (free).
-5. Set binding type to **SNI SSL**.
-
 > Note: Custom domain configuration is optional for this lab. The default `*.azurewebsites.net` domain already has TLS enabled.
 
 **Step 5: Final security validation**
