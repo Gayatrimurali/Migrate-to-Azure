@@ -30,33 +30,48 @@ In this task, you provision the Log Analytics Workspace and Application Insights
 **Create the Log Analytics Workspace**
  
 1. In the **Azure portal**, type **Log Analytics workspaces (1)** in the search bar and select **Log Analytics workspaces (2)** under Services.
-   ![](../media/law-search.png)
+
+   ![](../media/130.png)
+
 2. Select **+ Create**.
-   ![](../media/law-create.png)
+
+   ![](../media/131.png)
+
 3. On the **Basics** tab, fill in the following details and select **Review + create**:
    - **Subscription**: select your Azure subscription **(1)**
    - **Resource group**: `rg-migration-lab-app` **(2)**
    - **Name**: `law-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
    - **Region**: <inject key="Region" enableCopy="false"></inject> **(4)**
-   ![](../media/law-basics.png)
+
+     ![](../media/132.png)
+
 4. Select **Create** and wait approximately 1 minute for deployment to complete.
-   ![](../media/law-review-create.png)
+
+   ![](../media/133.png)
+
 **Create Application Insights**
  
 5. In the Azure portal search bar, type **Application Insights (1)** and select **Application Insights (2)** under Services.
-   ![](../media/ai-search.png)
+
+   ![](../media/135.png)
+
 6. Select **+ Create**.
-   ![](../media/ai-create.png)
-7. On the **Basics** tab, fill in the following details and select **Review + create**:
-   - **Subscription**: select your Azure subscription **(1)**
-   - **Resource group**: `rg-migration-lab-app` **(2)**
-   - **Name**: `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
-   - **Region**: <inject key="Region" enableCopy="false"></inject> **(4)**
-   - **Resource Mode**: **Workspace-based** **(5)**
-   - **Log Analytics Workspace**: `law-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(6)**
-   ![](../media/ai-basics.png)
+
+   ![](../media/136.png)
+
+7. On the **Basics** tab, fill in the following details and select **Review + create (5)**:
+   - **Subscription**: select your Azure subscription ****
+   - **Resource group**: `rg-migration-lab-app` **(1)**
+   - **Name**: `ai-contoso-<inject key="DeploymentID" enableCopy="false"/>` **(2)**
+   - **Region**: <inject key="Region" enableCopy="false"></inject> **(3)**
+   - **Log Analytics Workspace**: `law-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(4)**
+
+     ![](../media/137.png)
+
 8. Select **Create** and wait approximately 1 minute for deployment to complete. Then select **Go to resource**.
-   ![](../media/ai-review-create.png)
+
+   ![](../media/138.png)
+
 **Copy the Instrumentation Key**
  
 9. On the Application Insights overview page, locate the **Instrumentation Key** field and select the copy icon next to it.
@@ -71,11 +86,11 @@ In this task, you provision the App Service Plan and the Web App using the **Azu
 
 1. In the **Azure portal**, type **App Services (1)** in the search bar and select **App Services (2)** under Services.
 
-   ![](../media/appservice-search.png)
+   ![](../media/139.png)
 
 2. Select **+ Create** **(1)** - **Web App** **(2)**.
 
-   ![](../media/appservice-create.png)
+   ![](../media/140.png)
 
 3. On the **Basics** tab, fill in the following details:
 
@@ -83,15 +98,17 @@ In this task, you provision the App Service Plan and the Web App using the **Azu
    - **Resource group**: `rg-migration-lab-app` **(2)**
    - **Name**: `app-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
    - **Publish**: **Code** **(4)**
-   - **Runtime stack**: **Node 20 LTS** **(5)**
+   - **Runtime stack**: **Node 22 LTS** **(5)**
    - **Operating System**: **Linux** **(6)**
    - **Region**: <inject key="Region" enableCopy="false"></inject> **(7)**
 
-   ![](../media/appservice-basics.png)
+     ![](../media/141.png)
 
-4. Under **Pricing plans**, select **Create new** and name it `asp-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`. Select **Standard S1** from the plan size options.
+4. Under **Pricing plans**, select **Create new** and name it `asp-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`. 
 
-   ![](../media/appservice-plan.png)
+    ![](../media/142.png)
+
+1. Select **Standard S1** from the plan size options.
 
    > **Note**: Standard S1 is the minimum tier that supports VNet integration and custom domains. Do not select Free or Basic.
 
@@ -99,24 +116,20 @@ In this task, you provision the App Service Plan and the Web App using the **Azu
 
 6. On the **Networking** tab, set **Enable public access** to **On**. Leave all other settings as default and select **Next: Monitoring**.
 
+    ![](../media/144.png)
+
 7. On the **Monitoring** tab:
 
    - **Enable Application Insights**: **Yes** **(1)**
    - **Application Insights**: select **Select existing (2)** - choose `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
 
-   ![](../media/appservice-monitoring.png)
+     ![](../media/145.png)
 
 8. Select **Review + create**, review the summary, then select **Create**.
 
-   ![](../media/appservice-review-create.png)
-
 9. Wait approximately 2-3 minutes for deployment to complete, then select **Go to resource**.
 
-   ![](../media/appservice-go-to-resource.png)
-
 10. On the App Service overview page, note the **Default domain** value - this is your application URL. It follows the format `app-contoso-<DeploymentID>.azurewebsites.net`.
-
-    ![](../media/appservice-overview.png)
 
 The App Service Plan and App Service are created.
 
@@ -130,11 +143,7 @@ All steps are performed in the **Azure portal** on the App Service you just crea
 
 **Add Application Settings**
 
-1. In the App Service left navigation, select **Environment variables**.
-
-   ![](../media/appservice-envvars.png)
-
-2. Under the **App settings** tab, select **+ Add** for each of the following settings. Enter the **Name** and **Value** for each and select **Apply** after each one:
+1. In the App Service left navigation, select **Environment variables**. Under the **App settings** tab, select **+ Add** for each of the following settings. Enter the **Name** and **Value** for each and select **Apply** after each one:
 
    | Name | Value |
    | --- | --- |
@@ -146,14 +155,15 @@ All steps are performed in the **Azure portal** on the App Service you just crea
    | `APPINSIGHTS_INSTRUMENTATIONKEY` | paste the value from `$AI_KEY` (saved in Task 1, Step 9) |
    | `WEBSITE_NODE_DEFAULT_VERSION` | `~22` |
 
-   ![](../media/appservice-add-setting.png)
+   ![](../media/146.png)
+
+   ![](../media/147.png)
 
    > **Note**: App Service Application Settings are injected as environment variables at runtime. The `process.env.DB_SERVER` calls in the application code read these values automatically - no code changes are needed.
 
 3. Once all seven settings are added, select **Apply** **(1)** then **Confirm** **(2)** to save all settings.
 
-   ![](../media/appservice-settings-save.png)
-
+   ![](../media/148.png)
 
 <!---
 **Set the startup command**
@@ -178,7 +188,7 @@ All steps are performed in the **Azure portal** on the App Service you just crea
 
 8. Scroll to **Platform settings** and set **HTTPS Only** to **On**.
 
-   ![](../media/appservice-https-only.png)
+   ![](../media/149.png)
 
 9. Select **Save** and **Continue** when prompted.
 
@@ -192,15 +202,49 @@ In this task, you create a deployment zip from the application files on the VM a
 
 All steps use **PowerShell on the VM**.
 
-2. Restart your web app
+1. Restart your web app
+
+   ![](../media/res.png)
 
 1. Go to your Visual studio and install the **Azure App Service Extension**
 
-2. go to you src folder and create a file name package.json and paste the same content of the file 
+    ![](../media/155.png)
 
 3. now right click on the **Contoso-retail folder...** folder and click on the **Deploy to Web App**
 
-4. follow the sign in process
+    ![](../media/155.png)
+
+4. follow the sign in process.
+
+    ![](../media/156.png)
+
+1. Click Allow in The extension Azure Resources wants to sign in using Microsoft.
+
+    ![](../media/157.png)
+
+2. You'll see the **Sign into Microsoft Azure** tab. Here, enter your **credentials (1)** and select **Next (2)**:
+
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+
+     ![Enter Your Username](../media/158.png)
+
+3. Next, provide your **Temporary Access Pass(1)** and select **Sign In (2)**:
+
+       - Enter **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
+
+          ![](../media/159.png)
+
+1. Click **No, this app only.**
+
+     ![](../media/160.png)
+
+1. Select web app service and click on Deploy.
+
+    ![](../media/161.png)
+
+    ![](../media/162.png)
+
+    ![](../media/163.png)
 
 5. Now you will see the succeed message 
 
@@ -268,26 +312,22 @@ In this task, you configure VNet integration and access restrictions using the *
 
 1. In the App Service left navigation, select **Settings** - **Networking**.
 
-   ![](../media/appservice-networking.png)
-
 2. Under **Outbound traffic configuration**, select **VNet integration**.
-
-   ![](../media/appservice-vnet-integration.png)
 
 3. Select **Add VNet integration**.
 
-   ![](../media/appservice-vnet-add.png)
+   ![](../media/150.png)
 
 4. In the **Add VNet Integration** panel, fill in the following and select **Connect**:
 
    - **Virtual Network**: `vnet-migration-lab` **(1)**
    - **Subnet**: `snet-appservice` **(2)**
 
-   ![](../media/appservice-vnet-connect.png)
+     ![](../media/151.png)
 
 5. Wait approximately 1 minute. Confirm the VNet integration shows as **Connected** with subnet `snet-appservice`.
 
-   ![](../media/vnet-integration-connected.png)
+   ![](../media/152.png)
 
    > **Note**: VNet integration enables the App Service to make **outbound** calls to private resources inside the VNet (such as a future Private Endpoint on Azure SQL in Phase 2). It does not affect inbound access to the App Service.
 
@@ -325,7 +365,11 @@ In this task, you confirm the application is running correctly on Azure App Serv
 
 1. In the App Service overview page, select the **Default domain** link to open the application in a new browser tab.
 
-   ![](../media/appservice-default-domain.png)
+   ![](../media/153.png)
+
+1. Once you open the URL you will be getting as below screenshots.
+
+    ![](../media/apppp.png)
 
 2. Verify the following:
 
