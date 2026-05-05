@@ -1,4 +1,4 @@
-# HOL 1: Exercise 3: Migrating your applications and data by utilizing Microsoft services and tools, such as Azure Migrate: Server Migration
+# Exercise 4: Migrating your applications and data by utilizing Microsoft services and tools, such as Azure Migrate: Server Migration
 
 ### Estimated duration: 60 Minutes
 
@@ -147,7 +147,7 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="2eb6b36f-a031-40f0-8bad-a1748a3c532a" />
+     <validation step="8a37f248-1601-4792-826f-6803e1da3d29" />
 
 ### Task 3: Enable Replication from Hyper-V to Azure Migrate
 
@@ -233,7 +233,7 @@ In this task, you will configure and enable the replication of your on-premises 
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="b38db9a2-1678-47a6-a053-c863b83f8ada" />
+     <validation step="98ad27ed-8fd0-4636-a4f7-7b4a3ec0ef81" />
 
 ### Task 4: Configure Networking
 
@@ -312,7 +312,7 @@ In this task, you will perform a migration of the UbuntuWAF, smarthotelweb1, and
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="db5d197a-151d-4987-8011-9568dc93e642" />
+     <validation step="fd09081f-5887-4bfc-b449-2838bce31137" />
 
 ## Summary 
 

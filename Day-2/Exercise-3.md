@@ -1,4 +1,4 @@
-# HOL 1: Exercise 2: Set up your Environment on Azure to Migrate Servers
+# Exercise 3: Set up your Environment on Azure to Migrate Servers
 
 ### Estimated duration: 30 Minutes
 
@@ -71,7 +71,7 @@ In this task, you will create a migration assessment for the SmartHotel applicat
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="a562ccd3-36aa-4650-afc6-05e2048bc3f2" />
+     <validation step="a71853d9-2230-4120-8383-807864055494" />
 
 ### Task 2: Configure dependency visualization
 
@@ -262,7 +262,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="d14e0cfe-d2dd-42a0-b16d-08a9dec2913c" />
+     <validation step="ec4bdb70-5b6d-426a-b9a9-e751b1772849" />
 
 ## Summary 
 
