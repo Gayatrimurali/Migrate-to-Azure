@@ -219,7 +219,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
 1. Open **PowerShell as Administrator** on the VM and set the DR region variable:
 
    ```powershell
-   $LOCATION_DR    = "westus"
+   $DEPLOYMENT_ID  = Your DID
+   $LOCATION_DR    = "westcentralus"
    $RG_DR          = "rg-migration-lab-dr"
    $APP_PLAN_DR    = "asp-contoso-dr-$DEPLOYMENT_ID"
    $APP_NAME_DR    = "app-contoso-dr-$DEPLOYMENT_ID"
@@ -271,44 +272,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
        WEBSITE_NODE_DEFAULT_VERSION="~22"
    ```
 
-6. Deploy the same application package to the DR App Service:
 
-   ```powershell
-   az webapp deploy `
-     --name $APP_NAME_DR `
-     --resource-group $RG_DR `
-     --src-path "C:\apps\contoso-retail-deploy.zip" `
-     --type zip `
-     --restart true
-   ```
-
-7. Enforce HTTPS on the DR App Service:
-
-   ```powershell
-   az webapp update `
-     --name $APP_NAME_DR `
-     --resource-group $RG_DR `
-     --https-only true
-   ```
-
-8. Set the startup command:
-
-   ```powershell
-   az webapp config set `
-     --name $APP_NAME_DR `
-     --resource-group $RG_DR `
-     --startup-file "node src/app.js"
-   ```
-
-9. Verify the DR App Service is running:
-
-   ```powershell
-   az webapp show `
-     --name $APP_NAME_DR `
-     --resource-group $RG_DR `
-     --query "{Name:name, State:state, URL:defaultHostName}" `
-     --output table
-   ```
+1. Navigate to your VS Code and right click on the **Contoso-retail ** and deploy to azure and select the newely created web app.
 
    Open the DR URL in a browser and confirm the products page loads correctly.
 
@@ -362,14 +327,14 @@ The remaining steps are performed in the **Azure portal**.
 17. Select **+ Add** again and fill in the following:
 
     - **Type**: **Azure endpoint** **(1)**
-    - **Name**: `secondary-westus` **(2)**
+    - **Name**: `secondary-westcentralus` **(2)**
     - **Target resource type**: **App Service** **(3)**
     - **Target resource**: `app-contoso-dr-<inject key="DeploymentID" enableCopy="false"></inject>` **(4)**
     - **Priority**: `2` **(5)**
 
     ![](../media/tm-endpoint-secondary.png)
 
-18. Select **Add**. Both endpoints should now appear with status **Online**.
+18. Select **Add**. Both endpoints should now appear with status **Enable**.
 
     ![](../media/tm-endpoints-online.png)
 

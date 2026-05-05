@@ -198,7 +198,7 @@ All steps use **PowerShell on the VM**.
 
 2. go to you src folder and create a file name package.json and paste the same content of the file 
 
-3. now right click on the Src folder and click on the **Deploy to Web App**
+3. now right click on the **Contoso-retail folder...** folder and click on the **Deploy to Web App**
 
 4. follow the sign in process
 
