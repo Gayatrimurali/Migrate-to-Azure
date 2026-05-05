@@ -39,9 +39,9 @@ In this task, you will familiarize yourself with the structure and purpose of Az
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="54417c41-290c-4fae-93a9-915874b999d8" />
+<validation step="dfa3d6a9-445b-41bb-a9bc-e96373afe2f8" />
 
-<validation step="83f6f3de-ba35-41a3-bbb4-da3af90db478" />
+<validation step="3c8aeede-55a0-4c8a-a791-621fc2ea6c77" />
 
 ### Task 2:  Review Azure Policy assignments and assess compliance and security posture
 In this task, you will review policy assignments across management groups and subscriptions, ensuring governance and security standards are enforced. You will also verify compliance status, identify non-compliant resources, and understand the scope and impact of applied policies.
@@ -127,7 +127,7 @@ In this task, you will review policy assignments across management groups and su
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="0bbb1f34-8ee9-41a5-ae28-9b86cf4faf2b" />
+<validation step="1a45f29f-e8ae-4ba9-96f4-175566215d1d" />
 
 ## Summary
 

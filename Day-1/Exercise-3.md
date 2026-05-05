@@ -53,7 +53,7 @@ In this task, you will add a subscription to the Application Landing Zone Manage
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="bb58a21f-947a-4209-bd50-3864c568fded" />
+<validation step="ae768f3e-3b86-4b68-bea7-a5b1d8daa641" />
 
 ### Task 2: Governance and Security for the Management group
 In this task, you will assign a policy and implement governance to the Landing Zone (LZ) Management Group to enforce organizational standards, ensure compliance, and manage resources effectively. 
@@ -123,7 +123,7 @@ In this task, you will assign a policy and implement governance to the Landing Z
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="a7b1d886-ad42-492c-9c07-2c8dd6e2a8d4" />
+<validation step="8ce1fec2-692b-47b7-be06-4c881a00036d" />
 
 ## Summary
 

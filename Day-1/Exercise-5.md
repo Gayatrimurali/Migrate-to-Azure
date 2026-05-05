@@ -111,7 +111,7 @@ In this task, you will enable public network access for your App Service to ensu
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="c414faa3-0693-45f3-88e7-514b147d2fcd" />
+<validation step="b7840d25-0f8a-4383-835e-2f22caabd859" />
 
 ## Summary 
 

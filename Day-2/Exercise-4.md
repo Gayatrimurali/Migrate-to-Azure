@@ -70,7 +70,7 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
      ![](Images/AIM-image40.png)
 
-1. On the  **Azure Migrate | Servers, databases and web apps** page, expand **Migration goals (1)** from the left menu, then select **Servers, databases and web apps (2)**. Scroll down, under **Migration tools**, click **Discover (3)**.
+1. On the  **Azure Migrate | Servers, databases and web apps** page, expand **Migration goals (1)** from the left menu, then select **Servers, databases and web apps (2)**. Scroll down, under **Migration tools**, click **Discover (3)** and select **Using appliance (4)**.
    
      ![](Images/15-7-25-l3-7.png)
 
