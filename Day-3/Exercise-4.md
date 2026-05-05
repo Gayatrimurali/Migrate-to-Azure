@@ -34,6 +34,10 @@ In this task, you will examine the on-premises .NET application hosted on IIS an
    
      ![](media/rdp33.png) 
 
+1. Next, click on the **Yes** button to accept the certificate and add in trusted certificates.
+
+   ![](media/rdp4.png)
+
 1. On the Microsoft Edge browser window, enter **localhost** and you will be redirected to the Parts Unlimited web application hosted on the web server.
 
    ![](media/localhost_new.png)
@@ -57,27 +61,29 @@ In this task, you will examine the on-premises .NET application hosted on IIS an
    
      ![](media/rdp3new.png) 
 
-6. Next, click on the **Yes** button to accept the certificate and add in trusted certificates.
+1. Next, click on the **Yes** button to accept the certificate and add in trusted certificates.
 
    ![](media/rdp4.png)
    
-7. Click the **Start** button on the SQLVM. 
+1. Click the **Start** button on the SQLVM. 
 
-    ![](media/m4.png)
+    ![](media/m4new.png)
 
-1. In the search box, type **SQL Server Management (1)**, then select **Microsoft SQL Server (2)** from the search results.
+1. In the Start click on **search box (1)** , in the search box, type **SQL Server Management (2)**, then select **SQL Server Management studio 20 (3)** from the search results.
 
-    ![](media/sqlserver.png)
+    ![](media/sqlservernew.png)
    
-8. Connect to your on-premises SQL Database by clicking **Connect** in the Object Explorer.
+1. In the **Connect to Server** window, enter the **Server name** as `SqlServer2008` **(1)**, enable **Trust server certificate** **(2)**, and then click on **Connect** **(3)**.
    
-   ![](media/01-04-2024(12).png)
+   ![](media/sqlserver20connect.png)
    
-9. Once connected, expand the **Databases (1)**, and observe that the database is hosting the **Parts Unlimited (2)** web application.
+1. Once connected, expand the **Databases (1)**, and observe that the database is hosting the **Parts Unlimited (2)** web application.
    
    ![](media/m--4.png)
    
-10. Close all the windows and disconnect from the remote session of the SQL VM.
+1. Minimize the remote session of the **SQL VM**. If the minimize button is not visible for SQL VM, resize or drag the control bar of the WebVM to access it. 
+
+    ![](media/resizeconnect.png)
 
 ## Task 2: Perform assessment for migration to Azure App Service
 
@@ -85,27 +91,37 @@ Parts Unlimited would like an assessment to see what potential issues they might
 
 In this task, you will use the App Service Migration Assistant to assess the web application for compatibility with Azure App Service.
 
-1. In the Azure portal, navigate to your **WebVM** VM by selecting the **hands-on-lab-<inject key="DeploymentID" enableCopy="false"/>** resource group, and select the **WebVM** VM from the list of resources.
+1. Click on the **Azure portal** shortcut that is available on the desktop and log in with the below Azure credentials.
+    
+    - Enter your **Username/Email:** <inject key="AzureAdUserEmail"></inject> in the **Sign in** field. Click **Next** to continue.
+      
+      ![](./Images/AIM-image1.png)
+      
+    - **Enter Password:** <inject key="AzureAdUserPassword"></inject> and click **Sign in**
+
+      ![](./Images/AIM-image2.png)
+
+1. In the Azure portal, navigate to your **WebVM** VM by selecting the **hands-on-lab** resource group, and select the **WebVM** VM from the list of resources.
 
     ![The WebVM virtual machine is highlighted in the list of resources.](media/3.1.1.png "WebVM Selection")
 
-2. On the WebVM Virtual Machine's **Overview (1)** Blade, copy the **Public IP address (2)**.
+1. On the WebVM Virtual Machine's **Overview (1)** Blade, copy the **Public IP address (2)**.
 
     ![](media/vmip.png)
 
-3. Open a new browser window and navigate to the **IP Address** you have copied. You may see a different image on the web app while accessing it, as there are multiple images moving on the web app page.
+1. Open a new browser window and navigate to the **IP Address** you have copied. You may see a different image on the web app while accessing it, as there are multiple images moving on the web app page.
 
     ![](media/pipedge.png)
 
-4. Minimize the browser window and open the **AppServiceMigrationAssistant** located on the Desktop.
+1. Minimize the browser window and open the **AppServiceMigrationAssistant** located on the Desktop.
 
     ![](media/asma.png)
 
-5. Once the App Service Migration Assistant discovers the websites available on the server, choose **Default Web Site (1)** for migration and select **Next (2)** to start the assessment.
+1. Once the App Service Migration Assistant discovers the websites available on the server, choose **Default Web Site (1)** for migration and select **Next (2)** to start the assessment.
 
     ![](media/dfltweb.png)
 
-6. Observe the result of the assessment report. In our case, our application has successfully passed 13 tests **(1)** with no additional actions needed. Now that our assessment is complete, select **Next (2)** to proceed with the migration.
+1. Observe the result of the assessment report. In our case, our application has successfully passed 13 tests **(1)** with no additional actions needed. Now that our assessment is complete, select **Next (2)** to proceed with the migration.
 
    ![](media/asmnt.png)
 
