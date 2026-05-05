@@ -250,7 +250,7 @@ In this task, you configure **Azure Monitor alerts** to notify you when the appl
 
 All steps are performed in the **Azure portal**.
 
-**Create an alert for HTTP 5xx errors**
+**Create an alert for HTTP 4xx errors**
 
 1. In the **Azure portal**, navigate to your App Service `app-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`.
 
@@ -266,7 +266,7 @@ All steps are performed in the **Azure portal**.
 
    ![](../media/monitor-condition-add.png)
 
-5. In the **Select a signal** panel, search for `Http 5xx` **(1)** and select **Http 5xx (2)**.
+5. In the **Select a signal** panel, search for `Http 5xx` **(1)** and select **Http 4xx (2)**.
 
    ![](../media/monitor-signal-5xx.png)
 
@@ -274,7 +274,7 @@ All steps are performed in the **Azure portal**.
 
    - **Threshold**: **Static** **(1)**
    - **Aggregation type**: **Total** **(2)**
-   - **Operator**: **Greater than** **(3)**
+   - **Value is**: **Greater than** **(3)**
    - **Threshold value**: `5` **(4)**
    - **Check every**: **1 minute** **(5)**
    - **Lookback period**: **5 minutes** **(6)**
