@@ -10,26 +10,28 @@ This exercise applies governance controls and security hardening to the migrated
 
 1. In the Azure portal, search for **Policy** **(1)** and select **Policy** **(2)**.
 
-   ![](../media/policy-search.png)
+   ![](../media/300.png)
 
 2. In the left navigation, select **Assignments**, then **Assign policy**.
 
-   ![](../media/policy-assign.png)
+   ![](../media/301.png)
 
 3. For each policy below, follow the assignment wizard:
 
-**Policy 1: App Service apps should use HTTPS**
+**Policy 1: App Service apps should only be accessible over HTTPS**
 
 1. On the **Basics** tab:
    - **Scope**: select the `rg-migration-lab` resource group **(1)**
-   - **Policy definition**: search for and select `App Service apps should use HTTPS` **(2)**
-   - **Assignment name**: `Enforce HTTPS on App Services` **(3)**
+   - **Policy definition**: search for and select `App Service apps should only be accessible over HTTPS` **(2)***
 
-     ![](../media/policy-https.png)
+     ![](../media/302.png)
+
+     ![](../media/303.png)
 
 2. Select **Next** through **Parameters** and **Remediation** tabs.
-3. On the **Non-compliance messages** tab, enter: `App Service must use HTTPS for all inbound traffic`.
-4. Select **Review + create**, then **Create**.
+3. On the **Non-compliance messages** tab, enter: `App Service must use HTTPS for all inbound traffic`. Select **Review + create**, then **Create**.
+
+    ![](../media/304.png)
 
 **Policy 2: App Service apps should use the latest TLS version**
 
@@ -37,8 +39,10 @@ This exercise applies governance controls and security hardening to the migrated
 2. On the **Basics** tab:
    - **Scope**: `rg-migration-lab`
    - **Policy definition**: search for `App Service apps should use the latest TLS version`
-   - **Assignment name**: `Enforce latest TLS version`
+
 3. Select **Review + create**, then **Create**.
+
+    ![](../media/305.png)
 
 **Policy 3: App Service apps should have remote debugging turned off**
 
@@ -46,8 +50,10 @@ This exercise applies governance controls and security hardening to the migrated
 2. On the **Basics** tab:
    - **Scope**: `rg-migration-lab`
    - **Policy definition**: search for `App Service apps should have remote debugging turned off`
-   - **Assignment name**: `Disable remote debugging`
+
 3. Select **Review + create**, then **Create**.
+
+    ![](../media/306.png)
 
 **Policy 4: App Service app slots should have resource logs enabled**
 
@@ -55,7 +61,7 @@ This exercise applies governance controls and security hardening to the migrated
 2. On the **Basics** tab:
    - **Scope**: `rg-migration-lab`
    - **Policy definition**: search for `App Service app slots should have resource logs enabled`
-   - **Assignment name**: `Enable resource logging`
+
 3. Select **Review + create**, then **Create**.
 
 **Step 2: Verify policy compliance**
@@ -64,9 +70,9 @@ This exercise applies governance controls and security hardening to the migrated
 2. Filter by scope: `rg-migration-lab`.
 3. Review the compliance state for each assigned policy.
 
-> Note: Policy compliance evaluation can take up to 30 minutes for the initial scan. You may see **Not started** initially.
+    ![](../media/307.png)
 
-   ![](../media/policy-compliance.png)
+    > **Note:** Policy compliance evaluation can take up to 30 minutes for the initial scan. You may see **Not started** initially.
 
 4. If any policy shows **Non-compliant**, navigate to the affected resource and remediate:
    - For HTTPS: In App Service > **Configuration** > **General settings**, set **HTTPS Only** to **On**
@@ -75,7 +81,7 @@ This exercise applies governance controls and security hardening to the migrated
 
 Azure Policies are assigned and compliance is being evaluated.
 
-## Task 2: Configure RBAC for Application Access
+## Task 2: Configure RBAC for Application Access (Read Only)
 
 **Step 1: Create a security group for application operators**
 
@@ -128,11 +134,13 @@ RBAC is configured with least-privilege access.
 
 1. In the Azure portal, search for **Microsoft Defender for Cloud** **(1)** and select it **(2)**.
 
-   ![](../media/defender-search.png)
+    ![](../media/308.png)
 
 2. In the left navigation, select **Environment settings**.
 
 3. Expand the management group/subscription tree and select your subscription.
+
+    ![](../media/309.png)
 
 4. On the **Defender plans** page, ensure the following plans are **On**:
 
@@ -144,77 +152,53 @@ RBAC is configured with least-privilege access.
 
 5. Select **Save**.
 
-   ![](../media/defender-plans.png)
+    ![](../media/310.png)
 
 6. Return to **Defender for Cloud** > **Overview**.
+
 7. Review the **Security posture** score and any recommendations for `rg-migration-lab` resources.
 
    ![](../media/defender-overview.png)
 
-**Step 2: Create an Application Insights resource**
-
-1. In the Azure portal, search for **Application Insights** **(1)** and select **Application Insights** **(2)**.
-
-   ![](../media/appinsights-search.png)
-
-2. Select **+ Create**.
-
-3. Provide the following details:
-
-   - **Subscription**: select your subscription **(1)**
-   - **Resource group**: `rg-migration-lab` **(2)**
-   - **Name**: `ai-contoso-<inject key="Deployment ID" enableCopy="false"></inject>` **(3)**
-   - **Region**: <inject key="Region" enableCopy="false"></inject> **(4)**
-   - **Log Analytics workspace**: Create new or select existing **(5)**
-
-4. Select **Review + create**, then **Create**.
-
-   ![](../media/appinsights-create.png)
-
-5. After creation, copy the **Connection String** from the Overview page.
-
-**Step 3: Connect Application Insights to the App Service**
-
-1. Open **contoso-web-<inject key="Deployment ID" enableCopy="false"></inject>** in the Azure portal.
-2. In the left navigation, select **Application Insights**.
-3. Select **Turn on Application Insights**.
-4. Under **Application Insights resource**, select **Select existing resource** and choose `ai-contoso-<inject key="Deployment ID" enableCopy="false"></inject>`.
-5. Select **Apply**, then confirm.
-
-   ![](../media/appinsights-enable.png)
-
-Alternatively, add the connection string as an Application Setting:
-
-| Name | Value |
-| --- | --- |
-| `APPLICATIONINSIGHTS_CONNECTION_STRING` | (paste the connection string from Application Insights) |
-
 **Step 4: Configure Azure Monitor alerts**
 
-1. In the Azure portal, open **contoso-web-<inject key="Deployment ID" enableCopy="false"></inject>**.
+1. In the Azure portal, open **app-contoso-<inject key="Deployment ID" enableCopy="false"></inject>**.
 2. In the left navigation, select **Alerts** under **Monitoring**.
+
 3. Select **+ Create** > **Alert rule**.
+
+    ![](../media/312.png)
+
 4. Configure the following alert:
 
    | Setting | Value |
    | --- | --- |
-   | **Signal** | Http Server Errors (5xx) |
+   | **Signal** | Http (4xx) |
    | **Threshold** | Greater than 5 |
-   | **Aggregation period** | 5 minutes |
-   | **Frequency** | Every 1 minute |
+
+     ![](../media/313.png)
 
 5. Under **Actions**, select **+ Create action group**:
+
    - **Action group name**: `ag-contoso-alerts`
    - **Notification type**: Email/SMS/Push/Voice
    - **Email**: enter a valid email address for alerts
 
+     ![](../media/315.png)
+
+     ![](../media/316.png)
+
+     ![](../media/317.png)
+
 6. Under **Details**:
-   - **Alert rule name**: `High 5xx Error Rate`
+
+   - **Alert rule name**: `High 4xx Error Rate`
+
    - **Severity**: Sev 2 (Warning)
 
-7. Select **Review + create**, then **Create**.
+     ![](../media/318.png)
 
-   ![](../media/monitor-alert-rule.png)
+7. Select **Review + create**, then **Create**.
 
 **Step 5: Review the monitoring dashboard**
 
@@ -223,10 +207,11 @@ Alternatively, add the connection string as an Application Setting:
    - **Server response time**
    - **Server requests**
    - **Failed requests**
+
+      ![](../media/319.png)
+
 3. Select **Live Metrics** to view real-time telemetry.
 4. Select **Application map** to visualize the application topology and dependencies.
-
-   ![](../media/appinsights-dashboard.png)
 
 Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
@@ -244,23 +229,15 @@ Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
 **Step 2: Verify HTTPS enforcement**
 
-1. Open a browser and navigate to `http://contoso-web-<DeploymentID>.azurewebsites.net` (HTTP, not HTTPS).
+1. Navigate to app service and click on default domain.
+
+    ![](../media/330.png)
+
+1. In the URL make it as http instead of https and hit enter.
+
+    ![](../media/331.png)
+
 2. Verify the browser automatically redirects to `https://contoso-web-<DeploymentID>.azurewebsites.net`.
-
-**Step 3: Review and update access restrictions**
-
-1. In the App Service, select **Networking** > **Access restriction** (under Inbound traffic).
-2. Review the existing access restrictions created in Exercise 2.
-3. Add additional rules as needed:
-
-   | Name | Action | Priority | Type | Source |
-   | --- | --- | --- | --- | --- |
-   | `AllowAzureFrontDoor` | Allow | 200 | Service Tag | AzureFrontDoor.Backend |
-   | `DenyAll` | Deny | 2147483647 | Any | (default unmatched rule) |
-
-4. Select **Save**.
-
-> Note: Custom domain configuration is optional for this lab. The default `*.azurewebsites.net` domain already has TLS enabled.
 
 **Step 5: Final security validation**
 
@@ -271,15 +248,11 @@ Run the following checks to confirm all security controls are in place:
 | HTTPS Only | On | Configuration > General settings |
 | Minimum TLS Version | 1.2 | Configuration > General settings |
 | Remote debugging | Off | Configuration > General settings |
-| Access restrictions | At least 1 Allow rule + default Deny | Networking > Access restriction |
 | VNet integration | Connected | Networking > VNet integration |
 | Defender for App Service | On | Defender for Cloud > Environment settings |
 | Application Insights | Connected | App Service > Application Insights |
 | Alert rule | Active | Monitoring > Alerts |
 | Azure Policy | Assigned (4 policies) | Policy > Assignments |
-| RBAC | Configured | IAM > Role assignments |
-
-   ![](../media/security-checklist.png)
 
 All security and governance controls are in place.
 

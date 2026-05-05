@@ -34,15 +34,11 @@ All steps in this task are performed in the **Azure portal** and then on the **W
 
 1. In the **Azure portal**, type **Azure Arc (1)** in the search bar and select **Azure Arc (2)** under Services.
 
-   ![](../media/arc-search.png)
+   ![](../media/170.png)
 
-2. In the Azure Arc overview page, select **Infrastructure (1)** → **Machines (2)** from the left navigation.
+2. In the Azure Arc overview page, select **Infrastructure (1)** → **Machines (2)** from the left navigation. Select **+ Onboard/Create (3)** → **Onboard existing machines (4)**.
 
-   ![](../media/arc-machines.png)
-
-3. Select **+ Onboard/Create (1)** → **Add a machine (2)**.
-
-   ![](../media/arc-add-machine.png)
+   ![](../media/171.png)
 
 4. On the **Add servers with Azure Arc** page, under **Add a single server**, select **Generate script**.
 
@@ -58,32 +54,47 @@ All steps in this task are performed in the **Azure portal** and then on the **W
    - **Operating system**: **Windows** **(4)**
    - **Connectivity method**: **Public endpoint** **(5)**
 
-   ![](../media/arc-resource-details.png)
+      ![](../media/164.png)
 
 7. On the **Tags** tab, add the following tag and select **Next**:
 
    - **Name**: `Project` — **Value**: `ContosoMigration`
 
+      ![](../media/172.png)
+
 8. On the **Download and run script** tab, select **Download** to download the onboarding script (`OnboardingScript.ps1`).
 
-   ![](../media/arc-download-script.png)
+   ![](../media/173.png)
 
 9. Copy the downloaded script file to your Windows Server VM. You can do this by:
    - Dragging and dropping the file into the RDP session window, or
    - Saving it to a network share or Azure Blob Storage and downloading it from the VM
 
+1. Run the below command in Powershell.
+
    ```
    [System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
    ```
+
+    ![](../media/174.png)
+
+1. Run the below command in Powershell.
 
    ```
    Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
    Stop-Service WindowsAzureGuestAgent -Force -Verbose
    ```
 
+    ![](../media/175.png)
+
+1. Run the below command in Powershell.
+
+
    ```
    New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
    ```
+
+    ![](../media/176.png)
 
 
 10. On the **Windows Server VM**, open **PowerShell as Administrator** and run the onboarding script:
@@ -103,11 +114,8 @@ All steps in this task are performed in the **Azure portal** and then on the **W
     Successfully onboarded machine to Azure Arc
     ```
 
-    ![](../media/arc-onboard-success.png)
 
 13. Back in the **Azure portal**, navigate to **Azure Arc** → **Infrastructure** → **Machines**. Confirm your VM appears in the list with a **Connected** status.
-
-    ![](../media/arc-connected.png)
 
     > **Note**: It may take 1–2 minutes for the VM to appear. Refresh the page if it does not show immediately.
 
@@ -131,9 +139,11 @@ All steps are performed in the **Azure portal**.
 
 1. In the **Azure portal**, type **Storage accounts (1)** in the search bar and select **Storage accounts (2)**.
 
-   ![](../media/storage-search.png)
+    ![](../media/178.png)
 
 2. Select **+ Create**.
+
+    ![](../media/179.png)
 
 3. On the **Basics** tab, fill in the following and select **Review + create**:
 
@@ -144,33 +154,33 @@ All steps are performed in the **Azure portal**.
    - **Performance**: **Standard** **(5)**
    - **Redundancy**: **Locally-redundant storage (LRS)** **(6)**
 
-   ![](../media/storage-basics.png)
+     ![](../media/180.png)
 
 4. Select **Create** and wait for deployment to complete. Then select **Go to resource**.
+
+    ![](../media/181.png)
 
 **Create a Blob Container for backup files**
 
 5. In the storage account left navigation, select **Data storage** → **Containers**.
 
+    ![](../media/182.png)
+
 6. Select **+ Container**, enter the name `appbackups`, set **Anonymous access level** to **Private**, and select **Create**.
 
-   ![](../media/storage-container.png)
+   ![](../media/183.png)
 
 **Configure App Service Backup**
 
 7. In the **Azure portal**, navigate to your App Service `app-contoso-<inject key="DeploymentID" enableCopy="false"></inject>`.
 
-8. In the left navigation, select **Settings** → **Backups**.
+8. In the left navigation, select **Settings** → **Backups**. Select **Configure custom backups**.
 
-   ![](../media/appservice-backups.png)
-
-9. Select **Configure custom backups**.
-
-   ![](../media/appservice-backup-configure.png)
+   ![](../media/184.png)
 
 10. Under **Storage**, select **Select storage** and choose the storage account `stcontoso<inject key="DeploymentID" enableCopy="false"></inject>` and container `appbackups` you created above.
 
-    ![](../media/appservice-backup-storage.png)
+    ![](../media/185.png)
 
 11. Configure the backup  set schedule:
 
@@ -178,17 +188,15 @@ All steps are performed in the **Azure portal**.
     - **Retention**: **7** days **(2)**
     - **Keep at least one backup**: **On** **(3)**
 
-    ![](../media/appservice-backup-schedule.png)
+      ![](../media/186.png)
 
 12. Select **Save**.
 
 13. To take an immediate backup to verify the configuration, select **Backup Now**.
 
-    ![](../media/appservice-backup-now.png)
 
 14. Wait approximately 1–2 minutes, then refresh the page. Confirm a backup entry appears with status **Succeeded**.
 
-    ![](../media/appservice-backup-succeeded.png)
 
 App Service backup is configured and a verified backup exists.
 
@@ -226,6 +234,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
    $APP_NAME_DR    = "app-contoso-dr-$DEPLOYMENT_ID"
    ```
 
+    ![](../media/187.png)
+
 2. Create the DR resource group:
 
    ```powershell
@@ -234,6 +244,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --location $LOCATION_DR `
      --tags Environment=Lab Project=ContosoMigration Purpose=DisasterRecovery
    ```
+
+    ![](../media/189.png)
 
 3. Create the DR App Service Plan:
 
@@ -246,6 +258,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --is-linux
    ```
 
+    ![](../media/190.png)
+
 4. Create the DR App Service with the same runtime:
 
    ```powershell
@@ -255,6 +269,8 @@ All steps use **Azure CLI from PowerShell on the VM**.
      --plan $APP_PLAN_DR `
      --runtime "NODE:22-lts"
    ```
+
+    ![](../media/191.png)
 
 5. Copy the same application settings to the DR App Service:
 
@@ -272,8 +288,9 @@ All steps use **Azure CLI from PowerShell on the VM**.
        WEBSITE_NODE_DEFAULT_VERSION="~22"
    ```
 
+    ![](../media/192.png)
 
-1. Navigate to your VS Code and right click on the **Contoso-retail ** and deploy to azure and select the newely created web app.
+1. Navigate to your VS Code and right click on the **Contoso-retail** and deploy to azure and select the newely created web app.
 
    Open the DR URL in a browser and confirm the products page loads correctly.
 
@@ -285,11 +302,11 @@ The remaining steps are performed in the **Azure portal**.
 
 10. In the **Azure portal**, type **Traffic Manager profiles (1)** in the search bar and select **Traffic Manager profiles (2)**.
 
-    ![](../media/tm-search.png)
+    ![](../media/200.png)
 
 11. Select **+ Create**.
 
-    ![](../media/tm-create.png)
+    ![](../media/201.png)
 
 12. Fill in the following details and select **Create**:
 
@@ -298,7 +315,7 @@ The remaining steps are performed in the **Azure portal**.
     - **Subscription**: select your Azure subscription **(3)**
     - **Resource group**: `rg-migration-lab-app` **(4)**
 
-    ![](../media/tm-basics.png)
+      ![](../media/202.png)
 
     > **Note**: **Priority** routing sends all traffic to the primary endpoint and only fails over to secondary when the primary is unhealthy. This is the correct mode for a DR failover scenario.
 
@@ -310,7 +327,7 @@ The remaining steps are performed in the **Azure portal**.
 
 15. Select **+ Add**.
 
-    ![](../media/tm-endpoint-add.png)
+    ![](../media/204.png)
 
 16. Fill in the following and select **Add**:
 
@@ -320,7 +337,7 @@ The remaining steps are performed in the **Azure portal**.
     - **Target resource**: `app-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(4)**
     - **Priority**: `1` **(5)**
 
-    ![](../media/tm-endpoint-primary.png)
+      ![](../media/205.png)
 
 **Add the Secondary (DR) Endpoint**
 
@@ -332,11 +349,9 @@ The remaining steps are performed in the **Azure portal**.
     - **Target resource**: `app-contoso-dr-<inject key="DeploymentID" enableCopy="false"></inject>` **(4)**
     - **Priority**: `2` **(5)**
 
-    ![](../media/tm-endpoint-secondary.png)
+      ![](../media/206.png)
 
 18. Select **Add**. Both endpoints should now appear with status **Enable**.
-
-    ![](../media/tm-endpoints-online.png)
 
     > **Note**: If the status shows **Checking endpoint**, wait 1–2 minutes and refresh. Traffic Manager performs health checks before marking endpoints online.
 
@@ -392,17 +407,14 @@ In this task, you test the Traffic Manager routing and simulate a failover to co
 
    Confirm the resolved address now points to the DR App Service (`app-contoso-dr-<DeploymentID>.azurewebsites.net`).
 
-   ![](../media/tm-failover-dns.png)
 
 8. Open the Traffic Manager URL in the browser again. Confirm the application is still accessible — now being served from the **West US** DR region.
 
-   ![](../media/tm-failover-verify.png)
 
 **Restore the primary endpoint**
 
 9. In the Azure portal, navigate back to the Traffic Manager profile → **Endpoints** → select **primary-eastus** → set **Status** back to **Enabled** → **Save**.
 
-   ![](../media/tm-enable-primary.png)
 
 10. Wait 1–2 minutes, then run the final readiness check from PowerShell:
 
