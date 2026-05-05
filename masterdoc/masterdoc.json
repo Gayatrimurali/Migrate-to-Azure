@@ -5,7 +5,7 @@
     "BaseURL": "https://github.com/CloudLabsAI-Azure/Migrate-to-Azure",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge0.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/gettingstarted.md",
         "Order": 1
       },
       {
