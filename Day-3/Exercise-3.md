@@ -87,7 +87,7 @@ In this task, you will perform a failover of the replicated VM from on-premises 
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
   
-    <validation step="f6fbc2a8-77d5-4919-8b1c-2525de032bf4" />
+    <validation step="686b754f-1ccf-4f85-9fa5-aa7bb83819e5" />
 
 ## Summary
 

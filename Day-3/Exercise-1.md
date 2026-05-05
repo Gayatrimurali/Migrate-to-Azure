@@ -83,7 +83,7 @@ In this task, you will configure Azure Site Recovery (ASR) to replicate an on-pr
     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
     > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
   
-    <validation step="f3c58f07-0538-48dd-b132-fa421af7a7f7" />
+    <validation step="164e2761-7f80-44d4-94d0-c3ab6f3abfd6" />
    
 ## Summary 
 
