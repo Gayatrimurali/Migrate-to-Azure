@@ -24,7 +24,7 @@ In this task, you will create a new Azure Storage Account that will be used by M
 
 1. In the Azure portal, in the search bar at the top, type **Storage account** **(1)** and select **Storage accounts** **(2)** from the Services list.
 
-   ![](./15-7-25-l3-1.png)
+   ![](Images/15-7-25-l3-1.png)
  
 1. On the **Storage center | Storage accounts (Blobs)** page, click **Create** to start creating a new storage account.
 
@@ -52,15 +52,15 @@ In this task, you will create a new Azure Storage Account that will be used by M
 
 1. On the **Review + create** tab, verify the entered details. Click **Create** to deploy the storage account.
 
-    ![](15-7-25-l3-4.png)
+    ![](Images/15-7-25-l3-4.png)
 
 1. Once the storage account is successfully deployed, select **Go to resource** to open the newly created storage account.
 
-    ![](15-7-25-l3-5.png)
+    ![](Images/15-7-25-l3-5.png)
 
 1. On the **Storage account** page, under **Data management (1)**, select **Data protection (2)** from the left-hand menu and then under the **Recovery** section, **uncheck** the boxes for **Enable soft delete for blobs (3)** and **Enable soft delete for containers (4)**, then click on **Save (5)**.
    
-   ![](15-7-25-l3-6.png)
+   ![](Images/15-7-25-l3-6.png)
 
 ## Task 2: Register the Hyper-V Host with Migration and modernization
 
@@ -72,7 +72,7 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
 1. On the  **Azure Migrate | Servers, databases and web apps** page, expand **Migration goals (1)** from the left menu, then select **Servers, databases and web apps (2)**. Scroll down, under **Migration tools**, click **Discover (3)**.
    
-     ![](./15-7-25-l3-7.png)
+     ![](Images/15-7-25-l3-7.png)
 
 1. On the **Discover** pane, provide the following configuration:
 
@@ -82,43 +82,43 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
    - Check the box to **Confirm the target region for migration is **<inject key="Region"></inject>** (4)**.
    - Click **Create resources (5)** to deploy the necessary Azure Site Recovery resources.
 
-     ![Screenshot of the Azure portal showing the 'Discover machines' panel from Azure Migrate.](./15-7-25-l3-8.png "Discover machines - source hypervisor and target region")
+     ![Screenshot of the Azure portal showing the 'Discover machines' panel from Azure Migrate.](Images/15-7-25-l3-8.png "Discover machines - source hypervisor and target region")
 
      > **Note:** Once deployment is complete, the 'Discover machines' panel should be updated with additional instructions.
   
 1. On the **Discover** pane, under **Prepare Hyper-V host servers**, click the **Download** link to download the **Azure Site Recovery Provider** installer.
 
-     ![Screenshot of the Discover machines' panel from Azure Migrate, highlighting the download link for the Hyper-V replication provider software installer.](./15-7-25-l3-9.png "Replication provider download link")
+     ![Screenshot of the Discover machines' panel from Azure Migrate, highlighting the download link for the Hyper-V replication provider software installer.](Images/15-7-25-l3-9.png "Replication provider download link")
 
 1. Return to the **Discover** page and click the blue **Download** button to download the **registration key file**.
 
-     ![Screenshot of the Discover machines' panel from Azure Migrate, highlighting the download link Hyper-V registration key file.](./15-7-25-l3-10.png "Download registration key file")
+     ![Screenshot of the Discover machines' panel from Azure Migrate, highlighting the download link Hyper-V registration key file.](Images/15-7-25-l3-10.png "Download registration key file")
 
 1. Open the **AzureSiteRecoveryProvider.exe** installer you downloaded a moment ago. On the **Microsoft Update** tab, select **Off (1)** and click on **Next (2)**. On the **Installation** screen, accept the default installation location and click **Install** to begin installation.
 
-    ![](./15-7-25-l3-11.png)
+    ![](Images/15-7-25-l3-11.png)
 
-    ![](15-7-25-l3-12.png)
+    ![](Images/15-7-25-l3-12.png)
 
     > **Note:** If you are prompted with a pop-up, like the latest version of the Provider is installed on this server. Would you like to proceed to registration? select **Yes**. (You can directly jump to the next step in that case.)
 
 1. When the installation has completed, on the **Installation** pane, click on **Register**.
 
-   ![](15-7-25-l3-13.png)
+   ![](Images/15-7-25-l3-13.png)
    
 1. On the **Vault Settings** page, click **Browse (1)** to locate the registration key file you downloaded earlier. In the **Open** dialog, select the downloaded registration key file **(2)**, then click **Open (3)**. Once the key file is loaded, click **Next (4)** to proceed with the registration process.
 
-   ![](15-7-25-l3-15.png)
+   ![](Images/15-7-25-l3-15.png)
 
-   ![](15-7-25-l3-14.png)
+   ![](Images/15-7-25-l3-14.png)
 
 1. On the **Proxy Settings** pane, select **Connect directly to Azure Site Recovery without a proxy server (1)**, then click **Next (2)** to proceed. This will initiate the registration of the Hyper-V host with Azure Site Recovery.
 
-     ![Screenshot of the ASR provider registration settings.](15-7-25-l3-16.png)
+     ![Screenshot of the ASR provider registration settings.](Images/15-7-25-l3-16.png)
 
 1.  On the **Registration** pane, wait for the message **The server was registered in the Azure Site Recovery vault** to appear. Once registration is complete, select **Finish** to close the wizard.
 
-     ![Screenshot of the ASR provider showing successful registration.](15-7-25-l3-17.png "Registration complete")
+     ![Screenshot of the ASR provider showing successful registration.](Images/15-7-25-l3-17.png "Registration complete")
 
     >**Note:** The registration may take about 2-3 minutes to complete.
 
@@ -136,11 +136,11 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
 1. Once registration is complete, confirm the status shows **Registration finalized (1)** under **Registered Hyper-V hosts**. Select **Close (2)** to exit the **Discover machines** panel.
 
-     ![Screenshot of the 'Discover machines' panel from Azure Migrate, showing the 'Registration finalized' message.](15-7-25-l3-18.png "Registration finalized")
+     ![Screenshot of the 'Discover machines' panel from Azure Migrate, showing the 'Registration finalized' message.](Images/15-7-25-l3-18.png "Registration finalized")
 
 1. On the  **Azure Migrate | Servers, databases and web apps** page, In the left-hand navigation pane, expand **Migration goals (1)**, then select **Servers, databases and web apps (2)**. In the **Migration tools** section under **Migration and modernization**, verify that the **Discovered servers** count displays **7** **(3)**.
 
-     ![Screenshot of the 'Azure Migrate - Servers' blade showing 6 discovered servers under 'Azure Migrate: Server Migration'.](15-7-25-l3-19.png "Discovered servers")
+     ![Screenshot of the 'Azure Migrate - Servers' blade showing 6 discovered servers under 'Azure Migrate: Server Migration'.](Images/15-7-25-l3-19.png "Discovered servers")
 
      > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
      > - Hit the Inline Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
@@ -155,7 +155,7 @@ In this task, you will configure and enable the replication of your on-premises 
 
 1. On the  **Azure Migrate | Servers, databases and web apps** page, In the left-hand navigation pane, expand **Migration goals (1)**, then select **Servers, databases and web apps (2)**. In the **Migration tools** section under **Migration and modernization**, select **Replicate** **(3)**.
 
-     ![Screenshot highlighting the 'Replicate' button in the 'Azure Migrate: Server Migration' panel of the Azure Migrate - Servers blade.](15-7-25-l3-20.png "Replicate link")
+     ![Screenshot highlighting the 'Replicate' button in the 'Azure Migrate: Server Migration' panel of the Azure Migrate - Servers blade.](Images/15-7-25-l3-20.png "Replicate link")
    
 1. On the **Specific Intent** page, select the following details:
 
@@ -164,15 +164,15 @@ In this task, you will configure and enable the replication of your on-premises 
     -  Are your machines virtualized? : Select **Yes, with Hyper-V (3)**
     -  Click on **Continue (4)**
 
-       ![](15-7-25-l3-21.png)
+       ![](Images/15-7-25-l3-21.png)
 
 1. On the **Replicate** page, in the **Virtual machines** tab, select **Standard or trusted launch Virtual Machine (1)** under **Target VM security type** section, then under **Import migration settings from an assessment** section, select **Yes, apply migration settings from an Azure Migrate assessment (2)** and select the **SmartHotelAssessment (3)** migration assessment.
 
-     ![Screenshot of the 'Virtual machines' tab of the 'Replicate' wizard in Azure Migrate Server Migration. The Azure Migrate assessment created earlier is selected.](15-7-25-l3-22.png "Replicate - Virtual machines")
+     ![Screenshot of the 'Virtual machines' tab of the 'Replicate' wizard in Azure Migrate Server Migration. The Azure Migrate assessment created earlier is selected.](Images/15-7-25-l3-22.png "Replicate - Virtual machines")
 
 1. The **Virtual machines** tab should now show the virtual machines included in the assessment. Select the **UbuntuWAF**, **smarthotelweb1**, and **smarthotelweb2** virtual machines **(1)**, then select **Next (2)**.
 
-     ![Screenshot of the 'Virtual machines' tab of the 'Replicate' wizard in Azure Migrate Server Migration. The UbuntuWAF, smarthotelweb1, and smarthotelweb2 machines are selected.](15-7-25-l3-23.png "Replicate - Virtual machines")
+     ![Screenshot of the 'Virtual machines' tab of the 'Replicate' wizard in Azure Migrate Server Migration. The UbuntuWAF, smarthotelweb1, and smarthotelweb2 machines are selected.](Images/15-7-25-l3-23.png "Replicate - Virtual machines")
 
 1. On the **Target settings** tab, select the information below,
 
@@ -207,16 +207,16 @@ In this task, you will configure and enable the replication of your on-premises 
    - Select the **Linux** operating system for the **UbuntuWAF** virtual machine. 
    - Click **Next (2)** to proceed. 
 
-     ![](15-7-25-l3-25.png "Replicate - Compute")
+     ![](Images/15-7-25-l3-25.png "Replicate - Compute")
     
 1. In the **Disks** tab, review the settings but do not make any changes. Select **Next** ,then select **Next** in the **Tags** tab, and verify the configuration details, then select **Replicate** to start the server replication.
 
-    ![](15-7-25-l3-26.png)
-    ![](15-7-25-l3-27.png)
+    ![](Images/15-7-25-l3-26.png)
+    ![](Images/15-7-25-l3-27.png)
 
 1. On the **Migration tools**, under **Migration and modernization**, select the **Overview** button.
 
-    ![](15-7-25-l3-28.png)
+    ![](Images/15-7-25-l3-28.png)
     
 1. On the **Azure Migrate: Server Migration** page, confirm that the number next to Azure VM under the **Replicate** section shows 3, indicating three machines are replicating.
 
