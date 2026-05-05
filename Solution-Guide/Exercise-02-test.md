@@ -143,8 +143,8 @@ All steps are performed in the **Azure portal** on the App Service you just crea
    | `DB_USER` | `sqladmin` |
    | `DB_PASSWORD` | `P@ssw0rd2026!` |
    | `PORT` | `8080` |
-   | `APPINSIGHTS_INSTRUMENTATIONKEY` | paste the value from `$AI_KEY` (saved in Task 1, Step 6) |
-   | `WEBSITE_NODE_DEFAULT_VERSION` | `~20` |
+   | `APPINSIGHTS_INSTRUMENTATIONKEY` | paste the value from `$AI_KEY` (saved in Task 1, Step 9) |
+   | `WEBSITE_NODE_DEFAULT_VERSION` | `~22` |
 
    ![](../media/appservice-add-setting.png)
 
@@ -154,6 +154,8 @@ All steps are performed in the **Azure portal** on the App Service you just crea
 
    ![](../media/appservice-settings-save.png)
 
+
+<!---
 **Set the startup command**
 
 4. In the left navigation, select **Configuration** - **General settings** tab.
@@ -167,6 +169,8 @@ All steps are performed in the **Azure portal** on the App Service you just crea
 6. Select **Save** **(1)** then **Continue** **(2)** when prompted.
 
    ![](../media/appservice-startup-command.png)
+
+--->
 
 **Enforce HTTPS**
 
@@ -187,6 +191,20 @@ Application settings are configured and HTTPS is enforced.
 In this task, you create a deployment zip from the application files on the VM and push it to App Service using zip deploy. The `.env` file is explicitly excluded from the package.
 
 All steps use **PowerShell on the VM**.
+
+2. Restart your web app
+
+1. Go to your Visual studio and install the **Azure App Service Extension**
+
+2. go to you src folder and create a file name package.json and paste the same content of the file 
+
+3. now right click on the Src folder and click on the **Deploy to Web App**
+
+4. follow the sign in process
+
+5. Now you will see the succeed message 
+
+<!--
 
 1. Navigate to the application directory:
 
@@ -236,6 +254,8 @@ All steps use **PowerShell on the VM**.
 
    > **Note**: App Service automatically runs `npm install` on the server after receiving the zip - your `node_modules` folder is built in the cloud, not deployed from the VM.
 
+--->
+
 The application is deployed to Azure App Service.
 
 ---
@@ -271,6 +291,8 @@ In this task, you configure VNet integration and access restrictions using the *
 
    > **Note**: VNet integration enables the App Service to make **outbound** calls to private resources inside the VNet (such as a future Private Endpoint on Azure SQL in Phase 2). It does not affect inbound access to the App Service.
 
+
+<!---
 **Configure Access Restrictions**
 
 6. In the **Networking** page, under **Inbound traffic configuration**, select **Access restriction**.
@@ -293,7 +315,7 @@ In this task, you configure VNet integration and access restrictions using the *
 
 Networking is configured.
 
----
+--->
 
 ## Task 6: Validate the Migrated Application
 
@@ -336,41 +358,6 @@ In this task, you confirm the application is running correctly on Azure App Serv
 
    ![](../media/app-insights-transactions.png)
 
-**Run the migration summary**
-
-7. Back in **PowerShell on the VM**, run the following to print a before/after migration summary:
-
-   ```powershell
-   Write-Host "=== MIGRATION SUMMARY ===" -ForegroundColor Cyan
-   Write-Host ""
-   Write-Host "BEFORE (On-Premises VM):" -ForegroundColor Yellow
-   Write-Host "  URL       : http://localhost:8080"
-   Write-Host "  Protocol  : HTTP (no TLS)"
-   Write-Host "  Runtime   : Node.js process on Windows Server VM"
-   Write-Host "  Config    : .env file on disk"
-   Write-Host "  Monitoring: None"
-   Write-Host ""
-   Write-Host "AFTER (Azure App Service):" -ForegroundColor Green
-   $APP_URL = az webapp show `
-     --name $APP_NAME `
-     --resource-group $RG_APP `
-     --query defaultHostName `
-     --output tsv
-   Write-Host "  URL       : https://$APP_URL"
-   Write-Host "  Protocol  : HTTPS (Azure-managed TLS)"
-   Write-Host "  Runtime   : Node.js on Azure App Service (PaaS)"
-   Write-Host "  Config    : App Service Application Settings"
-   Write-Host "  Monitoring: Application Insights ($AI_NAME)"
-   Write-Host ""
-   Write-Host "Migration Status: COMPLETE" -ForegroundColor Green
-   ```
-
-   ![](../media/migration-summary.png)
-
-The application is fully migrated and running on Azure App Service.
-
----
-
 ## Success Criteria
 
 - Log Analytics Workspace `law-contoso-<DeploymentID>` deployed in `rg-migration-lab-app`.
@@ -384,8 +371,6 @@ The application is fully migrated and running on Azure App Service.
 - Home page and products page load correctly at the `azurewebsites.net` URL.
 - VNet integration active and showing `Connected` on `snet-appservice`.
 - Application Insights Live Metrics showing incoming request telemetry.
-
----
 
 ## Learning Outcomes
 

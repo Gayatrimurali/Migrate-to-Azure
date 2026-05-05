@@ -172,7 +172,7 @@ All steps are performed in the **Azure portal**.
 
     ![](../media/appservice-backup-storage.png)
 
-11. Configure the backup schedule:
+11. Configure the backup  set schedule:
 
     - **Backup every**: **1** day **(1)**
     - **Retention**: **7** days **(2)**
