@@ -86,7 +86,7 @@ Virtual network and subnets are configured.
 
 4. In the **Create SQL Database Server** panel:
 
-   - **Server name**: `sql-contoso-<inject key="Deployment ID" enableCopy="false"></inject>` **(1)**
+   - **Server name**: **sql-contoso-<inject key="Deployment ID" enableCopy="false"></inject>** **(1)**
    - **Location**: <inject key="Region" enableCopy="false"></inject> **(2)**
    - **Authentication method**: select **Use SQL authentication** **(3)**
    - **Server admin login**: `sqladmin` **(4)**
@@ -116,7 +116,7 @@ Virtual network and subnets are configured.
 
 **Configure the SQL Server firewall**
  
-8. Navigate back to the SQL Server resource `sql-contoso-<inject key="DeploymentID" enableCopy="false"/>`.
+8. Navigate back to the SQL Server resource **sql-contoso-<inject key="DeploymentID" enableCopy="false"/>**.
  
 9. In the left navigation, select **Networking (1)**.
  
