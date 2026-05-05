@@ -17,6 +17,23 @@ You will be able to complete the following tasks:
 
 In this task, you will examine the on-premises .NET application hosted on IIS and its SQL Server database to understand its architecture and dependencies.
 
+1. From the provided VM, Click on **Start** or **Search (1)** button, Search for **RDP (2)** and select the **Remote Desktop Connection (3)** app.
+
+   ![](media/rdp1.png)
+
+1. Paste the **WebVM DNS Name (1)** in the **Computer** field and click on **Connect (2)**.
+
+   * **WebVM DNS Name**: **<inject key="WebVM DNS Name" style="color:blue" />**
+
+     ![](media/rdp2.png)
+
+1. Now, enter the SQLVM **Username (1)**, and **Password (2)** provided below and then click on the **OK (3)** button. Please add the **dot** and **back-slash** `.\` before the Username.
+
+   * **Username**: **<inject key="SQLVM Username"/>** 
+   * **Password**: **<inject key="SQLVM Password"/>**
+   
+     ![](media/rdp33.png) 
+
 1. On the Microsoft Edge browser window, enter **localhost** and you will be redirected to the Parts Unlimited web application hosted on the web server.
 
    ![](media/localhost_new.png)
@@ -25,7 +42,7 @@ In this task, you will examine the on-premises .NET application hosted on IIS an
 
 1. From the provided VM, Click on **Start** or **Search (1)** button, Search for **RDP (2)** and select the **Remote Desktop Connection (3)** app.
    
-   ![](media/rdp1.png)
+   ![](media/rdp1new.png)
 
 1. Paste the **SQLVM DNS Name (1)** in the **Computer** field and click on **Connect (2)**.
 
@@ -38,7 +55,7 @@ In this task, you will examine the on-premises .NET application hosted on IIS an
    * **Username**: **<inject key="SQLVM Username"/>** 
    * **Password**: **<inject key="SQLVM Password"/>**
    
-     ![](media/rdp3.png) 
+     ![](media/rdp3new.png) 
 
 6. Next, click on the **Yes** button to accept the certificate and add in trusted certificates.
 
