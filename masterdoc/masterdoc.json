@@ -1,0 +1,33 @@
+[
+  {
+    "Name": "Migrate to Azure-Capstone",
+    "Language": "English",
+    "BaseURL": "https://github.com/CloudLabsAI-Azure/Migrate-to-Azure",
+    "Files": [
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge0.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge0.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge1.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge2.md",
+        "Order": 4
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge3.md",
+        "Order": 5
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Challenge-Guide/Challenge4.md",
+        "Order": 6
+      }
+    ]
+  }
+]
