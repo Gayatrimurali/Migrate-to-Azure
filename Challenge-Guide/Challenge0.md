@@ -29,7 +29,7 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 
 4. Open **vnet-migration-lab** → go to **Subnets** → select **snet-appservice** → under **Subnet delegation** choose **Microsoft.Web/serverFarms** → click **Save**.
 
-## Task 3: Deploy Azure SQL Server and Database
+## Task 2: Deploy Azure SQL Server and Database
 
 1. In the **SQL databases**, select **+ Create (1)** a **SQL database (2)**.
 
@@ -115,7 +115,7 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 
       Both queries should return **10** rows.
 
-## Task 4: Set Up and Run the Web Application Locally (On-Premises Simulation)
+## Task 3: Set Up and Run the Web Application Locally (On-Premises Simulation)
 
 1. Open a VS Code 
 
