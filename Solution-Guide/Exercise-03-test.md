@@ -355,6 +355,22 @@ The remaining steps are performed in the **Azure portal**.
 
     > **Note**: If the status shows **Checking endpoint**, wait 1–2 minutes and refresh. Traffic Manager performs health checks before marking endpoints online.
 
+1. If you are getting Monitor status as **Degraded** for Primary please select on pencil icon.
+
+     ![](../media/400.png)
+
+1. Select **Always serve traffic** under Health Checks and then click **Save**.
+
+     ![](../media/401.png)
+
+1. Again click pencil icon and Select **Enable** under Health Checks and then click **Save**.
+
+     ![](../media/402.png)
+
+1. Then you will see the status as online.
+
+     ![](../media/403.png)
+
 Traffic Manager is configured with primary and secondary endpoints.
 
 ---
