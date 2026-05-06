@@ -1,6 +1,6 @@
 # Guided Lab: Azure Migrate Tool Installation-Capstone Project
 
-### Overall Estimated Duration: 4 Hours
+### Overall Estimated Duration: 6 Hours
 
 ## Overview
 
