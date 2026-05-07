@@ -1,5 +1,7 @@
 # Challenge 0: Deploy and Provision Required Azure Resources
 
+## Estimated Duration : 60 Minutes
+
 ## Overview
 
 This exercise provisions all required Azure resources and sets up the web application running on your local machine (simulating an on-premises environment). By the end of this exercise, you will have:
@@ -320,3 +322,7 @@ The sample web application is running locally and ready for migration.
 - Create a virtual network: https://learn.microsoft.com/azure/virtual-network/quick-create-portal
 - Azure SQL Database quickstart: https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart
 - App Service VNet integration: https://learn.microsoft.com/azure/app-service/overview-vnet-integration
+
+Now, click on **Next** from the lower right corner to move on to the next page.
+
+   ![](../media/ggs2.png)

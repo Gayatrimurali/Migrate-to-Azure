@@ -1,5 +1,7 @@
 # Challenge 4: Governance & Security
 
+## Estimated Duration : 60 Minutes
+
 ## Overview
 
 In this challenge, you harden and govern the migrated Contoso Retail workload. A running application in Azure is not complete until it is secured, monitored, and governed. You will apply Azure policies, configure role-based access control, enable Microsoft Defender for Cloud, set up alerting, and secure the application endpoints — including removing hardcoded credentials by moving secrets to Azure Key Vault.

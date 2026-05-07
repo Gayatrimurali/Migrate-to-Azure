@@ -1,5 +1,7 @@
 # Challenge 0 : Deploy and Provision Required Azure Resources
 
+## Estimated Duration : 60 Minutes
+
 ## Overview
 
 This exercise provisions all required Azure resources and sets up the web application running on your local machine (simulating an on-premises environment). By the end of this exercise, you will have:
@@ -178,3 +180,7 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 - SQL Server firewall configured to allow Azure services and your local IP.
 - **Sample web application running locally on `http://localhost:8080`** (on-premises simulation).
 - Home page displays "Welcome to Contoso Retail" and Products page shows 10 products from the database.
+
+Now, click on **Next** from the lower right corner to move on to the next page.
+
+   ![](../media/ggs2.png)

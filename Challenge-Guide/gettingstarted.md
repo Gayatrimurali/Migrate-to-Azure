@@ -42,7 +42,7 @@ Welcome to Unlock Innovation with Agentic AI in Copilot-Studio Hands-On-Lab! , W
  
 Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
 
-   ![](../media/Guide.png)
+   ![](../media/ggs.png)
 
 ## Virtual Machine & Lab Guide
  
@@ -70,7 +70,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
 
 To adjust the zoom level for the environment page, click the A↕ : 100% icon located next to the timer in the lab environment.
 
-![](../media/gs5.png)
+![](../media/ggs1.png)
 
 ## Let's Get Started with Azure Portal
 
@@ -105,6 +105,6 @@ Learner Support Contacts:
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 
-   ![](../media/next1.png)
+   ![](../media/ggs2.png)
 
 ## Happy Learning!!

@@ -1,5 +1,7 @@
 # Challenge 2 : Migration Execution (Web App Modernization)
 
+## Estimated Duration : 120 Minutes
+
 ## Overview
 
 In this challenge, you execute the migration. You will take the Contoso Retail application running on the Windows Server VM and deploy it to **Azure App Service** - converting it from a locally hosted Node.js process to a fully managed PaaS web application.
@@ -204,3 +206,7 @@ By the end of this challenge, you will have:
 - Home page and products page load correctly at the `azurewebsites.net` URL.
 - VNet integration active and showing `Connected` on `snet-appservice`.
 - Application Insights Live Metrics showing incoming request telemetry.
+
+Now, click on **Next** from the lower right corner to move on to the next page.
+
+   ![](../media/ggs2.png)

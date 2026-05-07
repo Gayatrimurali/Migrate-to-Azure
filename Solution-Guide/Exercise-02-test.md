@@ -1,5 +1,7 @@
 # Challenge 2: Migration Execution (Web App Modernization)
 
+## Estimated Duration : 120 Minutes
+
 ## Overview
 
 In this challenge, you execute the migration. You will take the Contoso Retail application running on the Windows Server VM and deploy it to **Azure App Service** - converting it from a locally hosted Node.js process to a fully managed PaaS web application.
@@ -410,3 +412,7 @@ In this task, you confirm the application is running correctly on Azure App Serv
 - App Service Application Settings: https://learn.microsoft.com/azure/app-service/configure-common
 - Application Insights for Node.js: https://learn.microsoft.com/azure/azure-monitor/app/nodejs
 - App Service access restrictions: https://learn.microsoft.com/azure/app-service/app-service-ip-restrictions
+
+Now, click on **Next** from the lower right corner to move on to the next page.
+
+   ![](../media/ggs2.png)

@@ -1,5 +1,7 @@
 # Challenge 1: Migration Design (CAF)
 
+## Estimated Duration : 60 Minutes
+
 ## Overview
 
 In this challenge, you take on the role of a **Cloud Solutions Architect**. Your Windows Server VM - running the Contoso Retail app on `http://localhost:8080` - represents the on-premises data center. Your Azure subscription is the migration target.
@@ -371,4 +373,7 @@ The Landing Zone is validated and ready for Challenge 2.
 - Provision an Azure Landing Zone including resource groups, VNet verification, and NSG.
 - Produce a dependency map and identify all pre-migration actions required.
 
----
+Now, click on **Next** from the lower right corner to move on to the next page.
+
+   ![](../media/ggs2.png)
+

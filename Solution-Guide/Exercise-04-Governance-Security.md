@@ -1,5 +1,7 @@
 # Challenge 4: Governance & Security
 
+## Estimated Duration : 60 Minutes
+
 ## Overview
 
 This exercise applies governance controls and security hardening to the migrated web application. You will assign Azure Policies for App Service compliance, configure RBAC for application access, enable Microsoft Defender for Cloud and Azure Monitor with Application Insights, and secure application endpoints with HTTPS enforcement and access restrictions.
@@ -276,14 +278,6 @@ Evidence to capture:
 - Enforce HTTPS and TLS security on App Service endpoints.
 - Perform a comprehensive security posture validation.
 
-## References
+Now, click on **Next** from the lower right corner to move on to the next page.
 
-- Azure Policy built-in definitions for App Service: https://learn.microsoft.com/azure/app-service/policy-reference
-- Azure RBAC overview: https://learn.microsoft.com/azure/role-based-access-control/overview
-- Azure RBAC built-in roles: https://learn.microsoft.com/azure/role-based-access-control/built-in-roles
-- Microsoft Defender for Cloud: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction
-- Defender for App Service: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-app-service-introduction
-- Application Insights overview: https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview
-- Azure Monitor alerts: https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-overview
-- App Service security best practices: https://learn.microsoft.com/azure/app-service/overview-security
-- Configure TLS mutual authentication: https://learn.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth
+   ![](../media/ggs2.png)
