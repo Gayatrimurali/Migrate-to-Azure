@@ -1,6 +1,6 @@
 # Challenge 2: Migration Execution (Web App Modernization)
 
-## Estimated Duration : 120 Minutes
+### Estimated Duration : 120 Minutes
 
 ## Overview
 
