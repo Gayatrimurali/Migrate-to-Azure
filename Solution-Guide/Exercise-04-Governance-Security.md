@@ -1,4 +1,4 @@
-# Exercise 4: Governance & Security
+# Challenge 4: Governance & Security
 
 ## Overview
 
@@ -6,7 +6,7 @@ This exercise applies governance controls and security hardening to the migrated
 
 ## Task 1: Apply Azure Policies for App Service Compliance
 
-**Step 1: Assign built-in App Service policies**
+In this task, you will assign Azure Policies to enforce security and compliance rules for the App Service environment.
 
 1. In the Azure portal, search for **Policy** **(1)** and select **Policy** **(2)**.
 
@@ -63,8 +63,6 @@ This exercise applies governance controls and security hardening to the migrated
    - **Policy definition**: search for `App Service app slots should have resource logs enabled`
 
 3. Select **Review + create**, then **Create**.
-
-**Step 2: Verify policy compliance**
 
 1. In **Policy**, select **Compliance** in the left navigation.
 2. Filter by scope: `rg-migration-lab`.
@@ -130,7 +128,7 @@ RBAC is configured with least-privilege access.
 
 ## Task 3: Enable Microsoft Defender for Cloud and Azure Monitor
 
-**Step 1: Enable Microsoft Defender for Cloud**
+In this task, you will enable Microsoft Defender for Cloud and configure security monitoring for your Azure resources.
 
 1. In the Azure portal, search for **Microsoft Defender for Cloud** **(1)** and select it **(2)**.
 
@@ -157,10 +155,6 @@ RBAC is configured with least-privilege access.
 6. Return to **Defender for Cloud** > **Overview**.
 
 7. Review the **Security posture** score and any recommendations for `rg-migration-lab` resources.
-
-   ![](../media/defender-overview.png)
-
-**Step 4: Configure Azure Monitor alerts**
 
 1. In the Azure portal, open **app-contoso-<inject key="Deployment ID" enableCopy="false"></inject>**.
 2. In the left navigation, select **Alerts** under **Monitoring**.
@@ -200,8 +194,6 @@ RBAC is configured with least-privilege access.
 
 7. Select **Review + create**, then **Create**.
 
-**Step 5: Review the monitoring dashboard**
-
 1. Open **Application Insights** > `ai-contoso-<inject key="Deployment ID" enableCopy="false"></inject>`.
 2. Review the **Overview** page for:
    - **Server response time**
@@ -217,17 +209,11 @@ Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
 ## Task 4: Secure Application Endpoints
 
-**Step 1: Enforce HTTPS-only**
-
 1. In the Azure portal, open **contoso-web-<inject key="Deployment ID" enableCopy="false"></inject>**.
 2. In the left navigation, select **Configuration** > **General settings**.
 3. Set **HTTPS Only** to **On**.
 4. Set **Minimum TLS Version** to **1.2**.
 5. Select **Save**.
-
-   ![](../media/appservice-https-only.png)
-
-**Step 2: Verify HTTPS enforcement**
 
 1. Navigate to app service and click on default domain.
 
@@ -239,7 +225,7 @@ Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
 2. Verify the browser automatically redirects to `https://contoso-web-<DeploymentID>.azurewebsites.net`.
 
-**Step 5: Final security validation**
+**Final security validation**
 
 Run the following checks to confirm all security controls are in place:
 
@@ -263,18 +249,6 @@ Evidence to capture:
 - Screenshot of Defender for Cloud overview with security posture score.
 - Screenshot of Application Insights overview dashboard.
 - Screenshot of HTTPS Only configuration enabled.
-
-![Azure Policy compliance page showing four assigned policies](../media/ex4-policy-compliance.png)
-> Save your screenshot as `media/ex4-policy-compliance.png`
-
-![RBAC role assignments showing Website Contributor, Reader, SQL DB Contributor, and Monitoring Contributor](../media/ex4-rbac-assignments.png)
-> Save your screenshot as `media/ex4-rbac-assignments.png`
-
-![Microsoft Defender for Cloud overview with security posture score](../media/ex4-defender-overview.png)
-> Save your screenshot as `media/ex4-defender-overview.png`
-
-![Application Insights overview dashboard showing server response time and requests](../media/ex4-appinsights-dashboard.png)
-> Save your screenshot as `media/ex4-appinsights-dashboard.png`
 
 ## Success Criteria
 

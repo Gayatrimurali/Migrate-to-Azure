@@ -12,6 +12,8 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 
 ## Task 1: Deploy the Virtual Network and Subnets
 
+In this task, you will create a virtual network with required subnets to support application, private connectivity, and future integrations.
+
 1. In the Azure portal search bar, type **Virtual networks** **(1)** and select **Virtual networks** **(2)** under Services.
 
    ![](../media/vnet-search.png)
@@ -37,13 +39,13 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 
    - Click on edit icon  and remove any default subnets and add the following subnets:
 
-   | Subnet name | Address range | Purpose |
-   | --- | --- | --- |
-   | `snet-default` | `10.0.0.0/24` | General-purpose subnet **(2)** |
-   | `snet-appservice` | `10.0.1.0/24` | App Service VNet integration (delegated) **(3)** |
-   | `snet-private` | `10.0.2.0/24` | Private endpoints for SQL and other services **(4)** |
+      | Subnet name | Address range | Purpose |
+      | --- | --- | --- |
+      | `snet-default` | `10.0.0.0/24` | General-purpose subnet **(2)** |
+      | `snet-appservice` | `10.0.1.0/24` | App Service VNet integration (delegated) **(3)** |
+      | `snet-private` | `10.0.2.0/24` | Private endpoints for SQL and other services **(4)** |
 
-   ![](../media/vnet-subnets.png)
+     ![](../media/vnet-subnets.png)
 
 6. Select **Review + create (5)**, then select **Create**.
 
@@ -66,6 +68,8 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 Virtual network and subnets are configured.
 
 ## Task 2: Deploy Azure SQL Server and Database
+
+In this task, you will create an Azure SQL Database and configure server settings including firewall access for secure connectivity.
 
 1. In the Azure portal search bar, type **SQL databases** **(1)** and select **Azure SQL Databases** **(2)** under Services.
 
@@ -101,8 +105,6 @@ Virtual network and subnets are configured.
    - **Want to use SQL elastic pool?**: No **(1)**
    - **Workload environment**: Development **(2)**
    - **Compute + storage**: select **Configure database** and choose **Basic** tier (2 GB storage) **(3)**
-
-      ![](../media/101.png)
 
    - **Backup storage redundancy:** select **Locally-redundant backup storage (4)**
 

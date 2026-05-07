@@ -208,7 +208,7 @@ All steps use **PowerShell on the VM**.
 
 1. Go to your Visual studio and install the **Azure App Service Extension**
 
-    ![](../media/155.png)
+    ![](../media/154.png)
 
 3. now right click on the **Contoso-retail folder...** folder and click on the **Deploy to Web App**
 
@@ -372,8 +372,6 @@ In this task, you confirm the application is running correctly on Azure App Serv
     ![](../media/apppp.png)
 
 2. Select **Investigate** - **Transaction search**. Confirm request events are appearing for `/` and `/products`.
-
-   ![](../media/app-azure-home.png)
 
    > **If the products page returns an error**:
    > - In the App Service, go to **Environment variables** and confirm all 7 settings are present

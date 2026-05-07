@@ -164,6 +164,8 @@ The migration strategy is defined and saved.
 
 ## Task 3: Provision the Azure Landing Zone
 
+In this task, you will sign in to Azure CLI and set required environment variables to prepare the deployment environment.
+
 An **Azure Landing Zone** is the target environment prepared to receive the migrated workload - the resource groups, networking, and guardrails that must exist before any application is deployed.
 
 **Target architecture**

@@ -26,9 +26,7 @@ By the end of this challenge, you will have:
 
 ## Task 1: Connect the VM to Azure Arc
 
-**Azure Arc** extends Azure management to resources outside Azure — including on-premises servers, VMs in other clouds, and edge devices. In this task, you onboard the Windows Server VM as an **Arc-enabled server**, making it visible and manageable from the Azure portal just like a native Azure resource.
-
-This simulates the hybrid connectivity step in a real migration where some on-premises servers remain after the application migrates to Azure.
+In this task, you will onboard the Windows Server VM to Azure Arc to enable hybrid management from Azure.
 
 All steps in this task are performed in the **Azure portal** and then on the **Windows Server VM**.
 
@@ -41,8 +39,6 @@ All steps in this task are performed in the **Azure portal** and then on the **W
    ![](../media/171.png)
 
 4. On the **Add servers with Azure Arc** page, under **Add a single server**, select **Generate script**.
-
-   ![](../media/arc-generate-script.png)
 
 5. On the **Prerequisites** tab, review the requirements and select **Next**.
 
@@ -114,14 +110,11 @@ All steps in this task are performed in the **Azure portal** and then on the **W
     Successfully onboarded machine to Azure Arc
     ```
 
-
 13. Back in the **Azure portal**, navigate to **Azure Arc** → **Infrastructure** → **Machines**. Confirm your VM appears in the list with a **Connected** status.
 
     > **Note**: It may take 1–2 minutes for the VM to appear. Refresh the page if it does not show immediately.
 
 14. Select the VM from the list and review the Arc-enabled server overview. Notice that you can now see the VM's **OS**, **CPU**, **memory**, and apply **Azure policies** and **extensions** to it — all from the Azure portal.
-
-    ![](../media/arc-server-overview.png)
 
 The Windows Server VM is now an Azure Arc-enabled server.
 
@@ -292,9 +285,9 @@ All steps use **Azure CLI from PowerShell on the VM**.
 
 1. Navigate to your VS Code and right click on the **Contoso-retail** and deploy to azure and select the newely created web app.
 
-   Open the DR URL in a browser and confirm the products page loads correctly.
+    ![](../media/155.png)
 
-   ![](../media/dr-app-verify.png)
+1. Open the DR URL in a browser and confirm the products page loads correctly.
 
 **Create the Traffic Manager Profile**
 
