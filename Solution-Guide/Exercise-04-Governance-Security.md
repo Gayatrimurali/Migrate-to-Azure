@@ -209,7 +209,9 @@ Microsoft Defender for Cloud and Azure Monitor are fully configured.
 
 ## Task 4: Secure Application Endpoints
 
-1. In the Azure portal, open **contoso-web-<inject key="Deployment ID" enableCopy="false"></inject>**.
+In this task, you will secure the application by enforcing HTTPS and setting the minimum TLS version.
+
+1. In the Azure portal, open **ai-contoso-<inject key="Deployment ID" enableCopy="false"></inject>**.
 2. In the left navigation, select **Configuration** > **General settings**.
 3. Set **HTTPS Only** to **On**.
 4. Set **Minimum TLS Version** to **1.2**.
