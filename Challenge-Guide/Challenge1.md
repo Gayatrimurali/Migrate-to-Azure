@@ -21,8 +21,6 @@ Before any migration execution begins, you complete a **design phase** following
 
 ## Task 1: Discover and Document the Existing Environment
 
-In this task, you run a single discovery script on the VM that captures the environment details and saves them automatically to a report file. This maps to the **Assess** phase of the CAF Migrate methodology.
-
 All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
 
 1. Open **PowerShell as Administrator** on your VM.
@@ -85,6 +83,8 @@ All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
    ```
 
 ## Task 2: Define the Migration Strategy
+
+In this task, you select the migration strategy using the **CAF 7 Rs** framework and save your decision as a formal strategy document.
 
 1. Run the following to create and save the strategy document:
 
@@ -257,6 +257,8 @@ The Landing Zone is provisioned.
 
 ## Task 4: Map Application Dependencies
 
+In this task, you produce a **Dependency Map** for Contoso Retail and save the App Service settings needed in Challenge 2.
+
 1. Test SQL connectivity from the VM to confirm the database is reachable:
 
    ```powershell
@@ -291,8 +293,6 @@ The Landing Zone is provisioned.
 The dependency map is complete and Challenge 2 inputs are saved.
 
 ## Task 5: Validate Landing Zone Readiness
-
-Before moving to Challenge 2, run the readiness check to confirm all components are correctly in place.
 
 1. Run the validation script:
 

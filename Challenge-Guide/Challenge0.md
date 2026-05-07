@@ -31,7 +31,7 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
 
 ## Task 2: Deploy Azure SQL Server and Database
 
-1. In the **SQL databases**, select **+ Create (1)** a **SQL database (2)**.
+1. In the **SQL databases**, select **+ Create** a **SQL database**.
 
 2. On the **Basics** tab, provide the following details:
 
@@ -49,13 +49,8 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
    - **Password**: `P@ssw0rd2026!` **(5)**
    - **Confirm password**: `P@ssw0rd2026!` **(6)**
    - Select **OK** **(7)**
- 
-15.  Select **Query editor (preview) Sign in using **SQL authentication (2)** and click on **Connect (5)**:
- 
-    - **Login**: `sqladmin` **(3)**
-    - **Password**: `P@ssw0rd2026!` **(4)**
 
-17. Paste and **Run** the following SQL to create the tables and insert sample data:
+17. In Query editor paste and **Run** the following SQL to create the tables and insert sample data:
 
       ```sql
       -- Create Products table
