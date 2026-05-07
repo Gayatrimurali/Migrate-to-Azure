@@ -1,6 +1,6 @@
 # Challenge 0 : Deploy and Provision Required Azure Resources
 
-## Estimated Duration : 60 Minutes
+### Estimated Duration : 60 Minutes
 
 ## Overview
 
