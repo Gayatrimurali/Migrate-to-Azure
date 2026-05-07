@@ -40,9 +40,7 @@ By the end of this challenge, you will have:
 
 1. Assign **Policy 2 — App Service apps should use the latest TLS version**
 
-
 1. Assign **Policy 3 — App Service apps should have remote debugging turned off**
-
 
 1. Assign **Policy 4: App Service app slots should have resource logs enabled**
    
