@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "Migrate to Azure-Capstone",
+    "Language": "English",
+    "BaseURL": "https://github.com/CloudLabsAI-Azure/Migrate-to-Azure",
+    "Files": [
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Solution-Guide/Exercise-00-Deploy-and-Provision-Resources.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Solution-Guide/Exercise-01-test.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Solution-Guide/Exercise-02-test.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Solution-Guide/Exercise-03-test.md",
+        "Order": 4
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/Migrate-to-Azure/refs/heads/Capstone-Project/Solution-Guide/Exercise-04-Governance-Security.md",
+        "Order": 5
+      }
+    ]
+  }
+]
