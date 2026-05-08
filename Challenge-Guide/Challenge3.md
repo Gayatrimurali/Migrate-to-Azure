@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this challenge, you extend the migration with **hybrid connectivity** and **disaster recovery** capabilities. The Windows Server VM — still running the original on-premises application — will be connected to Azure using **Azure Arc**, making it a managed hybrid resource. You will then build a full DR strategy for the migrated App Service workload including backup and regional failover.
+In this challenge, you extend the migration with **hybrid connectivity** and **disaster recovery** capabilities. The Windows Server VM — still running the original on-premises application will be connected to Azure using **Azure Arc**, making it a managed hybrid resource. You will then build a full DR strategy for the migrated App Service workload including backup and regional failover.
 
 By the end of this challenge, you will have:
 
