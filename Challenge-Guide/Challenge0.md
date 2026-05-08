@@ -179,7 +179,7 @@ In this Exercise, you will complete the following task:
    | Database connectivity | Product data (names, categories, prices) comes from Azure SQL |
 
 
-## Success Criteria
+## Summary
 
 In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will also configure networking components such as VNets, subnets, and NSGs, validate Azure infrastructure readiness, and map application dependencies including SQL connectivity and App Service settings. Finally, you will verify the complete migration preparation by generating discovery reports, strategy documents, and readiness validation outputs required for the upcoming migration challenges.
 
