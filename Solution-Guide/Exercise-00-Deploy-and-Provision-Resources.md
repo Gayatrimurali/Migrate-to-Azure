@@ -65,8 +65,6 @@ In this task, you will create a virtual network with required subnets to support
 
    ![](../media/vnet-review-create1.png)
 
-**Delegate the App Service subnet**
-
 1. Open **vnet-migration-lab**, under **Settings** go to **Subnets (1)** from the left navigation, and select the **snet-appservice (2)** subnet.
 
    ![](../media/delegation-1.png)
@@ -96,7 +94,7 @@ In this task, you will create an Azure SQL Database and configure server setting
    - **Database name**: `contosodb` **(2)**
    - **Server**: select **Create new** **(3)**
 
-   ![](../media/sql-create1.png)
+      ![](../media/sql-create1.png)
 
 4. In the **Create SQL Database Server** panel:
 
@@ -125,28 +123,12 @@ In this task, you will create an Azure SQL Database and configure server setting
    ![](../media/sql-review-create.png)
 
 7. Wait for the deployment to complete (approximately 3 to 5 minutes) and select **Go to resource**.
-
-**Configure the SQL Server firewall**
  
-8. Navigate back to the SQL Server resource **sql-contoso-<inject key="DeploymentID" enableCopy="false"/>**.
- 
-9. In the left navigation, select **Networking (1)**.
- 
-10. Under **Public network access**, select **Selected networks (2)**.
- 
-11. Under **Firewall rules**, select **+ Add your client IPv4 address (3)** to allow access from the Azure portal session.
- 
-12. Under **Exceptions**, enable **Allow Azure services and resources to access this server (4)**.
- 
-13. Select **Save (5)**.
+8. Navigate back to the SQL Server resource **sql-contoso-<inject key="DeploymentID" enableCopy="false"/>**, in the left navigation, select **Networking (1)** under **Public network access**, select **Selected networks (2)** under **Firewall rules**, select **+ Add your client IPv4 address (3)** to allow access from the Azure portal session Under **Exceptions**, enable **Allow Azure services and resources to access this server (4)** select **Save (5)**.
  
     ![](../media/sql-firewall.png)
  
     > **Note**: You will also need to add the VM's public IP address. To find it: go to your VM in the portal → copy the **Public IP address** → add it as a new firewall rule in the same **Networking** page.
- 
-Azure SQL Database is provisioned with sample data.
-
-**Seed the database with sample data**
  
 14. In the left navigation of the `contosodb` database, select **Query editor (preview) (1)**.
  
