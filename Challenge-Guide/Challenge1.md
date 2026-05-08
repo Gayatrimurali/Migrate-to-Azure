@@ -360,7 +360,7 @@ The Landing Zone is validated and ready for Challenge 2.
 
 ## Success Criteria
 
-In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will also configure networking components such as VNets, subnets, and NSGs, validate Azure infrastructure readiness, and map application dependencies including SQL connectivity and App Service settings. Finally, you will verify the complete migration preparation by generating discovery reports, strategy documents, and readiness validation outputs required for the upcoming migration challenges.
+In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will configure Azure networking resources, validate SQL connectivity, map application dependencies, and prepare App Service configuration settings required for the migration process. Finally, you will validate the Landing Zone readiness by reviewing resource groups, subnets, NSG rules, and migration strategy outputs to ensure the environment is ready for the next migration challenge.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 
