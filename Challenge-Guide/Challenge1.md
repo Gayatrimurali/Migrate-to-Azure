@@ -1,6 +1,6 @@
 # Challenge 1: Migration Design (CAF)
 
-### Estimated Duration : 60 Minutes
+#### Estimated Duration : 60 Minutes
 
 ## Overview
 
