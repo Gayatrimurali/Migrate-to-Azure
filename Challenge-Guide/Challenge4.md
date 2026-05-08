@@ -1,6 +1,6 @@
 # Challenge 4: Governance & Security
 
-## Estimated Duration : 60 Minutes
+### Estimated Duration : 60 Minutes
 
 ## Overview
 
