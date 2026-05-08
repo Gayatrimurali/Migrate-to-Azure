@@ -24,7 +24,7 @@ In this Exercise, you will complete the following task:
    - Task 3: Enable Microsoft Defender for Cloud
    - Task 4: Secure Application Endpoints
 
-**Prerequisites**:
+## Prerequisites:
 - Challenge 3 completed Traffic Manager and DR App Service in place
 - PowerShell session variables still set (`$APP_NAME`, `$RG_APP`, etc.)
 - VM connected via RDP
