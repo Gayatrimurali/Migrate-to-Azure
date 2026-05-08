@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this challenge, you harden and govern the migrated Contoso Retail workload. A running application in Azure is not complete until it is secured, monitored, and governed. You will apply Azure policies, configure role-based access control, enable Microsoft Defender for Cloud, set up alerting, and secure the application endpoints — including removing hardcoded credentials by moving secrets to Azure Key Vault.
+In this challenge, you harden and govern the migrated Contoso Retail workload. A running application in Azure is not complete until it is secured, monitored, and governed. You will apply Azure policies, configure role-based access control, enable Microsoft Defender for Cloud, set up alerting, and secure the application endpoints including removing hardcoded credentials by moving secrets to Azure Key Vault.
 
 By the end of this challenge, you will have:
 
@@ -15,12 +15,17 @@ By the end of this challenge, you will have:
 - Application endpoints secured with HTTPS enforcement and access restrictions
 - Database credentials moved from App Settings to Azure Key Vault
 
-> **Note**: This challenge uses a mix of the **Azure portal** and **Azure CLI on the VM**. Each task clearly states which method to use.
+## Objectives
 
-**Estimated Duration**: 75 minutes
+In this Exercise, you will complete the following task:
+
+   - Task 1: Apply Azure Policy for App Service Compliance
+   - Task 2: Configure RBAC for Application Access (Read Only)
+   - Task 3: Enable Microsoft Defender for Cloud
+   - Task 4: Secure Application Endpoints
 
 **Prerequisites**:
-- Challenge 3 completed — Traffic Manager and DR App Service in place
+- Challenge 3 completed Traffic Manager and DR App Service in place
 - PowerShell session variables still set (`$APP_NAME`, `$RG_APP`, etc.)
 - VM connected via RDP
 
@@ -94,18 +99,4 @@ Run the following checks to confirm all security controls are in place:
 
 ## Success Criteria
 
-- Azure Policy assigned for HTTPS enforcement, latest TLS version, and resource tagging on `rg-migration-lab-app`.
-- Policy compliance state visible in the Azure portal (evaluation may take up to 15 minutes).
-- RBAC role assignments configured on `rg-migration-lab-app` — Contributor, Reader, and Website Contributor roles assigned.
-- Microsoft Defender for Cloud enabled for Servers, App Service, and Azure SQL Databases plans.
-- Remote debugging recommendation remediated via Defender for Cloud **Fix** action.
-- Azure Monitor alert `alert-5xx-errors` created — triggers on more than 5 HTTP 5xx errors in 5 minutes.
-- Azure Monitor alert `alert-high-response-time` created — triggers when average response time exceeds 3 seconds.
-- Action group `ag-contoso-ops` created with email notification.
-- Key Vault `kv-contoso-<DeploymentID>` created in `rg-migration-lab-app`.
-- Managed Identity enabled on App Service and granted **Key Vault Secrets User** role.
-- Secrets `db-password` and `db-user` stored in Key Vault.
-- App Service `DB_USER` and `DB_PASSWORD` settings updated to Key Vault references.
-- Key Vault references show green **resolved** status in App Service Environment variables.
-- Products page loads correctly after Key Vault references are applied.
-- Final governance summary script executed with all controls verified.
+In this exercise you will secure and govern the migrated Contoso Retail application by applying Azure Policy, configuring RBAC access controls, enabling Microsoft Defender for Cloud, and implementing monitoring and alerting capabilities. You will enforce security compliance rules for App Service, configure role-based permissions, enable Defender plans for Azure resources, and monitor application health using Azure Monitor and Application Insights. Finally, you will validate the security posture by confirming HTTPS enforcement, TLS configuration, VNet integration, Azure Policy assignments, alert rules, and Defender protections for the application environment.
