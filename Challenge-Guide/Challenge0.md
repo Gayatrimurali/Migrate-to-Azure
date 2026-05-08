@@ -12,6 +12,14 @@ This exercise provisions all required Azure resources and sets up the web applic
 
 This local setup simulates your on-premises data center. In Exercise 2, you will migrate this locally running application to Azure App Service.
 
+## Objectives
+
+In this Exercise, you will complete the following task:
+
+   - Task 1: Deploy the Virtual Network and Subnets
+   - Task 2: Deploy Azure SQL Server and Database
+   - Task 3: Set Up and Run the Web Application Locally (On-Premises Simulation)
+
 ## Task 1: Deploy the Virtual Network and Subnets
 
 1. In the Azure portal, create a **Virtual networks**.
