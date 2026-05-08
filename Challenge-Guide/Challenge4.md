@@ -78,7 +78,7 @@ In this Exercise, you will complete the following task:
 
     ![](../media/330.png)
 
-1. In the URL make it as http instead of https and hit enter.
+1. In the browser address bar, replace https with http in the URL and press Enter.
 
     ![](../media/331.png)
 
@@ -97,6 +97,6 @@ Run the following checks to confirm all security controls are in place:
 | Alert rule | Active | Monitoring > Alerts |
 | Azure Policy | Assigned (4 policies) | Policy > Assignments |
 
-## Success Criteria
+## Summary
 
 In this exercise you will secure and govern the migrated Contoso Retail application by applying Azure Policy, configuring RBAC access controls, enabling Microsoft Defender for Cloud, and implementing monitoring and alerting capabilities. You will enforce security compliance rules for App Service, configure role-based permissions, enable Defender plans for Azure resources, and monitor application health using Azure Monitor and Application Insights. Finally, you will validate the security posture by confirming HTTPS enforcement, TLS configuration, VNet integration, Azure Policy assignments, alert rules, and Defender protections for the application environment.
