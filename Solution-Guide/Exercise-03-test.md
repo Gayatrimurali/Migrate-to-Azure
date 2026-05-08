@@ -1,6 +1,6 @@
 # Challenge 3: Hybrid & Disaster Recovery
 
-## Estimated Duration : 60 Minutes
+### Estimated Duration : 60 Minutes
 
 ## Overview
 
