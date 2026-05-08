@@ -92,8 +92,8 @@ All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
    ![](../media/111.png)
 
    > **Note**: In a production migration, this step would use **Azure Migrate** or **Service Map** with agents deployed across all on-premises servers to generate discovery data automatically at scale.
-
-The environment is documented and the report is saved.
+   
+   > **Note**: The environment is documented and the report is saved.
 
 ## Task 2: Define the Migration Strategy
 
@@ -453,8 +453,6 @@ Before moving to Challenge 2, run the readiness check to confirm all components 
    ```
 
    Confirm the file contains the migration strategy and the App Service Application Settings block.
-
-   ![](../media/strategy-doc-verify.png)
 
 The Landing Zone is validated and ready for Challenge 2.
 
