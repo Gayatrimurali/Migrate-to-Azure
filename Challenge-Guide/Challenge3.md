@@ -23,7 +23,7 @@ In this Exercise, you will complete the following task:
    - Task 4: Validate Failover Readiness
 
 **Prerequisites**:
-- Challenge 2 completed — App Service running at `https://app-contoso-<DeploymentID>.azurewebsites.net`
+- Challenge 2 completed App Service running at `https://app-contoso-<DeploymentID>.azurewebsites.net`
 - PowerShell session variables still set (`$APP_NAME`, `$RG_APP`, `$RG_CORE`, etc.)
 - VM connected via RDP
 
