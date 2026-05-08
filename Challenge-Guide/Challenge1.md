@@ -360,24 +360,7 @@ The Landing Zone is validated and ready for Challenge 2.
 
 ## Success Criteria
 
-- Discovery script executed and report auto-saved to `C:\apps\discovery-report.txt`.
-- Migration strategy documented as **Rehost - Replatform (PaaS-first)** and saved to `C:\apps\migration-strategy.txt`.
-- Resource group `rg-migration-lab-app` created and verified as `Succeeded`.
-- VNet `vnet-migration-lab` confirmed with all three subnets from Exercise 0.
-- `snet-appservice` confirmed delegated to `Microsoft.Web/serverFarms`.
-- NSG `nsg-contoso-app` created with port 443 and port 80 inbound allow rules.
-- NSG associated to `snet-appservice` and confirmed via CLI.
-- SQL connectivity confirmed from the VM (`TcpTestSucceeded : True`).
-- App Service Application Settings block saved to `C:\apps\migration-strategy.txt`.
-- Readiness check executed with all resources showing `Succeeded`.
-
-## Learning Outcomes
-
-- Apply the CAF Migrate methodology - Assess, Plan, and Ready phases - to a real workload.
-- Run automated environment discovery using PowerShell and produce a saved report.
-- Select and justify a migration strategy using the CAF 7 Rs framework.
-- Provision an Azure Landing Zone including resource groups, VNet verification, and NSG.
-- Produce a dependency map and identify all pre-migration actions required.
+In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will also configure networking components such as VNets, subnets, and NSGs, validate Azure infrastructure readiness, and map application dependencies including SQL connectivity and App Service settings. Finally, you will verify the complete migration preparation by generating discovery reports, strategy documents, and readiness validation outputs required for the upcoming migration challenges.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 
