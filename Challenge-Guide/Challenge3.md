@@ -1,6 +1,6 @@
 # Challenge 3: Hybrid & Disaster Recovery
 
-## Estimated Duration : 60 Minutes
+### Estimated Duration : 60 Minutes
 
 ## Overview
 
@@ -13,9 +13,14 @@ By the end of this challenge, you will have:
 - A Traffic Manager profile routing traffic across two regions for failover
 - Validated failover readiness for the web workload
 
-> **Note**: This challenge uses a mix of the **Azure portal** and **Azure CLI on the VM**. Each task clearly states which method to use.
+## Objectives
 
-**Estimated Duration**: 75 minutes
+In this Exercise, you will complete the following task:
+
+   - Task 1: Connect the VM to Azure Arc
+   - Task 2: Configure Backup for the App Service
+   - Task 3: Implement Regional Failover with Traffic Manager
+   - Task 4: Validate Failover Readiness
 
 **Prerequisites**:
 - Challenge 2 completed — App Service running at `https://app-contoso-<DeploymentID>.azurewebsites.net`
@@ -244,19 +249,9 @@ By the end of this challenge, you will have:
     | App via Traffic Manager URL | Products page loads successfully |
     | DNS resolves back to primary | After re-enabling, resolves to primary App Service |
 
-## Success Criteria
+## Summary
 
-- Windows Server VM onboarded as an Azure Arc-enabled server with **Connected** status in the portal.
-- Storage account `stcontoso<DeploymentID>` and container `appbackups` created.
-- App Service backup configured with daily schedule and 7-day retention.
-- Manual backup completed with **Succeeded** status.
-- DR resource group `rg-migration-lab-dr` created in West US.
-- DR App Service `app-contoso-dr-<DeploymentID>` deployed in West US with same application and settings.
-- Traffic Manager profile `contoso-tm-<DeploymentID>` created with Priority routing.
-- Primary endpoint (`primary-eastus`, priority 1) and secondary endpoint (`secondary-westus`, priority 2) both showing **Online**.
-- Failover test completed — DNS resolved to DR endpoint when primary was disabled.
-- Primary endpoint re-enabled and DNS resolved back to primary.
-- DR readiness check script executed with all resources showing expected state.
+In this exercise you will connect the on-premises Windows Server VM to Azure Arc, configure backup storage for the migrated App Service, and implement regional disaster recovery using Azure Traffic Manager. You will create and configure a secondary App Service in a disaster recovery region, deploy the Contoso Retail application, configure Traffic Manager endpoints, and enable secure failover routing between primary and secondary regions. Finally, you will validate disaster recovery readiness by testing Traffic Manager routing, simulating regional failover, verifying DNS resolution, and confirming both App Services and endpoints are functioning correctly.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 
