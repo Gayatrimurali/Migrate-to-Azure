@@ -172,11 +172,11 @@ In this Exercise, you will complete the following task:
 7. Open a browser and navigate to `http://localhost:8080`. Verify the following:
 
 
-   | Validation | Expected Result |
-   | --- | --- |
-   | Home page loads | `http://localhost:8080` shows "Welcome to Contoso Retail" |
-   | Products page loads | `http://localhost:8080/products` shows 10 products in a table |
-   | Database connectivity | Product data (names, categories, prices) comes from Azure SQL |
+      | **Validation** | **Expected Result** |
+      | --- | --- |
+      | Home page loads | `http://localhost:8080` shows "Welcome to Contoso Retail" |
+      | Products page loads | `http://localhost:8080/products` shows 10 products in a table |
+      | Database connectivity | Product data (names, categories, prices) comes from Azure SQL |
 
 
 ## Summary
