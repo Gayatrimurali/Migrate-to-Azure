@@ -25,13 +25,6 @@ In this Exercise, you will complete the following task:
    - Task 5: Configure App Service Networking
    - Task 6: Validate the Migrated Application
 
-**Prerequisites**:
-- Challenge 1 completed - Landing Zone provisioned, `C:\apps\migration-strategy.txt` saved
-- PowerShell session variables from Challenge 1 still set (`$APP_NAME`, `$RG_APP`, etc.)
-- Contoso Retail app files at `C:\apps\contoso-retail`
-
-> **If you opened a new PowerShell window**, re-run the variables block from Challenge 1, Task 3, Step 2 before continuing.
-
 ## Task 1: Create Monitoring Resources
 
 1. In the **Azure portal**, create **Log Analytics workspaces**.

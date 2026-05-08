@@ -22,15 +22,6 @@ In this Exercise, you will complete the following task:
    - Task 3: Implement Regional Failover with Traffic Manager
    - Task 4: Validate Failover Readiness
 
-**Prerequisites**:
-- Challenge 2 completed App Service running at `https://app-contoso-<DeploymentID>.azurewebsites.net`
-- PowerShell session variables still set (`$APP_NAME`, `$RG_APP`, `$RG_CORE`, etc.)
-- VM connected via RDP
-
-> **If you opened a new PowerShell window**, re-run the variables block from Challenge 1, Task 3, Step 2 before continuing.
-
----
-
 ## Task 1: Connect the VM to Azure Arc
 
 1. In the Azure portal, search **Azure Arc**, select it, then navigate to **Infrastructure** and select **Machines**.

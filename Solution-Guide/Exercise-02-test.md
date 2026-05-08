@@ -16,14 +16,16 @@ By the end of this challenge, you will have:
 
 > **Note**: This challenge uses a mix of the **Azure portal** and **Azure CLI on the VM**. Each task clearly states which method to use.
 
-**Estimated Duration**: 75 minutes
+## Objectives
 
-**Prerequisites**:
-- Challenge 1 completed - Landing Zone provisioned, `C:\apps\migration-strategy.txt` saved
-- PowerShell session variables from Challenge 1 still set (`$APP_NAME`, `$RG_APP`, etc.)
-- Contoso Retail app files at `C:\apps\contoso-retail`
+In this Exercise, you will complete the following task:
 
-> **If you opened a new PowerShell window**, re-run the variables block from Challenge 1, Task 3, Step 2 before continuing.
+   - Task 1: Create Monitoring Resources
+   - Task 2: Create the App Service Plan and App Service
+   - Task 3: Configure Application Settings and HTTPS
+   - Task 4: Package and Deploy the Application
+   - Task 5: Configure App Service Networking
+   - Task 6: Validate the Migrated Application
 
 ## Task 1: Create Monitoring Resources
  
@@ -380,38 +382,10 @@ In this task, you confirm the application is running correctly on Azure App Serv
    > - In the Azure portal, navigate to the SQL Server - **Networking** - enable **Allow Azure services and resources to access this server** - **Save**
    > - Wait 1-2 minutes and refresh the page
 
-## Success Criteria
+## Summary
 
-- Log Analytics Workspace `law-contoso-<DeploymentID>` deployed in `rg-migration-lab-app`.
-- Application Insights `ai-contoso-<DeploymentID>` deployed and linked to the workspace.
-- App Service Plan `asp-contoso-<DeploymentID>` created at Standard S1 tier with Linux OS.
-- App Service `app-contoso-<DeploymentID>` created with Node.js 20 LTS runtime.
-- All 7 application settings configured in App Service Environment variables.
-- HTTPS-only enforced - HTTP requests redirect to HTTPS automatically.
-- Startup command set to `node src/app.js`.
-- Deployment zip created without `.env` and `node_modules` and deployed via zip deploy.
-- Home page and products page load correctly at the `azurewebsites.net` URL.
-- VNet integration active and showing `Connected` on `snet-appservice`.
-- Application Insights Live Metrics showing incoming request telemetry.
-
-## Learning Outcomes
-
-- Provision Azure App Service Plan and Web App using the Azure portal.
-- Migrate application configuration from a `.env` file to App Service Application Settings.
-- Package a Node.js application and deploy it using zip deploy from Azure CLI.
-- Configure App Service VNet integration for private outbound connectivity via the portal.
-- Validate a migrated web application end-to-end including database connectivity and live monitoring.
-
----
-
-## References
-
-- Azure App Service overview: https://learn.microsoft.com/azure/app-service/overview
-- App Service VNet integration: https://learn.microsoft.com/azure/app-service/overview-vnet-integration
-- Deploy a zip file to App Service: https://learn.microsoft.com/azure/app-service/deploy-zip
-- App Service Application Settings: https://learn.microsoft.com/azure/app-service/configure-common
-- Application Insights for Node.js: https://learn.microsoft.com/azure/azure-monitor/app/nodejs
-- App Service access restrictions: https://learn.microsoft.com/azure/app-service/app-service-ip-restrictions
+In this exercise you will migrate the Contoso Retail application from an on-premises Windows Server VM to Azure App Service by modernizing the application into a fully managed PaaS environment. You will create monitoring resources such as Log Analytics Workspace and Application Insights, configure App Service settings, enable HTTPS, deploy the application package, and integrate the application with Azure Virtual Network.
+Finally, you will validate the migrated application by testing application functionality, verifying secure HTTPS access, confirming database connectivity, and reviewing Application Insights telemetry and migration summary outputs. Now, click on **Next** from the lower right corner to move on to the next page.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 

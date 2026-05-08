@@ -6,6 +6,16 @@
 
 This exercise applies governance controls and security hardening to the migrated web application. You will assign Azure Policies for App Service compliance, configure RBAC for application access, enable Microsoft Defender for Cloud and Azure Monitor with Application Insights, and secure application endpoints with HTTPS enforcement and access restrictions.
 
+## Objectives
+
+In this Exercise, you will complete the following task:
+
+   - Task 1: Apply Azure Policy for App Service Compliance
+   - Task 2: Configure RBAC for Application Access (Read Only)
+   - Task 3: Enable Microsoft Defender for Cloud
+   - Task 4: Secure Application Endpoints
+
+
 ## Task 1: Apply Azure Policies for App Service Compliance
 
 In this task, you will assign Azure Policies to enforce security and compliance rules for the App Service environment.
@@ -116,15 +126,11 @@ For each role assignment:
 4. Search for and select the appropriate group or user.
 5. Select **Review + assign**.
 
-   ![](../media/rbac-role-assignment.png)
-
 **Step 3: Verify RBAC assignments**
 
 1. In **Access control (IAM)**, select **Role assignments** tab.
 2. Verify all four role assignments appear in the list.
 3. Select **Check access** and enter a user's name to verify their effective permissions.
-
-   ![](../media/rbac-check-access.png)
 
 RBAC is configured with least-privilege access.
 
@@ -254,29 +260,9 @@ Evidence to capture:
 - Screenshot of Application Insights overview dashboard.
 - Screenshot of HTTPS Only configuration enabled.
 
-## Success Criteria
+## Summary
 
-- Four Azure Policies assigned to `rg-migration-lab`: HTTPS enforcement, latest TLS, remote debugging off, and resource logging.
-- Policy compliance evaluation initiated (or fully compliant).
-- `AppServiceOperators` security group created with appropriate RBAC roles.
-- RBAC roles assigned: Website Contributor, Reader, SQL DB Contributor, and Monitoring Contributor.
-- Microsoft Defender for Cloud enabled for App Service, Azure SQL, and Resource Manager.
-- Application Insights resource created and connected to the App Service.
-- Azure Monitor alert rule created for HTTP 5xx error rate.
-- HTTPS Only set to **On** with minimum TLS version **1.2**.
-- Remote debugging set to **Off**.
-- Access restrictions configured with at least one Allow rule and default Deny.
-- Final security validation checklist completed with all checks passing.
-
-## Learning Outcomes
-
-- Assign and evaluate built-in Azure Policies for App Service compliance.
-- Configure role-based access control (RBAC) using least-privilege principles.
-- Enable Microsoft Defender for Cloud plans for application and data security.
-- Create and connect Application Insights for application performance monitoring.
-- Configure Azure Monitor alert rules for proactive incident detection.
-- Enforce HTTPS and TLS security on App Service endpoints.
-- Perform a comprehensive security posture validation.
+In this exercise you will secure and govern the migrated Contoso Retail application by applying Azure Policy, configuring RBAC access controls, enabling Microsoft Defender for Cloud, and implementing monitoring and alerting capabilities. You will enforce security compliance rules for App Service, configure role-based permissions, enable Defender plans for Azure resources, and monitor application health using Azure Monitor and Application Insights. Finally, you will validate the security posture by confirming HTTPS enforcement, TLS configuration, VNet integration, Azure Policy assignments, alert rules, and Defender protections for the application environment.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 

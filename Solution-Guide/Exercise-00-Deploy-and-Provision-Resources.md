@@ -12,6 +12,14 @@ This exercise provisions all required Azure resources and sets up the web applic
 
 This local setup simulates your on-premises data center. In Exercise 2, you will migrate this locally running application to Azure App Service.
 
+## Objectives
+
+In this Exercise, you will complete the following task:
+
+   - Task 1: Deploy the Virtual Network and Subnets
+   - Task 2: Deploy Azure SQL Server and Database
+   - Task 3: Set Up and Run the Web Application Locally (On-Premises Simulation)
+
 ## Task 1: Deploy the Virtual Network and Subnets
 
 In this task, you will create a virtual network with required subnets to support application, private connectivity, and future integrations.
@@ -301,27 +309,9 @@ The sample web application is running locally and ready for migration.
 
 ## Success Criteria
 
-- Resource group `rg-migration-lab` created in the target region.
-- Virtual network `vnet-migration-lab` deployed with three subnets (`snet-appservice`, `snet-private`, `snet-default`).
-- `snet-appservice` subnet delegated to `Microsoft.Web/serverFarms`.
-- Azure SQL Server and Database deployed with sample data (10 products, 10 orders).
-- SQL Server firewall configured to allow Azure services and your local IP.
-- **Sample web application running locally on `http://localhost:8080`** (on-premises simulation).
-- Home page displays "Welcome to Contoso Retail" and Products page shows 10 products from the database.
+## Summary
 
-## Learning Outcomes
-
-- Provision foundational Azure infrastructure including resource groups, virtual networks, and subnets.
-- Deploy and configure Azure SQL Database with firewall rules and sample data.
-- Understand subnet delegation requirements for Azure App Service VNet integration.
-- Prepare a sample Node.js web application for cloud migration.
-
-## References
-
-- Create a resource group: https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal
-- Create a virtual network: https://learn.microsoft.com/azure/virtual-network/quick-create-portal
-- Azure SQL Database quickstart: https://learn.microsoft.com/azure/azure-sql/database/single-database-create-quickstart
-- App Service VNet integration: https://learn.microsoft.com/azure/app-service/overview-vnet-integration
+In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will also configure networking components such as VNets, subnets, and NSGs, validate Azure infrastructure readiness, and map application dependencies including SQL connectivity and App Service settings. Finally, you will verify the complete migration preparation by generating discovery reports, strategy documents, and readiness validation outputs required for the upcoming migration challenges.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 

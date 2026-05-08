@@ -24,28 +24,19 @@ In this Exercise, you will complete the following task:
    - Task 3: Enable Microsoft Defender for Cloud
    - Task 4: Secure Application Endpoints
 
-## Prerequisites:
-- Challenge 3 completed Traffic Manager and DR App Service in place
-- PowerShell session variables still set (`$APP_NAME`, `$RG_APP`, etc.)
-- VM connected via RDP
-
-> **If you opened a new PowerShell window**, re-run the variables block from Challenge 1, Task 3, Step 2 before continuing.
-
----
-
 ## Task 1: Apply Azure Policy for App Service Compliance
 
 1. Assign policies from Azure portal.
 
-2. **Assign Policy 1 — App Service apps should only be accessible over HTTPS**
+2. **Assign Policy 1: App Service apps should only be accessible over HTTPS**
 
 3. On the **Basics** tab, configure the following:
 
    - **Scope**: select your subscription **(1)** → then select the resource group `rg-migration-lab-app` **(2)** → select **Select**
 
-1. Assign **Policy 2 — App Service apps should use the latest TLS version**
+1. Assign **Policy 2: App Service apps should use the latest TLS version**
 
-1. Assign **Policy 3 — App Service apps should have remote debugging turned off**
+1. Assign **Policy 3: App Service apps should have remote debugging turned off**
 
 1. Assign **Policy 4: App Service app slots should have resource logs enabled**
    

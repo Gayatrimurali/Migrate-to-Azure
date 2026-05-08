@@ -12,16 +12,15 @@ Before any migration execution begins, you complete a **design phase** following
 - A documented migration strategy
 - A provisioned Azure Landing Zone
 
-> **Note**: All steps are performed either in the **Azure portal** or in **PowerShell on your Windows Server VM** via RDP.
+## Objectives
 
-**Estimated Duration**: 60 minutes
+In this Exercise, you will complete the following task:
 
-**Prerequisites**:
-- Exercise 0 completed - Contoso Retail app running on the VM at `http://localhost:8080`
-- Azure CLI installed on the VM (`az --version` returns a version number)
-- Azure SQL Database `contosodb` provisioned with 10 products
-
----
+   - Task 1: Discover and Document the Existing Environment
+   - Task 2: Define the Migration Strategy
+   - Task 3: Provision the Azure Landing Zone
+   - Task 4: Map Application Dependencies
+   - Task 5: Validate Landing Zone Readiness
 
 ## Task 1: Discover and Document the Existing Environment
 
@@ -459,36 +458,9 @@ Before moving to Challenge 2, run the readiness check to confirm all components 
 
 The Landing Zone is validated and ready for Challenge 2.
 
-## Success Criteria
+## Summary
 
-- Discovery script executed and report auto-saved to `C:\apps\discovery-report.txt`.
-- Migration strategy documented as **Rehost - Replatform (PaaS-first)** and saved to `C:\apps\migration-strategy.txt`.
-- Resource group `rg-migration-lab-app` created and verified as `Succeeded`.
-- VNet `vnet-migration-lab` confirmed with all three subnets from Exercise 0.
-- `snet-appservice` confirmed delegated to `Microsoft.Web/serverFarms`.
-- NSG `nsg-contoso-app` created with port 443 and port 80 inbound allow rules.
-- NSG associated to `snet-appservice` and confirmed via CLI.
-- SQL connectivity confirmed from the VM (`TcpTestSucceeded : True`).
-- App Service Application Settings block saved to `C:\apps\migration-strategy.txt`.
-- Readiness check executed with all resources showing `Succeeded`.
-
-## Learning Outcomes
-
-- Apply the CAF Migrate methodology - Assess, Plan, and Ready phases - to a real workload.
-- Run automated environment discovery using PowerShell and produce a saved report.
-- Select and justify a migration strategy using the CAF 7 Rs framework.
-- Provision an Azure Landing Zone including resource groups, VNet verification, and NSG.
-- Produce a dependency map and identify all pre-migration actions required.
-
----
-
-## References
-
-- CAF Migrate methodology: https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/
-- CAF 7 Rs of rationalization: https://learn.microsoft.com/azure/cloud-adoption-framework/digital-estate/5-rs-of-rationalization
-- Azure Landing Zones: https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/
-- Azure Network Security Groups: https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview
-- Azure CLI reference: https://learn.microsoft.com/cli/azure/
+In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will configure Azure networking resources, validate SQL connectivity, map application dependencies, and prepare App Service configuration settings required for the migration process. Finally, you will validate the Landing Zone readiness by reviewing resource groups, subnets, NSG rules, and migration strategy outputs to ensure the environment is ready for the next migration challenge.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 

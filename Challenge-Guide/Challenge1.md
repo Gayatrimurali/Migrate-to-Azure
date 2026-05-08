@@ -22,11 +22,6 @@ In this Exercise, you will complete the following task:
    - Task 4: Map Application Dependencies
    - Task 5: Validate Landing Zone Readiness
 
-**Prerequisites**:
-- Exercise 0 completed - Contoso Retail app running on the VM at `http://localhost:8080`
-- Azure CLI installed on the VM (`az --version` returns a version number)
-- Azure SQL Database `contosodb` provisioned with 10 products
-
 ## Task 1: Discover and Document the Existing Environment
 
 All steps are run inside the **Windows Server VM** via **PowerShell (Admin)**.
@@ -358,7 +353,7 @@ The dependency map is complete and Challenge 2 inputs are saved.
 
 The Landing Zone is validated and ready for Challenge 2.
 
-## Success Criteria
+## Summary
 
 In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will configure Azure networking resources, validate SQL connectivity, map application dependencies, and prepare App Service configuration settings required for the migration process. Finally, you will validate the Landing Zone readiness by reviewing resource groups, subnets, NSG rules, and migration strategy outputs to ensure the environment is ready for the next migration challenge.
 
