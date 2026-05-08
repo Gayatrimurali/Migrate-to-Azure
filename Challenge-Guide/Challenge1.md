@@ -12,9 +12,15 @@ Before any migration execution begins, you complete a **design phase** following
 - A documented migration strategy
 - A provisioned Azure Landing Zone
 
-> **Note**: All steps are performed either in the **Azure portal** or in **PowerShell on your Windows Server VM** via RDP.
+## Objectives
 
-**Estimated Duration**: 60 minutes
+In this Exercise, you will complete the following task:
+
+   - Task 1: Discover and Document the Existing Environment
+   - Task 2: Define the Migration Strategy
+   - Task 3: Provision the Azure Landing Zone
+   - Task 4: Map Application Dependencies
+   - Task 5: Validate Landing Zone Readiness
 
 **Prerequisites**:
 - Exercise 0 completed - Contoso Retail app running on the VM at `http://localhost:8080`
