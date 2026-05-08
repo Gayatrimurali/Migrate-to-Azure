@@ -1,6 +1,6 @@
 # Challenge 2 : Migration Execution (Web App Modernization)
 
-## Estimated Duration : 120 Minutes
+### Estimated Duration : 120 Minutes
 
 ## Overview
 
@@ -14,9 +14,16 @@ By the end of this challenge, you will have:
 - VNet integration configured for private outbound connectivity
 - Application Insights connected and receiving live telemetry
 
-> **Note**: This challenge uses a mix of the **Azure portal** and **Azure CLI on the VM**. Each task clearly states which method to use.
+## Objectives
 
-**Estimated Duration**: 75 minutes
+In this Exercise, you will complete the following task:
+
+   - Task 1: Create Monitoring Resources
+   - Task 2: Create the App Service Plan and App Service
+   - Task 3: Configure Application Settings and HTTPS
+   - Task 4: Package and Deploy the Application
+   - Task 5: Configure App Service Networking
+   - Task 6: Validate the Migrated Application
 
 **Prerequisites**:
 - Challenge 1 completed - Landing Zone provisioned, `C:\apps\migration-strategy.txt` saved
@@ -193,20 +200,9 @@ By the end of this challenge, you will have:
 
    ![](../media/migration-summary.png)
 
-## Success Criteria
+## Summary
 
-- Log Analytics Workspace `law-contoso-<DeploymentID>` deployed in `rg-migration-lab-app`.
-- Application Insights `ai-contoso-<DeploymentID>` deployed and linked to the workspace.
-- App Service Plan `asp-contoso-<DeploymentID>` created at Standard S1 tier with Linux OS.
-- App Service `app-contoso-<DeploymentID>` created with Node.js 20 LTS runtime.
-- All 7 application settings configured in App Service Environment variables.
-- HTTPS-only enforced - HTTP requests redirect to HTTPS automatically.
-- Startup command set to `node src/app.js`.
-- Deployment zip created without `.env` and `node_modules` and deployed via zip deploy.
-- Home page and products page load correctly at the `azurewebsites.net` URL.
-- VNet integration active and showing `Connected` on `snet-appservice`.
-- Application Insights Live Metrics showing incoming request telemetry.
-
-Now, click on **Next** from the lower right corner to move on to the next page.
+In this exercise you will migrate the Contoso Retail application from an on-premises Windows Server VM to Azure App Service by modernizing the application into a fully managed PaaS environment. You will create monitoring resources such as Log Analytics Workspace and Application Insights, configure App Service settings, enable HTTPS, deploy the application package, and integrate the application with Azure Virtual Network.
+Finally, you will validate the migrated application by testing application functionality, verifying secure HTTPS access, confirming database connectivity, and reviewing Application Insights telemetry and migration summary outputs. Now, click on **Next** from the lower right corner to move on to the next page.
 
    ![](../media/ggs2.png)
