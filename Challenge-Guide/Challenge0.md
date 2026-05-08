@@ -171,15 +171,9 @@ This local setup simulates your on-premises data center. In Exercise 2, you will
    | Database connectivity | Product data (names, categories, prices) comes from Azure SQL |
 
 
-   ## Success Criteria
+## Success Criteria
 
-- Resource group `rg-migration-lab` created in the target region.
-- Virtual network `vnet-migration-lab` deployed with three subnets (`snet-appservice`, `snet-private`, `snet-default`).
-- `snet-appservice` subnet delegated to `Microsoft.Web/serverFarms`.
-- Azure SQL Server and Database deployed with sample data (10 products, 10 orders).
-- SQL Server firewall configured to allow Azure services and your local IP.
-- **Sample web application running locally on `http://localhost:8080`** (on-premises simulation).
-- Home page displays "Welcome to Contoso Retail" and Products page shows 10 products from the database.
+In this exercise you will discover and document the existing Contoso Retail environment, define a migration strategy using the Microsoft Cloud Adoption Framework (CAF), and provision a secure Azure Landing Zone for migration readiness. You will also configure networking components such as VNets, subnets, and NSGs, validate Azure infrastructure readiness, and map application dependencies including SQL connectivity and App Service settings. Finally, you will verify the complete migration preparation by generating discovery reports, strategy documents, and readiness validation outputs required for the upcoming migration challenges.
 
 Now, click on **Next** from the lower right corner to move on to the next page.
 
