@@ -1,6 +1,6 @@
 # Hands-on Labs – Day 02
 
-# Assessing and Migrating Workloads with Azure Migrate
+# Migrating Windows & SQL Server Workloads
 
 ### Estimated Duration: 4 Hours
 

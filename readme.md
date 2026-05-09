@@ -1,4 +1,4 @@
-# Migrate to Azure: Landing Zone, Migration, and Disaster Recovery Workshop
+# Azure Migrate Tool Installation​ Workshop
 
 ## Overview
 This hands-on workshop provides practical experience in migrating workloads to Azure using Azure Landing Zones, Azure Migrate, Azure Site Recovery, and related tools. Participants will deploy and configure Azure Landing Zones for governance and security, assess on-premises environments, migrate servers and applications, implement disaster recovery, and enable monitoring and security in Azure. The labs guide you through building a secure cloud foundation, assessing migration readiness, executing migrations, and ensuring business continuity with Azure services.
@@ -30,7 +30,7 @@ In these hands-on labs, you will configure Azure Site Recovery for disaster reco
 
 ## Getting Started with the Lab
  
-Welcome to **Migrate to Azure: Landing Zone, Migration, and Disaster Recovery** workshop! We've prepared a seamless environment for you to familiarize yourself with the Azure migration specialist, you monitor, assess, migrate, and optimize workloads in cloud environments and related Azure services. Let's begin by making the most of this experience:
+Welcome to **Azure Migrate Tool Installation​** workshop! We've prepared a seamless environment for you to familiarize yourself with the Azure migration specialist, you monitor, assess, migrate, and optimize workloads in cloud environments and related Azure services. Let's begin by making the most of this experience:
  
 ## Accessing Your Lab Environment
  

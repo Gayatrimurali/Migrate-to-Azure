@@ -1,6 +1,6 @@
 # Hands-on Labs – Day 03
 
-## Disaster Recovery, Application Migration, and Azure Management
+## Azure Arc, ASR & Operations
 
 ### Estimated Duration: 4 Hours
 

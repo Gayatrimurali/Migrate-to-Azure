@@ -1,6 +1,6 @@
 # Hands-on Labs – Day 01
 
-## Deploying and Configuring Azure Landing Zones
+## Azure Landing Zone Implementation
 
 ### Estimated Duration: 4 Hours
 
