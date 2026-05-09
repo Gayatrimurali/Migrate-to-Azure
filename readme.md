@@ -78,7 +78,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
 3. Next, provide your password:
  
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
+   - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject>
  
      ![Enter Your Password](./gs/gst7.png)
 
