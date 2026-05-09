@@ -1,4 +1,3 @@
-
 # Exercise 1: Configure ASR for On-premises Infrastructure
 
 ### Estimated duration: 30 Minutes

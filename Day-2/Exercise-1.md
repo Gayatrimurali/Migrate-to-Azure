@@ -1,6 +1,3 @@
-
-# Migrating Windows & SQL Server workloads
-
 ## Exercise 1: Discovery, Assess, and Plan: Evaluate your current environment
 
 In this Exercise, you will explore an Azure Migrate project and the default built-in tools for server assessment.
