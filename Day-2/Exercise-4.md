@@ -12,9 +12,10 @@ In this exercise, you will complete the following tasks:
 
 - Task 1: Create a Storage Account
 - Task 2: Register the Hyper-V Host with Migration and modernization
-- Task 3: Enable Replication from Hyper-V to Azure Migrate
-- Task 4: Configure Networking
-- Task 5: Server migration
+- Task 3: Validate Replication Traffic Ports
+- Task 4: Enable Replication from Hyper-V to Azure Migrate
+- Task 5: Configure Networking
+- Task 6: Server migration
 
 ## Task 1: Create a Storage Account
 
@@ -149,7 +150,63 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
      <validation step="8a37f248-1601-4792-826f-6803e1da3d29" />
 
-### Task 3: Enable Replication from Hyper-V to Azure Migrate
+### Task 3: Validate Replication Traffic Ports
+
+In this task, you will verify that the required network ports for Azure Site Recovery replication traffic are open and accessible from the Hyper-V host. Azure Site Recovery requires specific outbound ports to communicate with Azure for both control channel and data replication. Validating these ports before enabling replication helps prevent connectivity failures during the replication setup.
+
+1. On the **LabVM**, open **Windows PowerShell** by typing **PowerShell (1)** in the Start menu search bar and selecting **Windows PowerShell (2)** from the results.
+
+   ![](./Images/E4T3S1.png)
+
+2. Run the following command to test connectivity on **port 443** to the Azure Site Recovery endpoint. This port is required for the control channel communication between the Hyper-V host and Azure.
+
+   ```powershell
+   Test-NetConnection -ComputerName "login.microsoftonline.com" -Port 443
+   ```
+
+   > **Note:** A result showing `TcpTestSucceeded : True` confirms that outbound HTTPS traffic on port 443 is allowed. If the test fails, check your firewall rules or NSG settings and ensure outbound port 443 is permitted.
+
+   ![](./Images/E4T3S2.png)
+
+   ![](./Images/E4T3S2a.png)
+
+4. Run the following command to validate **port 80**, which is required for Certificate Revocation List (CRL) downloads during the registration process.
+
+   ```powershell
+   Test-NetConnection -ComputerName "crl.microsoft.com" -Port 80
+   ```
+
+   ![](./Images/E4T3S4.png)
+
+5. To perform a combined port validation across all three required ports at once, run the following script block in PowerShell:
+
+    ```powershell
+    $endpoints = @(
+        @{ Host = "login.microsoftonline.com"; Port = 443 },
+        @{ Host = "management.azure.com"; Port = 443 },
+        @{ Host = "crl.microsoft.com"; Port = 80 }
+    )
+
+    $results = @()
+
+    foreach ($ep in $endpoints) {
+        $result = Test-NetConnection -ComputerName $ep.Host -Port $ep.Port -WarningAction SilentlyContinue
+        
+        $results += [PSCustomObject]@{
+            Host    = $ep.Host
+            Port    = $ep.Port
+            Success = $result.TcpTestSucceeded
+        }
+    }
+
+    $results | Format-Table -AutoSize
+    ```
+
+   Review the output and confirm that **Success** shows **True** for all rows before proceeding to enable replication.
+
+   ![](./Images/E4T3S5.png)
+
+### Task 4: Enable Replication from Hyper-V to Azure Migrate
 
 In this task, you will configure and enable the replication of your on-premises virtual machines from Hyper-V to the Azure Migrate Server Migration service.
 
@@ -235,7 +292,7 @@ In this task, you will configure and enable the replication of your on-premises 
 
      <validation step="98ad27ed-8fd0-4636-a4f7-7b4a3ec0ef81" />
 
-### Task 4: Configure Networking
+### Task 5: Configure Networking
 
 In this task, you will modify the settings for each replicated VM to use a static private IP address that matches the on-premises IP addresses for that machine.
 
@@ -271,7 +328,7 @@ In this task, you will modify the settings for each replicated VM to use a stati
 
 > **Note**: Azure Migrate makes a "best guess" at the VM settings, but you have full control over the settings of migrated items. In this case, setting a static private IP address ensures the virtual machines in Azure retain the same IPs they had on-premises, which avoids having to reconfigure the VMs during migration (for example, by editing web.config files).
 
-### Task 5: Server migration
+### Task 6: Server migration
 
 In this task, you will perform a migration of the UbuntuWAF, smarthotelweb1, and smarthotelweb2 machines to Azure.
 

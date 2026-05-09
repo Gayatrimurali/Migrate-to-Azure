@@ -19,7 +19,7 @@ In this task, you will examine the on-premises .NET application hosted on IIS an
 
 1. From the provided VM, Click on **Start** or **Search (1)** button, Search for **RDP (2)** and select the **Remote Desktop Connection (3)** app.
 
-   ![](media/rdp1.png)
+   ![](media/rdp.png)
 
 1. Paste the **WebVM DNS Name (1)** in the **Computer** field and click on **Connect (2)**.
 

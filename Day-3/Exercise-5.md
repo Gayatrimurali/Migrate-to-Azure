@@ -16,44 +16,40 @@ You will be able to complete the following tasks:
 
 In this task, you will configure Azure Migrate to assess the readiness of the application and database for migration to Azure services.
 
-1. From the Windows search bar, search for **Default apps (1)** and select **Default apps (2)** from the results.
-
-   ![](media/dfltapp.png)
-   
-2. On the **Default apps** Blade, click on **Internet Explorer (1)** and select **Microsoft Edge (2)** for setting Microsoft Edge as the default browser.
-
-   ![](media/dflt2.png)
-   
-3. Open the **Azure portal** from the shortcut and log in to Azure. When prompted, use the below credentials to complete the login process.
+1. Open the **Azure portal** from the shortcut and log in to Azure. When prompted, use the below credentials to complete the login process.
 
     * Email/Username: <inject key="AzureAdUserEmail"></inject>
     * Password: <inject key="AzureAdUserPassword"></inject>
 
-      ![](media/azportal.png)
+      ![](media/azportaln.png)
 
-4. Select your **hands-on-lab-<inject key="DeploymentID" enableCopy="false"/>** resource group. 
+2. Select your **hands-on-lab** resource group. 
 
     ![](media/slctrg.png)
 
-5. Select **+ Create** inside the resource group to add a new resource.
+3. Select **+ Create** inside the resource group to add a new resource.
     
     ![](media/clickcreate.png)
 
-6. Type **Azure Migrate (1)** into the search box and select **Azure Migrate (2)** from the dropdown.
+4. Type **Azure Migrate (1)** into the search box and select **Azure Migrate (2)** from the dropdown.
 
     ![](media/azmig.png)
 
-7. Select **Create (1)** and click on **Azure Migrate (2)** to continue.
+5. Select **Create (1)** and click on **Azure Migrate (2)** to continue.
 
     ![](media/createazmig.png)
 
     >**Note:** If you navigated to new version of Azure Migrate, you can create a project directly from the **Get Started** page. Click **Create** project and then follow the same steps.
     
-9. Select **All projects** and click **(+)Create project** to create a project.
+6. Select **All projects** and click **(+)Create project** to create a project.
 
    ![](media/allproj.png)
 
-11. Type **partsunlimitedweb<inject key="DeploymentID" enableCopy="false"/> (1)**  as your project name. Select **Create (2)** to continue. 
+7. Select the following details and then click **Create (4)** to continue:
+
+    *   **Subscription (1):** Azure HOL (SUFFIX) / Sub 05 - (SUFFIX)
+    *   **Resource Group (2):** hands-on-lab
+    *   **Project Name (3):** partsunlimitedweb\<inject key="DeploymentID" enableCopy="false"/>
 
     ![](media/partsun.png)
 

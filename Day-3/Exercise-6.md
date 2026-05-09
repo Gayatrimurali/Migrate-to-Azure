@@ -55,11 +55,12 @@ In this task, after reviewing the assessment results, you have ensured the web a
 
 1. In order to migrate the Parts Unlimited website, we have to create an App Service Plan. The Azure App Service Migration Assistant will take care of all the requirements needed.
 
-    - **Hybrid Connection**: Select **Use existing (1)** 
-    - **Migration Results**: select the resource group **hands-on-lab-<inject key="DeploymentID" enableCopy="false"/>** **(2)**
-    - **Destination Site Name**: Enter **partsunlimited-web-<inject key="DeploymentID" enableCopy="false"/>** **(3)**.
-    - **Region**: Select the **<inject key="location" style="color:red" />** **(4)**. 
-    - Click **Migrate** **(5)** to start the migration process.
+    - **Subscription:** Azure HOL (SUFFIX) / Sub 05 - (SUFFIX)  **(1)**
+    - **Hybrid Connection**: Select **Use existing (2)** 
+    - **Migration Results**: select the resource group **hands-on-lab** **(3)**
+    - **Destination Site Name**: Enter **partsunlimited-web-<inject key="DeploymentID" enableCopy="false"/>** **(4)**.
+    - **Region**: Select the **<inject key="location" style="color:red" />** **(5)**. 
+    - Click **Migrate** **(6)** to start the migration process.
 
       ![](media/clickmig.png)
 
@@ -77,7 +78,7 @@ In this task, you'll configure your application to connect to the SQL Azure Data
 
 Now that we have both our application and database migrated to Azure. It is time to configure our application to use the SQL Azure Database.
 
-1. In the Azure portal, navigate to your `parts` SQL Database resource by selecting the **hands-on-lab-<inject key="DeploymentID" enableCopy="false"/>** resource group, and selecting the `parts` SQL Database from the list of resources.
+1. In the Azure portal, navigate to your `parts` SQL Database resource by selecting the **hands-on-lab** resource group, and selecting the `parts` SQL Database from the list of resources.
 
    ![](media/sqldbslect.png)
 

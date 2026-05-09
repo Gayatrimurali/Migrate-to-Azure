@@ -1,5 +1,3 @@
-
-
 # Exercise 8: Onboard On-premises servers to Azure Arc-Enabled Server
 
 ## Exercise 1: Run workloads anywhere with Azure Cloud Services
@@ -23,7 +21,9 @@ In this Exercise, you will complete the following task:
 
 In this task, you will deploy and configure the Azure Connected Machine agent on a Windows machine hosted outside of Azure, to ensure that it can be managed through Azure Arc-enabled servers.
 
-1. In the search bar of the Azure portal, type **Azure arc (1)** and select **Azure Arc (2)** from suggestions under Services, as shown below:
+1. From **WebVM**, navigate back to **LabVM** and then Navigate to Azure Portal.
+
+1.  In the search bar of the Azure portal, type **Azure arc (1)** and select **Azure Arc (2)** from suggestions under Services, as shown below:
    
     ![Screenshot of the search azure arc.](Images/15-7-25-l9-11.png "search azure arc")
   
