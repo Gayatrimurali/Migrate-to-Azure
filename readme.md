@@ -55,6 +55,12 @@ For convenience, you can open the lab guide in a separate window by selecting th
 ![Use the Split Window Feature](./gs/gst3.png)
  
 ## Managing Your Virtual Machine
+
+1. Please note that the lab is available for **3 days (60 hours)** from the time it is launched. Within these 3 days, the **VM can be used for a total of 20 hours.**
+
+1. Once the lab starts, the 60-hour access period begins. However, the VM will only run for up to 20 hours in total, and these hours are counted only when the VM is actively running.
+
+1. We recommend stopping or pausing the VM whenever it is not in use. This will help save the remaining VM hours so they can be used later within the 3-day period. Also, we have implemented Idleness Tracking, if the VM is Idle for 60 minutes automatically VM goes to Stopped State.
  
 1. Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
  
