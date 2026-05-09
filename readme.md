@@ -70,7 +70,9 @@ For convenience, you can open the lab guide in a separate window by selecting th
 
     ![Manage Your Virtual Machine](./gs/VMon.png)
 
-## Let's Get Started with Azure Portal and Microsoft Defender
+1. Once your VM loads, if the **Server Manager** opens, close the window by clicking the **X** button.
+
+## Let's Get Started with Azure Portal
  
 1. On your virtual machine, click on the Azure Portal icon as shown below:
  
