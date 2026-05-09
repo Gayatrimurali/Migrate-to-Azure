@@ -1,35 +1,36 @@
-# Implement Threat Protection with Microsoft Defender XDR solutions
+# Migrate to Azure: Landing Zone, Migration, and Disaster Recovery Workshop
 
 ## Overview
-This hands-on workshop provides practical experience in Microsoft Defender XDR, Defender for Office 365, and Defender for Cloud Apps. Participants will configure multi-layered threat protection policies, simulate phishing and malware attacks, analyze real-time threats, onboard and secure Microsoft 365 SaaS applications, and implement app governance for OAuth-based third-party apps. The labs also guide you through investigating and remediating security incidents, creating custom detection policies, and setting up proactive monitoring to strengthen security posture and maintain compliance.
+This hands-on workshop provides practical experience in migrating workloads to Azure using Azure Landing Zones, Azure Migrate, Azure Site Recovery, and related tools. Participants will deploy and configure Azure Landing Zones for governance and security, assess on-premises environments, migrate servers and applications, implement disaster recovery, and enable monitoring and security in Azure. The labs guide you through building a secure cloud foundation, assessing migration readiness, executing migrations, and ensuring business continuity with Azure services.
 
 ## Objectives
 
 In this workshop, you will learn how to:
 
-- Configure and manage threat protection policies in Microsoft Defender XDR and Defender for Office 365.
-- Simulate phishing and malware attacks and analyze threats using Threat Explorer and real-time detections.
-- Investigate and remediate security incidents, configure anti-phishing and Safe Links policies, and manage security posture settings.
-- Detect and analyze Shadow IT using Cloud Discovery in Defender for Cloud Apps.
-- Onboard and protect Microsoft 365 SaaS applications, configure session and activity policies, and implement app governance for OAuth-based third-party apps.
-- Enable and configure App Governance to monitor risky OAuth apps and create custom detection policies.
-- Strengthen skills in incident response, policy management, and compliance using Microsoft’s integrated security solutions.
+- Deploy and configure Azure Landing Zones with management groups, policies, and subscriptions.
+- Understand Azure Landing Zone concepts, governance components, and automation benefits.
+- Assess on-premises environments using Azure Migrate for discovery and dependency mapping.
+- Migrate Windows and SQL Server workloads to Azure using Azure Migrate tools.
+- Implement disaster recovery with Azure Site Recovery for Hyper-V VMs.
+- Migrate web applications using App Service Migration Assistant and databases with Azure Database Migration Service.
+- Onboard on-premises servers to Azure Arc for unified management.
+- Enable security and monitoring with Microsoft Defender for Cloud, Microsoft Sentinel, and Azure Monitor.
 
 ## Day-by-Day Breakdown:
 
 ### **Day 1**
-In these hands-on labs, you will configure threat protection policies in Microsoft Defender XDR and Defender for Office 365, simulate phishing and malware attacks, and analyze threats using Threat Explorer. Investigate and remediate security incidents, configure anti-phishing and Safe Links policies, and manage security posture settings.
+In these hands-on labs, you will deploy Azure Landing Zones, understand governance structures, add subscriptions, deploy application workloads in landing zones, and validate network configurations.
 
 ### **Day 2**
-In these hands-on labs, you will detect and analyze Shadow IT using Cloud Discovery in Defender for Cloud Apps. Onboard and protect Microsoft 365 SaaS applications, configure session and activity policies, and implement app governance for OAuth-based third-party apps. Enable and configure App Governance to monitor risky OAuth apps and create custom detection policies.
+In these hands-on labs, you will assess migration readiness using Azure Migrate, configure environments for migration, evaluate business value and ROI, and perform server migrations to Azure.
 
 ### **Day 3**
-In these hands-on labs, you will onboard devices and deploy Defender for Identity sensors, simulate and detect lateral movement attacks, integrate Defender for Identity with Micrososft Defender XDR Portal, and run advanced hunting queries. Integrate Microsoft Sentinel with Defender for Cloud, conduct persistence and command-and-control attack simulations, create hunting queries and analytics rules, and manage incidents and alerts.
+In these hands-on labs, you will configure Azure Site Recovery for disaster recovery, perform test failovers, migrate applications and databases, onboard servers to Azure Arc, and enable security monitoring with Defender for Cloud and Sentinel.
 
 
 ## Getting Started with the Lab
  
-Welcome to **Implement Threat Protection with Microsoft Defender XDR solutions** workshop! We've prepared a seamless environment for you to familiarize yourself with the Microsoft security operations analyst, you monitor, identify, investigate, and respond to threats in multi-cloud environments and related Microsoft services. Let's begin by making the most of this experience:
+Welcome to **Migrate to Azure: Landing Zone, Migration, and Disaster Recovery** workshop! We've prepared a seamless environment for you to familiarize yourself with the Azure migration specialist, you monitor, assess, migrate, and optimize workloads in cloud environments and related Azure services. Let's begin by making the most of this experience:
  
 ## Accessing Your Lab Environment
  
