@@ -1,4 +1,4 @@
-# Exercise 2: Business Value & ROI Justification with Azure Copilot
+# Exercise 2: Business Value & ROI Justification with Azure Copilot (READ-ONLY)
 
 ### Estimated time: 40 Minutes
 

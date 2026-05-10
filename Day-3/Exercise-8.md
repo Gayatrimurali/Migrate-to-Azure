@@ -21,7 +21,21 @@ In this Exercise, you will complete the following task:
 
 In this task, you will deploy and configure the Azure Connected Machine agent on a Windows machine hosted outside of Azure, to ensure that it can be managed through Azure Arc-enabled servers.
 
+> **Note:** Since AzureArcVM was committed to Azure in the previous exercise, its on-premises Hyper-V instance is locked by ASR in a post-failover state. Before proceeding, navigate to your Recovery Services Vault → Replicated Items → AzureArcVM and click Disable Replication to release the lock. This does not affect the Azure VM created during failover — it simply clears the ASR metadata from the on-premises host, allowing the local VM to start for this Arc onboarding exercise.
+
 1. From **WebVM**, navigate back to **LabVM** and then Navigate to Azure Portal.
+
+1. In the Azure portal, go to your **Recovery Services Vault → Protected Items → Replicated Items**
+
+1. Select **AzureArcVM (3)**
+
+1. Click ··· (More) or look for **Disable Replication (4)** at the top toolbar
+
+    ![Screenshot of the search azure arc.](Images/disable1.png)
+
+1. Check **"I completed migrating my application" (1)** and click on **Ok (2)**
+
+    ![Screenshot of the search azure arc.](Images/disable2.png)
 
 1.  In the search bar of the Azure portal, type **Azure arc (1)** and select **Azure Arc (2)** from suggestions under Services, as shown below:
    
@@ -90,7 +104,9 @@ In this task, you will deploy and configure the Azure Connected Machine agent on
     ```
    >**Note:** If you get an option, "Do you want to change the execution policy?", please type A and press Enter. 
 
-1. Now, run the whole script that you copied in Notepad earlier in **step 6**.
+1. Now, run the whole script that you copied in Notepad earlier in **Step 6**.
+
+    ![Screenshot of the search azure arc.](Images/disable3.png)
 
 1. After running the script, packages will be installed, and then you will be directed to a pop-up browser page to log into your Azure account for authentication purposes. Use the below Azure credentials:
 

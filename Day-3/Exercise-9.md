@@ -1,6 +1,6 @@
 
 
-# Exercise 9: Enable Microsoft Defender for Cloud, Microsoft Sentinel, Azure Monitor, and setup Log Analytics (Optional)
+# Exercise 9: Enable Microsoft Defender for Cloud, Microsoft Sentinel, Azure Monitor, and setup Log Analytics
 
 ### Estimated duration: 30 Minutes
 
@@ -30,7 +30,7 @@ In this task, you will enable Microsoft Defender for Cloud to enhance the securi
     
     > **Note:** If you are prompted with a new upgrade pop-up, click on Skip.
     
-1. On the **Microsoft Defender for Cloud** page, click **Management (1)** > **Environment settings (2)**, expand the Tenant Root Group and subscription with the **down arrow (3) (4)**, then select **AzureMigrateWS<inject key="DeploymentID" enableCopy="false" /> (5)**.
+1. On the **Microsoft Defender for Cloud** page, click **Management (1)** > **Environment settings (2)**, expand the Tenant Root Group and subscription **Azure HOL (SUFFIX) / Sub 05 - (SUFFIX)** with the **down arrow (3) (4)**, then select **AzureMigrateWS<inject key="DeploymentID" enableCopy="false" /> (5)**.
 
     ![](Images/AIM-image35.png)
      
@@ -49,7 +49,9 @@ In this task, you will enable Microsoft Defender for Cloud to enhance the securi
     >**Note**: You may need to select the Collapse button to view the recommendations.
     
      ![](Images/AIM-image38.png)
-   
+     > **Note:** You many not see any recommendations now, since you have just enabled the Defender Plan.
+
+
 1. On the **Security alerts page** under General, you can see the alerts that describe details of the affected resources, suggested remediation steps, and in some cases, an option to trigger a logic app in response. (The Remediation steps contain the remediation logic where you can remediate the selected resource/s. To simplify remediation, improve your environment's security, and increase your secure score, many recommendations include a Fix option. Fix helps you quickly remediate a recommendation on multiple resources.)
 
 ### Task 2: Enable Microsoft Sentinel
@@ -85,7 +87,7 @@ In this task, you will create and enable Microsoft Sentinel and review the Conte
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
       
-     <validation step="0da37c57-d119-435a-a8c2-f9918157d0fe" />
+     <validation step="e44942ed-8536-4e13-8e05-6fbe494cf8cd" />
 
 ### Task 3: Enable Azure Monitor
 
@@ -95,7 +97,7 @@ In this task, you will enable Azure Monitor to track and manage the performance 
 
      ![](Images/15-7-25-l12-6.png)
     
-1. On the **Monitor** page, from the left pane, select **Log Analytics Workspaces (2)** present under **Insights (1)** (You will see your subscription and all the workspaces in it, listed here) and click on **AzureMigrateWS<inject key="DeploymentID" enableCopy="false" /> (3)** workspace under azuremigraterg.
+1. On the **Monitor** page, from the left pane, select **Log Analytics Workspaces (2)** present under **Insights (1)** (Select the Azure HOL (SUFFIX) / Sub 05 - (SUFFIX) Subscription and then select azuremigraterg) and click on **AzureMigrateWS<inject key="DeploymentID" enableCopy="false" /> (3)** workspace under azuremigraterg.
 
     ![Screenshot of the search Azure workspace Monitor.](Images/AIM-image39.png "Azure Monitor")
 
@@ -109,7 +111,8 @@ In this task, you will enable Azure Monitor to track and manage the performance 
    - Ingestion anomalies - a list of identified spikes and dips in ingestion to these tables
        
      ![Screenshot of the search Azure workspace Monitor.](Images/infra-l14-10.png "Azure Monitor")
-    
+     > **Note:** You many not see any Insights now, since you have just enabled the Defender Plan.
+
 1. On the **Usage tab**, you can see ingestion data by tables and defaults to the 5 most ingested tables in the selected time range.
    
    - How much data was ingested into it (during the selected time range)
@@ -117,7 +120,8 @@ In this task, you will enable Azure Monitor to track and manage the performance 
    - When was the last update of usage statistics regarding each table? We normally expect usage stats to refresh hourly.
    
      ![Screenshot of the search Azure workspace Monitor.](Images/infra-l14-14.png "Azure Monitor") 
-    
+     > **Note:** You many not see any Usage data now, since you have just enabled the Defender Plan.
+
 1. On the **Health tab**, you can see the workspace's health state and when it was last reported, as well as operational errors and warnings.
         
     ![Screenshot of the search Azure workspace Monitor.](Images/infra-l14-12.png "Azure Monitor")
@@ -129,13 +133,14 @@ In this task, you will enable Azure Monitor to track and manage the performance 
    - Agents activity - this grid shows information on either all agents, healthy agents, or unhealthy agents.
       
      ![Screenshot of the search Azure workspace Monitor.](Images/infra-l14-13.png "Azure Monitor")  
-  
+     > **Note:** You many not see any Agents data now, since you have just enabled the Defender Plan.
+
      > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
      > - Hit the Inline Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
 
-     <validation step="65d9e586-9a9d-466a-8258-8039f8a298de" />
+     <validation step="42a1f577-61ab-4242-8030-84868937aeaa" />
     
 ## Summary
 
