@@ -92,7 +92,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
    - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject>
  
-     ![Enter Your Password](./gs/gs7.png)
+     ![Enter Your Password](./gs/gs5.png)
 
 
 ## Steps to Proceed with MFA Setup if "Ask Later" Option is Not Visible
