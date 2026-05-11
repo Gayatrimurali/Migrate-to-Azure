@@ -94,6 +94,10 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
      ![Enter Your Password](./gs/gst7.png)
 
+
+## Steps to Proceed with MFA Setup if "Ask Later" Option is Not Visible
+
+
 1. If you see the pop-up **Action Required**, click **Ask Later**.
 
     ![Action Required](./gs/gst8.png) 
@@ -101,8 +105,6 @@ For convenience, you can open the lab guide in a separate window by selecting th
 4. If prompted to stay signed in, you can click **No**.
 
 5. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **Cancel** to skip the tour.
-
-## Steps to Proceed with MFA Setup if "Ask Later" Option is Not Visible
 
 1. At the **"More information required"** prompt, select **Next**.
 
