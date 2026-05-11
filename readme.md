@@ -74,7 +74,11 @@ For convenience, you can open the lab guide in a separate window by selecting th
 
 ## Let's Get Started with Azure Portal
  
-1. On your virtual machine, click on the Azure Portal icon as shown below:
+1. On your virtual machine, click on the Edge icon as shown below and open Azure Portal using the below link:
+
+    ```
+    https://portal.azure.com/
+    ```
  
     ![Launch Azure Portal](./gs/gst5.png)
 
