@@ -24,7 +24,7 @@ In this task, you will explore an Azure Migrate project and the default built-in
       
       ![](./Images/AIM-image1.png)
       
-    - **Enter Password:** <inject key="AzureAdUserPassword"></inject> and click **Sign in**
+    - **Enter Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> and click **Sign in**
 
       ![](./Images/AIM-image2.png)
 
