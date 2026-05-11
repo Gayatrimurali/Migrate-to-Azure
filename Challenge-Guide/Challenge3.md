@@ -58,6 +58,13 @@ In this Exercise, you will complete the following task:
 
 1. **Create a Blob Container for backup files** set **Anonymous access level** to **Private**, and select **Create**.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="7a3b4b88-2410-47ba-a44c-c9524ee5d67f" />
+
 ## Task 3: Implement Regional Failover with Traffic Manager
 
 1. **Create a secondary App Service for DR**
@@ -173,6 +180,13 @@ In this Exercise, you will complete the following task:
     - **Target resource type**: **App Service** **(3)**
     - **Target resource**: `app-contoso-dr-<inject key="DeploymentID" enableCopy="false"></inject>` **(4)**
     - **Priority**: `2` **(5)**
+  
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="48d14251-6162-4fb2-a23d-1f97f7604852" />
   
 ## Task 4: Validate Failover Readiness
 
