@@ -71,7 +71,7 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
      ![](Images/AIM-image40.png)
 
-1. On the  **Azure Migrate | Servers, databases and web apps** page, expand **Migration goals (1)** from the left menu, then select **Servers, databases and web apps (2)**. Scroll down, under **Migration tools**, click **Discover (3)** and select **Using appliance (4)**.
+1. On the  **Azure Migrate | Servers, databases and web apps** page, expand **Migration goals (1)** from the left menu, then select **Servers, databases and web apps (2)**. Scroll down, under **Migration tools**, click **Discover (3)**.
    
      ![](Images/15-7-25-l3-7.png)
 
@@ -139,7 +139,7 @@ In this task, you will register the Hyper-V host (LabVM) with the Azure Migrate:
 
      ![Screenshot of the 'Discover machines' panel from Azure Migrate, showing the 'Registration finalized' message.](Images/15-7-25-l3-18.png "Registration finalized")
 
-1. On the  **Azure Migrate | Servers, databases and web apps** page, In the left-hand navigation pane, expand **Migration goals (1)**, then select **Servers, databases and web apps (2)**. In the **Migration tools** section under **Migration and modernization**, verify that the **Discovered servers** count displays **7** **(3)**.
+1. Return back to  **Azure Migrate | Servers, databases and web apps** page, In the left-hand navigation pane, expand **Migration goals (1)**, then select **Servers, databases and web apps (2)**. In the **Migration tools** section under **Migration and modernization**, verify that the **Discovered servers** count displays **7** **(3)**.
 
      ![Screenshot of the 'Azure Migrate - Servers' blade showing 6 discovered servers under 'Azure Migrate: Server Migration'.](Images/15-7-25-l3-19.png "Discovered servers")
 
