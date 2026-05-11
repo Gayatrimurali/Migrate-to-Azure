@@ -34,9 +34,9 @@ Welcome to **Azure Migrate Tool Installation​** workshop! We've prepared a sea
  
 ## Accessing Your Lab Environment
  
-Once you're ready to dive in, your virtual machine and lab guide will be right at your fingertips within your web browser.
+Once you're ready to dive in, your virtual machine and guide will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](./gs/gst1.png)
+![Access Your VM and Lab Guide](./gs/gs1.png)
 
 ## Virtual Machine & Lab Guide
  
@@ -44,15 +44,15 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 ## Exploring Your Lab Resources
  
-To get a better understanding of your lab resources and credentials, navigate to the **Environment Details** tab.
+To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![Explore Lab Resources](./gs/gst2.png)
+![Explore Lab Resources](./gs/gs2.png)
  
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the Top right corner.
  
-![Use the Split Window Feature](./gs/gst3.png)
+![Use the Split Window Feature](./gs/gs3.png)
  
 ## Managing Your Virtual Machine
 
@@ -64,7 +64,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
 1. Feel free to start, stop, or restart your virtual machine as needed from the **Resources** tab. Your experience is in your hands!
  
-    ![Manage Your Virtual Machine](./gs/gst4.png)
+    ![Manage Your Virtual Machine](./gs/gs4.png)
 
 1. If the virtual machine is powered off, its status will be displayed as shown in the image below. In this case, click **Start VM** button to power it on. The startup process may take 2–5 minutes.
 
@@ -82,17 +82,17 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
     ![Launch Azure Portal](./gs/gst5.png)
 
-2. You'll see the **Sign into Microsoft Azure** tab. Here, enter your credentials:
+2. You'll see the **Sign into Microsoft Azure** tab. Here, enter your credentials and click on **Next**:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
  
      ![Enter Your Username](./gs/gst6.png)
  
-3. Next, provide your password:
+3. Next, provide your Temporary Access Pass and click on **Sign in**:
  
    - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject>
  
-     ![Enter Your Password](./gs/gst7.png)
+     ![Enter Your Password](./gs/gs5.png)
 
 
 ## Steps to Proceed with MFA Setup if "Ask Later" Option is Not Visible
