@@ -39,6 +39,13 @@ In this Exercise, you will complete the following task:
 
 4. Open **vnet-migration-lab** → go to **Subnets** → select **snet-appservice** → under **Subnet delegation** choose **Microsoft.Web/serverFarms** → click **Save**.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="37601fc9-3a46-4294-83ff-48c52d2ec0bf" />
+
 ## Task 2: Deploy Azure SQL Server and Database
 
 1. In the **SQL databases**, select **+ Create** a **SQL database**.
@@ -119,6 +126,13 @@ In this Exercise, you will complete the following task:
       ```
 
       Both queries should return **10** rows.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="05c41d72-1c81-48e3-9565-5dfd5fd85c7f" />
 
 ## Task 3: Set Up and Run the Web Application Locally (On-Premises Simulation)
 
