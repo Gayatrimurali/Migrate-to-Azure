@@ -352,7 +352,7 @@ In this task, you will perform a migration of the UbuntuWAF, smarthotelweb1, and
 
     ![Screenshot showing the **Jobs* link and a jobs list with 3 in-progress 'Planned failover' jobs.](Images/15-7-25-l2-39.png "Migration jobs")
 
-1. **Wait** until all three **Planned failover** jobs show a **Status** of **Successful**. You should not need to refresh your browser. This could take up to **15 minutes**.
+1. **Wait** until all three **Planned failover** jobs show a **Status** of **Successful**. You need not refresh your browser. This could take up to **15 minutes**.
 
     ![Screenshot showing the **Jobs* link and a jobs list with all 'Planned failover' jobs successful.](Images/15-7-25-l2-40.png "Migration status")
 
