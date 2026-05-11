@@ -48,6 +48,13 @@ In this Exercise, you will complete the following task:
   
 5. Copy the Instrumentation Key
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="6794da71-c339-4056-86e1-efe9512e8e57" />
+
 ## Task 2: Create the App Service Plan and App Service
 
 1. In the **Azure portal**, search **App Services** and create **Web App**.
@@ -66,6 +73,13 @@ In this Exercise, you will complete the following task:
 
    - **Enable Application Insights**: **Yes** **(1)**
    - **Application Insights**: select **Select existing (2)** - choose `ai-contoso-<inject key="DeploymentID" enableCopy="false"></inject>` **(3)**
+  
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+
+<validation step="e607127c-ebda-4e43-94ca-c0bdbf50e191" />
   
 ## Task 3: Configure Application Settings and HTTPS
 
