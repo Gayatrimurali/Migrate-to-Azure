@@ -58,7 +58,7 @@ In this task, you will create a migration assessment for the SmartHotel applicat
 
     >**Note: Some Azure Migrate capabilities used in this lab are currently not fully supported in the new portal experience.To ensure a consistent experience and complete all lab objectives, we are performing this lab using the classic Azure Migrate experience**.
 
-1. In Azure Migrate, on the **Servers, databases, and web apps** page, Expand **Migration goals** **(1)** from the left navigation menu. Select **Servers, databases and web apps** **(2)**. Click on **Refresh** periodically **(3)** until the number of assessments under **Assessments > Total** updates to **1** (This may take a few minutes). Then click on the nuber **1 (4)**.  
+1. In Azure Migrate, on the **Servers, databases, and web apps** page, Expand **Migration goals** **(1)** from the left navigation menu. Select **Servers, databases and web apps** **(2)**. Click on **Refresh** periodically **(3)** until the number of assessments under **Assessments > Total** updates to **1** (This may take a few minutes). Then click on the number **1 (4)**.  
 
     ![Screenshot from Azure Migrate showing the number of assessments as '1'.](Images/L1E2T1S6-3012.png "Azure Migrate - Assessments (count)")
 
@@ -156,7 +156,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     ![Screenshot for installing 64-bit Microsoft Monitoring Agent for Windows.](Images/15-7-25-l2-24.png "MMA installation")
 
-1. Open **Internet Explorer** and paste the link to the **Windows Dependency Agent** installer. When prompted, click one **InstallDependencyAgent-Windows.exe** recently downloaded file when prompted to start the installer.
+1. Paste the link to the **Windows Dependency Agent** installer in a new tab on Edge. When prompted, click one **InstallDependencyAgent-Windows.exe** recently downloaded file when prompted to start the installer.
 
     ![](Images/15-7-25-l2-25n.png)
 
@@ -199,7 +199,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     > This gives the terminal session elevated privileges.
 
-1. Enter the following command, substituting **\<Workspace ID\> and \<Primary Key\>** with the values copied previously. Answer **Yes** when prompted to **Restart services during package upgrades without asking**. You may need to use the < arrow keys on your keyboard to choose **Yes**.
+1. Enter the following command, substituting **\<Workspace ID\> and \<Primary Key\>** with the values copied previously. Answer **Yes** when prompted to **Restart services during package upgrades without asking**. You may need to use the < arrow keys on your keyboard to choose **Yes** and press Enter.
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <Workspace ID> -s <Primary Key>
@@ -243,7 +243,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     ![Screenshot showing that the Dependency Agent install on Linux was successful.](Images/da-linux-done.png "Dependency Agent installation was successful")
 
-1. Return to the **SmartHotel VMs** group in the **Azure Migrate** portal. Refresh the page using the **browser refresh button** (not the one in the portal UI). Verify that the **Dependency Agent** status for **smarthotelweb1**, **smarthotelweb2**, and **UbuntuWAF** shows as **Installed**. It may take up to **10 minutes** for the status to update after installation.
+1. Return to the **SmartHotel VMs** group in the **Azure Migrate** portal. Refresh the page using the **browser refresh button** (not the one in the portal UI). Verify that the **Dependency Agent** status for **smarthotelweb1**, **smarthotelweb2**, and **UbuntuWAF** shows as **Installed**. It may take up to **30-40 minutes** for the status to update after installation.
 
     ![Screenshot showing the dependency agent installed on each VM in the Azure Migrate VM group.](Images/15-7-25-l2-28.png)
    
